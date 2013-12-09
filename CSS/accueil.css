@@ -1,0 +1,364 @@
+/********************** MISE EN PAGE DEBUT ************************/
+html{
+    background-color : #ffffff;
+	background-image : url("../Images/background.png");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position : bottom right;
+	background-size : contain;
+	color : white;
+	font-family : "Helvetica Neue", verdana, Helvetica;
+	font-size : 14px;
+	height : 100%;
+}
+
+body{
+	height : 100%;
+	margin : 0px;
+}
+/********************** MISE EN PAGE FIN ************************/
+
+/********************** HEADER DEBUT ************************/
+header{
+	height : 32px;
+	background-color : #1d3d5f;
+	position : fixed;
+	top : 0;
+	width : 100%;
+	padding-left : 100px;
+}
+
+#logo {
+	margin-top : 5px;
+}	
+/**** MENU BARRE DE RECHERCHE DEBUT ****/
+#search{
+	margin-left : 15px;
+	border-radius : 15px;
+	padding : 3px 5px 3px 10px;
+	border : solid #06131f 1px;
+	width : 200px;
+	position : relative;
+	top : -6px;
+}
+/**** MENU BARRE DE RECHERCHE FIN ****/
+/**** MENU MENU-DEROULANT/SOUS-MENU DEBUT ****/
+.menu{
+	position : relative;	
+	margin-top : -34px;
+	margin-left : 320px;
+}
+
+.menu ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+	margin-left: -2px;
+}
+
+.menu li{
+	float:left;
+	margin:auto;
+	border-left : solid #0b1b29 2px;
+}
+
+.menu li a {
+	display:block;
+	width:100px;
+	color:white;
+	text-decoration:none;
+	padding:5px;
+	font-size : 13px;
+	background-color : #1d3d5f;
+	font-weight : bold;
+	text-shadow: 2px 2px 0px #0b1b29;
+ }
+
+.menu li a:hover {
+	background-color: #11283e; 
+	border-top : solid #ffffff 1px;
+	border-bottom : solid #ffffff 1px;
+ }
+.menu ul li ul {
+	display:none;
+	width : 100px;
+ }
+.menu ul li:hover ul {
+	display:block;
+ }
+.menu li:hover ul li {
+	float:none;
+}
+.menu li ul {
+	position:absolute;
+ }
+/**** MENU MENU-DEROULANT/SOUS-MENU FIN ****/
+			/**** MENU RESPONSIVE DEBUT ****/
+				@media screen and (max-width: 1100px) and (min-width: 10px) {
+					#logo {
+						margin-left : -95px;
+					}
+					#search{
+						width : 100px;
+						margin-left : 5px;
+						}
+					.menu{
+						margin-left : 110px;
+					}
+					.menu li a {
+						padding-left : 0px;
+						padding-right : 0px;
+					}
+				}
+			/**** MENU RESPONSIVE FIN ****/
+/**** MENU AJOUTER DEBUT ****/
+#add a{
+	margin-top : 3px;
+	float : left;
+	margin-left : 20px;
+}
+/**** MENU AJOUTER FIN ****/
+/**** MENU UTILISATEUR DEBUT ****/
+#UserMenu{
+	position : fixed;
+	top : 2px;
+	right : 37px;
+}
+
+#UserMenu ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+	margin-left: -2px;
+ }
+#UserMenu li {
+	float:right;
+	margin:auto;
+	border-left : solid #0b1b29 2px;
+	border-right : solid #0b1b29 2px;
+ }
+#UserMenu li a {
+	 display:block;
+	 width:250px;
+	 color:white;
+	 text-decoration:none;
+	 padding:5px;
+	 font-size : 13px;
+	 background-color : #1d3d5f;
+	 font-weight : bold;
+	 text-shadow: 2px 2px 0px #0b1b29;
+ }
+#UserMenu li a:hover {
+	background-color: #11283e; 
+	border-top : solid #ffffff 1px;
+	border-bottom : solid #ffffff 1px;
+ }
+#UserMenu ul li ul {
+	display:none;
+}
+#UserMenu ul li:hover ul {
+	display:block;
+ }
+#UserMenu li:hover ul li {
+	float:none;
+ }
+#UserMenu li ul {
+	position:absolute;
+}
+/****MENU UTILISATEUR FIN ****/
+			/**** MENU UTILISATEUR RESPONSIVE DEBUT ****/
+				@media screen and (max-width: 1200px) {
+					#UserMenu li a {
+						width : 180px;
+						padding-left : 0px;
+						padding-right : 0px;
+					}
+				}
+			/**** MENU UTILISATEUR RESPONSIVE FIN ****/
+/**** MENU AIDE DEBUT ****/
+#help a{
+	font-size : 13px;
+	font-weight : bold;
+	color : #ffffff;
+	text-shadow: 2px 2px 0px #0b1b29;
+	position : fixed;
+	top : 5px;
+	right : 15px;
+	text-decoration : none;
+}
+/**** MENU AIDE FIN ****/
+/********************** HEADER FIN ************************/
+
+/********************** CONTENU GAUCHE DEBUT ************************/
+table#LeftMainContent{
+	float: left;
+	background-color : #11283e;
+	width : 250px;
+	padding : 0 20px 20px 20px;
+	border : solid #06131f 1px;
+	border-radius : 10px;
+	box-shadow : 5px 10px 20px #1d3d5f;
+	margin-bottom : 20px;
+}
+/********************** CONTENU GAUCHE FIN ************************/
+
+/********************** CONTENU DROIT DEBUT ************************/
+table#RightMainContent{
+	background-color : #1d3d5f;
+	width : 60%;
+	padding : 0 20px 20px 20px;
+	border : solid #06131f 1px;
+	border-radius : 10px;
+	box-shadow : 5px 10px 20px #1d3d5f;
+	margin-bottom : 20px;
+	margin-right : 20px;
+	margin-left : 300px; 
+}
+/********************** CONTENU DROIT FIN ************************/
+				/**** CONTENU RESPONSIVE DEBUT ****/
+						@media screen and (max-width: 1100px) and (min-width: 10px) {
+							table#LeftMainContent{
+							width : 200px;
+							}
+							table#RightMainContent{
+							width : 65%;
+							margin-left : 220px; 
+							margin-right : 0px;
+							}
+						}
+				/**** CONTENU RESPONSIVE FIN ****/		
+				
+/********************** FOOTER DEBUT ************************/
+footer{
+	bottom : 0;
+	clear : both;
+	position : fixed;
+	height : 24px;
+	background-color : #1d3d5f;
+	padding-top : 8px;
+	width:100%;
+	text-align : center;
+	margin-top : 20px;
+	font-weight : bold;
+	font-size : 12px;
+	text-shadow: 2px 2px 0px #0b1b29;
+}
+/********************** FOOTER FIN ************************/
+				/**** FOOTER RESPONSIVE DEBUT ****/
+						@media screen and (max-width: 850px) {
+							footer{
+								position : absolute;
+								height : 36px;
+								padding-left : 20px;
+								padding-right : 20px;
+							}
+						}
+				/**** FOOTER RESPONSIVE FIN ****/
+				
+/********************** MISE EN FORME DIVERS DEBUT ************************/
+hr{
+	border : solid white 1px;
+}
+
+h3{
+	text-shadow: 3px 3px 0px #0b1b29;
+}
+
+#middle{
+	width : 80%;
+	padding : 50px 0px 0px 20px;
+}
+
+.stuckRightNav{
+	text-align : right;
+}
+
+#authentification{
+	background-color : #1d3d5f;
+	width : 650px;
+	height : 280px;
+	margin : auto;
+	padding : 0 20px 20px 20px;
+	border : solid #06131f 1px;
+	border-radius : 10px;
+	box-shadow : 5px 10px 20px #1d3d5f;
+	margin-bottom : 20px;
+	margin-top : 100px;
+}
+
+.tabAuthen{
+	width : 100%;
+	padding-bottom : 20px;
+}
+
+.label{
+	margin-left : 15px;
+	border-radius : 15px;
+	padding : 3px 5px 3px 10px;
+	border : solid #06131f 1px;
+	width : 150px;
+}
+
+.strucTabAuth{
+	padding-top : 50px;
+}
+.trTabAuth{
+	height : 110px; 
+	vertical-align : top;
+}
+
+.butAuthForm{
+	padding-left : 10px;
+}
+/********************** MISE EN FORME DIVERS FIN ************************/
+
+/********************** BOUTON DEGRADE DEBUT ************************/
+#boutonAjout {
+	-moz-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1d3d5f), color-stop(1, #11283e) );
+	background:-moz-linear-gradient( center top, #1d3d5f 5%, #11283e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d3d5f', endColorstr='#11283e');
+	background-color:#1d3d5f;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0px;
+	border:1px solid #06131f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	font-style:normal;
+	height:20px;
+	line-height:20px;
+	width:22px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #0b1b29;
+	
+}
+#boutonAjout:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #11283e), color-stop(1, #1d3d5f) );
+	background:-moz-linear-gradient( center top, #11283e 5%, #1d3d5f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#11283e', endColorstr='#1d3d5f');
+	background-color:#11283e;
+}
+#boutonAjout:active {
+	position:relative;
+	top:1px;
+}
+/********************** BOUTON DEGRADE FIN ************************/
