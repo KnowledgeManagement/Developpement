@@ -42,5 +42,8 @@ function getUserById($id){
 				WHERE idUser = '".$id."'");
 	return $sql;
 }
+function modifyPassword($idUser, $mdp){
+	$sql = run("UPDATE m5f_user set mdp = '".md5($mdp)."' where idUser = ".$idUser);
+}
 
 ?>

@@ -18,12 +18,21 @@
 		<!-- Insertion du CSS et du Favicon -->
 		<link rel="stylesheet" href="css/accueil.css"/>
 		<link rel="stylesheet" href="css/bouton.css"/>
+		<link rel="stylesheet" href="css/sameLogs.css"/>
 		<link rel="icon" type="image/png" href="Images/favicon.png" />
+		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
+        <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
+		<script type="text/javascript" src="JS/sameLogs.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
     </head>
     <body>
+	<?php
+		if(isset($_SESSION['sameLogs'])){
+			echo '<input type="hidden" id="sameLogs" value="1"/>';
+		}
+	?>
 	<!----------- HEADER DEBUT ----------->
 		<header>
 			<!--- LOGO + BARRE DE RECHERCHE --->
@@ -131,7 +140,9 @@
 							<td>
 								<h3>Bienvenue</h3>
 								<hr>
-								test
+								<div id="RightContent">
+								
+								</div>
 							</td>
 						</tr>
 					</table>
@@ -146,3 +157,18 @@
 		<!----------- FOOTER FIN ----------->
 	</body>
 </html>
+<script type="text/javascript">
+ $(document).ready(function() {
+	if(document.getElementById("sameLogs")){
+		$.ajax({
+			url : 'Defauts/Contenu/sameLogs/pleaseModifyPassword.php',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#RightContent').html(data);
+				openbox("Attention : veuillez modifier votre mot de passe !", 1);
+			}
+		});
+	}
+});
+</script>
