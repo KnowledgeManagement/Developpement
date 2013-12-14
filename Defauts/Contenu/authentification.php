@@ -3,7 +3,7 @@
 	if(verifLogin($_POST['identifiant'],$_POST['password'])){
 		session_start();
 		$array=getUser($_POST['identifiant'],$_POST['password']);
-		if($_POST['identifiant'] == $_POST['password']){
+		if($array[0]['login'] == $_POST['password']){
 			$_SESSION['sameLogs'] = 1;
 		}
 		$_SESSION['id'] = $array[0]['idUser'];

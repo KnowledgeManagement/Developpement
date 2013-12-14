@@ -23,6 +23,7 @@
 		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
         <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
 		<script type="text/javascript" src="JS/sameLogs.js"></script>
+		<script type="text/javascript" src="JS/passEmployees.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -98,11 +99,15 @@
 						<ul>
 							<?php
 								if($_SESSION['fonction'] == "Administrateur"){
-								$notRead = countMessNotRead();
 							?>
 								<li>
 									<a href="#">
 										Ma Messagerie
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="javascript:goToPage()">
+										Gérer les mots de passe des employés
 									</a>
 								</li>
 							<?php
@@ -129,7 +134,9 @@
 						</tr>
 						<tr>
 							<td class="stuckRightNav">
-								test
+								<div id="titleLeftContent">
+									test
+								</div>
 							</td>
 						</tr>
 					</table>
@@ -138,7 +145,7 @@
 					<table id="RightMainContent">	
 						<tr>
 							<td>
-								<h3>Bienvenue</h3>
+								<h3 id="titleRightContent">Bienvenue</h3>
 								<hr>
 								<div id="RightContent">
 								
