@@ -1,5 +1,10 @@
 <?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
+	/*******************************************************************************/
+	
+	/* Ne pas oublier d'intégrer la table m5f_contact dans la gestion des messages !!
+	
+	/*******************************************************************************/
 ?>
 	<table id='messArray'>
 <?php
