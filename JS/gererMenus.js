@@ -1,4 +1,4 @@
-function goToGererMenusRightContent(){
+function goToManageMenusRightContent(){
 	$.ajax({
 		url : 'Defauts/Contenu/gestionMenus/gerer_menu_droit.php',
 		type :'POST', 
@@ -10,7 +10,7 @@ function goToGererMenusRightContent(){
 	});
 }
 
-function goToGererMenusLeftContent(){
+function goToManageMenusLeftContent(){
 	$.ajax({
 		url : 'Defauts/Contenu/gestionMenus/gerer_menu_gauche.php',
 		type :'POST', 

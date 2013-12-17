@@ -103,7 +103,7 @@
 								if($_SESSION['fonction'] == "Administrateur"){
 							?>
 								<li>
-									<a href="#" onclick="javascript:goTomailBoxRightContent();goTomailBoxLeftContent()">
+									<a href="#" onclick="javascript:goToMailBoxRightContent();goToMailBoxLeftContent()">
 										Ma Messagerie
 									</a>
 								</li>

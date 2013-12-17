@@ -354,28 +354,28 @@ height : auto;
 
 /********************** MESSAGERIE DEBUT ************************/
 
-#mess_array {
+#messArray {
 	border : solid 1px white;
 	width : 100%;
 	margin : 20px 0px 10px 0px;
 }
-#mess_checkbox{
+#messCheckbox{
 	width : 5%;
 }
-#mess_title{
+#messTitle{
 	width : 45%;
 }
-#mess_title a{
+#messTitle a{
 	text-decoration:none;
 	color : white;
 }
-#mess_time{
+.messTime{
 	width : 15%;
 }
-#mess_name{
+#messName{
 	width : 35%;
 }
-#mess_button{
+#messButton{
 	float : right;
 }
 
@@ -442,4 +442,8 @@ height : auto;
 
 .alert{
 	color : red;
+}
+
+.pointer{
+	cursor : pointer;
 }

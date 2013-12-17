@@ -1,7 +1,9 @@
-function goTomailBoxRightContent(){
+function goToMailBoxRightContent(type){
 	$.ajax({
-		url : 'Defauts/Contenu/mailBox/messagerie_droit.php',
+		url : 'Defauts/Contenu/mailBox/messRightContent.php',
 		type :'POST', 
+		data : {etat : type},
+		dataType : 'text',
 		success:function(data) 
 		{
 			$('#RightContent').html(data);
@@ -10,9 +12,9 @@ function goTomailBoxRightContent(){
 	});
 }
 
-function goTomailBoxLeftContent(){
+function goToMailBoxLeftContent(){
 	$.ajax({
-		url : 'Defauts/Contenu/mailBox/messagerie_gauche.php',
+		url : 'Defauts/Contenu/mailBox/messLeftContent.php',
 		type :'POST', 
 		success:function(data) 
 		{

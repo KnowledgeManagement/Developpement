@@ -39,11 +39,30 @@ function countMessAllRead(){
 }
 
 
-function GetMess(){
- $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
-		FROM m5f_message M, m5f_user U
-		WHERE M.idUser = U.idUser
-		ORDER BY M.etat DESC;");
-return $s1;
+function getAllMess(){
+	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+			FROM m5f_message M, m5f_user U
+			WHERE M.idUser = U.idUser
+			ORDER BY M.date desc");
+	return $s1;
+}
+
+function getMessRead(){
+	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+			FROM m5f_message M, m5f_user U
+			WHERE M.idUser = U.idUser
+			AND M.etat = 'Lu'
+			OR M.etat = 'Refusé' 
+			OR M.etat = 'Accepté'
+			order by M.date desc");
+	return $s1;
+}
+function getMessNotRead(){
+	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+			FROM m5f_message M, m5f_user U
+			WHERE M.idUser = U.idUser
+			AND M.etat = 'Non Lu'
+			order by date desc");
+	return $s1;
 }
 ?>
