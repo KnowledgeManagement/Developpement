@@ -24,6 +24,8 @@
         <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
 		<script type="text/javascript" src="JS/sameLogs.js"></script>
 		<script type="text/javascript" src="JS/passEmployees.js"></script>
+		<script type="text/javascript" src="JS/mailBox.js"></script>
+		<script type="text/javascript" src="JS/gererMenus.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -71,7 +73,7 @@
 				if($_SESSION['fonction'] == "Administrateur"){
 			?>
 				<div id="add">
-					<a href="#" id="boutonAjout">+</a>
+					<a href="#" id="boutonAjout" onclick="javascript:goToGererMenusRightContent();goToGererMenusLeftContent();">+</a>
 				</div>
 			<?php
 				}
@@ -101,13 +103,13 @@
 								if($_SESSION['fonction'] == "Administrateur"){
 							?>
 								<li>
-									<a href="#">
+									<a href="#" onclick="javascript:goTomailBoxRightContent();goTomailBoxLeftContent()">
 										Ma Messagerie
 									</a>
 								</li>
 								<li>
 									<a href="#" onclick="javascript:goToPage()">
-										Gérer les mots de passe des employés
+										Gérer les mots de passe
 									</a>
 								</li>
 							<?php
@@ -128,14 +130,14 @@
 					<table id="LeftMainContent">
 						<tr>
 							<td>
-								<h3>Navigation</h3>
+								<h3 id="titleLeftContent">Navigation</h3>
 								<hr>
 							</td>
 						</tr>
 						<tr>
 							<td class="stuckRightNav">
-								<div id="titleLeftContent">
-									test
+								<div id="LeftContent">
+									
 								</div>
 							</td>
 						</tr>
@@ -172,6 +174,7 @@
 			type :'POST', 
 			success:function(data) 
 			{
+				$('#LeftContent').html("");
 				$('#RightContent').html(data);
 				openbox("Attention : veuillez modifier votre mot de passe !", 1);
 			}
