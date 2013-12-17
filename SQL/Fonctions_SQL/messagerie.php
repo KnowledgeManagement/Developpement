@@ -19,7 +19,7 @@ function countMessNotRead(){
 function countMessRead(){
 	$s1 = run("select count(idMessage) as Nb
 				from m5f_message
-				where etat='lu';");
+				where etat != 'Non Lu';");
 	$s2 =  run("select count(idFormContact) as Nb
 				from m5f_contact
 				where lu=1;");
@@ -51,9 +51,7 @@ function getMessRead(){
 	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
-			AND M.etat = 'Lu'
-			OR M.etat = 'Refusé' 
-			OR M.etat = 'Accepté'
+			AND M.etat != 'Non Lu'
 			order by M.date desc");
 	return $s1;
 }
