@@ -276,7 +276,7 @@ h3{
 }
 
 .tab{
-	padding-left : 50px;
+	float : left;
 }
 
 .tab_top_bottom{
