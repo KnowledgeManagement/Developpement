@@ -323,31 +323,28 @@ h3{
 /********************** MISE EN FORME DIVERS FIN ************************/
 
 /********************** TABLEAU GERER MENU DEBUT ************************/
-#menu_button_title{
+#menuButtonTitle{
 float : right;
 margin-top : 0px;
 }
 
-#menu_button_new{
+#menuButtonNew{
 margin : auto;
 height : auto;
 }
 
-.menu_tab{
+.menuTab{
 	margin-bottom : 10px;
 	width : 400px;
 	
 }
 
-.menu_cat{
-}
-
-.menu_sous_cat{
+.menuSousCat{
 	width : ;
 	text-align : right;
 }
 
-.menu_button{
+.menuButton{
 	width : 20%;
 }
 /********************** TABLEAU GERER MENU FIN ************************/

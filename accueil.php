@@ -25,7 +25,7 @@
 		<script type="text/javascript" src="JS/sameLogs.js"></script>
 		<script type="text/javascript" src="JS/passEmployees.js"></script>
 		<script type="text/javascript" src="JS/mailBox.js"></script>
-		<script type="text/javascript" src="JS/gererMenus.js"></script>
+		<script type="text/javascript" src="JS/manageMenus.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -73,7 +73,7 @@
 				if($_SESSION['fonction'] == "Administrateur"){
 			?>
 				<div id="add">
-					<a href="#" id="boutonAjout" onclick="javascript:goToGererMenusRightContent();goToGererMenusLeftContent();">+</a>
+					<a href="#" id="boutonAjout" onclick="javascript:goToManageMenusRightContent();goToManageMenusLeftContent();">+</a>
 				</div>
 			<?php
 				}
@@ -103,7 +103,7 @@
 								if($_SESSION['fonction'] == "Administrateur"){
 							?>
 								<li>
-									<a href="#" onclick="javascript:goToMailBoxRightContent();goToMailBoxLeftContent()">
+									<a href="#" onclick="javascript:goToMailBoxRightContent('allMessages');goToMailBoxLeftContent()">
 										Ma Messagerie
 									</a>
 								</li>

@@ -1,6 +1,6 @@
 function goToManageMenusRightContent(){
 	$.ajax({
-		url : 'Defauts/Contenu/gestionMenus/gerer_menu_droit.php',
+		url : 'Defauts/Contenu/manageMenus/manageMenuRightContent.php',
 		type :'POST', 
 		success:function(data) 
 		{
@@ -12,7 +12,7 @@ function goToManageMenusRightContent(){
 
 function goToManageMenusLeftContent(){
 	$.ajax({
-		url : 'Defauts/Contenu/gestionMenus/gerer_menu_gauche.php',
+		url : 'Defauts/Contenu/manageMenus/manageMenuLeftContent.php',
 		type :'POST', 
 		success:function(data) 
 		{
