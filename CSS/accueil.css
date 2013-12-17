@@ -240,7 +240,7 @@ footer{
 	padding-top : 8px;
 	width:100%;
 	text-align : center;
-	margin-top : 20px;
+	margin-top : 25px;
 	font-weight : bold;
 	font-size : 12px;
 	text-shadow: 2px 2px 0px #0b1b29;
@@ -273,6 +273,14 @@ h3{
 
 .stuckRightNav{
 	text-align : right;
+}
+
+.tab{
+	padding-left : 50px;
+}
+
+.tab_top_bottom{
+	padding-left : 50px;
 }
 
 #authentification{
@@ -313,6 +321,65 @@ h3{
 	padding-left : 10px;
 }
 /********************** MISE EN FORME DIVERS FIN ************************/
+
+/********************** TABLEAU GERER MENU DEBUT ************************/
+#menu_button_title{
+float : right;
+margin-top : 0px;
+}
+
+#menu_button_new{
+margin : auto;
+height : auto;
+}
+
+.menu_tab{
+	margin-bottom : 10px;
+	width : 400px;
+	
+}
+
+.menu_cat{
+}
+
+.menu_sous_cat{
+	width : ;
+	text-align : right;
+}
+
+.menu_button{
+	width : 20%;
+}
+/********************** TABLEAU GERER MENU FIN ************************/
+
+/********************** MESSAGERIE DEBUT ************************/
+
+#mess_array {
+	border : solid 1px white;
+	width : 100%;
+	margin : 20px 0px 10px 0px;
+}
+#mess_checkbox{
+	width : 5%;
+}
+#mess_title{
+	width : 45%;
+}
+#mess_title a{
+	text-decoration:none;
+	color : white;
+}
+#mess_time{
+	width : 15%;
+}
+#mess_name{
+	width : 35%;
+}
+#mess_button{
+	float : right;
+}
+
+/********************** MESSAGERIE FIN ************************/
 
 /********************** BOUTON DEGRADE DEBUT ************************/
 #boutonAjout {
@@ -362,7 +429,6 @@ h3{
 	top:1px;
 }
 /********************** BOUTON DEGRADE FIN ************************/
-
 
 #tabListUsers{
 	background-color : #1d3d5f;
