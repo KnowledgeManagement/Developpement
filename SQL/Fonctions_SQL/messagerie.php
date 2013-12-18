@@ -43,7 +43,8 @@ function getAllMess(){
 	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
-			ORDER BY M.date desc");
+			ORDER BY M.etat desc, M.date asc
+			");
 	return $s1;
 }
 
