@@ -56,4 +56,4 @@
 	}
 ?>
 	</table>
-	<input type='submit' class='bouton' id='messDelete' name='messButton' value='Supprimer' />
+	<input type="submit" class="bouton" id="messDelete" name="messButton" value="Supprimer" />

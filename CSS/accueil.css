@@ -275,10 +275,6 @@ h3{
 	text-align : right;
 }
 
-.tab{
-	float : left;
-}
-
 .tab_top_bottom{
 	padding-left : 50px;
 }
@@ -336,7 +332,15 @@ height : auto;
 .menuTab{
 	margin-bottom : 10px;
 	width : 400px;
-	
+}
+
+.cat{
+	float : left;
+}
+
+.sous_cat{
+	float : left;
+	margin-left : 40px;
 }
 
 .menuSousCat{
@@ -372,7 +376,7 @@ height : auto;
 #messName{
 	width : 35%;
 }
-#messButton{
+#messDelete{
 	float : right;
 }
 
