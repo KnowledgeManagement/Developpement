@@ -108,7 +108,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="#" onclick="javascript:goToPage()">
+									<a href="#" onclick="javascript:goToPage();goToPageLeft()">
 										Gérer les mots de passe
 									</a>
 								</li>

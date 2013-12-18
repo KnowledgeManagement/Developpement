@@ -4,10 +4,20 @@ function goToPage(){
 		type :'POST', 
 		success:function(data) 
 		{
-			$('#LeftContent').html("");
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Liste des personnes inscrites");
-			$('#titleLeftContent').html("");
+		}
+	});
+}
+
+function goToPageLeft(){
+	$.ajax({
+		url : 'Defauts/Contenu/passEmployees/listOfEmployeesLeft.php',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#LeftContent').html(data);
+			$('#titleLeftContent').html("Utilisateurs");
 		}
 	});
 }

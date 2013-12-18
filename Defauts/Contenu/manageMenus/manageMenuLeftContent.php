@@ -4,11 +4,11 @@
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	$lesCate = getAllCategorie();
 	for($i = 0; $i < sizeof($lesCate); $i++){
-		echo '<span class="cat">'.$lesCate[$i]['nomCat'].'</span><br/>'; 
+		echo '<ul class="cat">'.$lesCate[$i]['nomCat'].'</ul><br/><br/><br/>'; 
 		$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
 		if(isset($SousMenu)){
 			for($j = 0; $j < sizeof($SousMenu); $j++){
-				echo '<span class="sous_cat">'.$SousMenu[$j]['nomSousCat'].'</span><br/>'; 
+				echo '<li class="sous_cat">'.$SousMenu[$j]['nomSousCat'].'</li><br/>'; 
 			}
 		}
 		echo '<br/>';
