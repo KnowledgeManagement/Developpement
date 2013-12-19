@@ -20,7 +20,7 @@
 			break;
 	}
 	for($i=0;$i<sizeof($messages);$i++){
-		if($messages[$i]['etat'] == "Non lu"){ 
+		if($messages[$i]['etat'] == "Non lu" || $messages[$i]['etat'] == 'Non Lu'){ 
 			echo "<tr style='background-color:#11283e;'>";
 		}else{
 			echo "<tr>";
@@ -56,4 +56,4 @@
 	}
 ?>
 	</table>
-	<input type="submit" class="bouton" id="messDelete" name="messButton" value="Supprimer" />
+	<input type='submit' class='bouton' id='messDelete' name='messButton' value='Supprimer' />
