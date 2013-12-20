@@ -36,14 +36,20 @@
 			</td>
 			<td id='messTitle'>
 				<label for="<?php echo "check".$i; ?>">
-					<a href='#'>
+					<a href='#' onclick="javacript:openMessage(<?php echo $messages[$i]['idMessage'] ?>, '<?php echo $messages[$i]['intitule']; ?>')">
 						<?php echo $messages[$i]['intitule']; ?>
 					</a>
 				</label>
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
-					<?php echo urldecode($messages[$i]['etat']); ?>
+					<?php
+						if($messages[$i]['etat'] == "Refusé"){
+							echo "<span title='".addslashes($messages[$i]['commentaires'])."'>".urldecode($messages[$i]['etat'])."</span>";
+						}else{
+							echo urldecode($messages[$i]['etat']);
+						}
+					?>
 				</label>
 			</td>
 			<td class='messTime'>

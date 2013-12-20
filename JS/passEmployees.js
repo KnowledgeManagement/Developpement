@@ -6,7 +6,6 @@ function goToPage(){
 		{
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Liste des personnes inscrites <span style='float:right'><input type='button' class='bouton' style='width : 170px;' onclick='javascript:synchroAD()' value='Synchroniser AD'/></span>");
-			$('#LeftContent').html("test");
 		}
 	});
 }

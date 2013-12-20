@@ -38,3 +38,31 @@ function openMessage(idMessage, objet){
 		}
 	});
 }
+
+function validMessage(idMessage){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/acceptMessage.php',
+		data : {id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			goToMailBoxRightContent('allMessages');
+			goToMailBoxLeftContent();
+		}
+	});
+}
+
+function refuseMessage(idMessage){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/refuseMessage.php',
+		data : {id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			goToMailBoxRightContent('allMessages');
+			goToMailBoxLeftContent();
+		}
+	});
+}

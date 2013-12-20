@@ -40,7 +40,7 @@ function countMessAllRead(){
 
 
 function getAllMess(){
-	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.commentaires, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
 			ORDER BY M.date desc");
@@ -48,7 +48,7 @@ function getAllMess(){
 }
 
 function getMessRead(){
-	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.commentaires, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
 			AND M.etat != 'Non Lu'
@@ -56,7 +56,7 @@ function getMessRead(){
 	return $s1;
 }
 function getMessNotRead(){
-	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.commentaires, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
 			AND M.etat = 'Non Lu'
@@ -76,5 +76,13 @@ function getMessageById($id){
 
 function setMessageRead($id){
 	$s1 = run("Update m5f_message set etat = 'Lu' where idMessage = ".$id);
+}
+
+function setMessageAccepted($id){
+	$s1 = run("Update m5f_message set etat = 'Accepté' where idMessage = ".$id);
+}
+
+function setMessageRefused($id){
+	$s1 = run("Update m5f_message set etat = 'Refusé' where idMessage = ".$id);
 }
 ?>
