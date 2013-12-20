@@ -65,10 +65,16 @@ function getMessNotRead(){
 }
 
 function getMessageById($id){
-	$s1 = run("SELECT M.intitule, M.contenu, M.date, M.etat, U.nom, U.prenom
-			FROM m5f_message M, m5f_user U
-			WHERE M.idUser = U.idUser
+	$s1 = run("SELECT M.intitule, M.contenu, M.date, M.etat, U.nom, U.prenom, m5f_categorie.nomCat, m5f_sous_categorie.nomSousCat 
+			FROM m5f_categorie, m5f_sous_categorie, m5f_message M, m5f_user U
+			where M.idSousCat = m5f_sous_categorie.idSousCat
+			and m5f_sous_categorie.idCat = m5f_categorie.idCat
+			and M.idUser = U.idUser
 			AND M.idMessage = ".$id);
 	return $s1;
+}
+
+function setMessageRead($id){
+	$s1 = run("Update m5f_message set etat = 'Lu' where idMessage = ".$id);
 }
 ?>

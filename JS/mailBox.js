@@ -34,6 +34,7 @@ function openMessage(idMessage, objet){
 		{
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Objet : "+objet);
+			goToMailBoxLeftContent();
 		}
 	});
 }
