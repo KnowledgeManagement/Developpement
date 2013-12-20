@@ -23,3 +23,17 @@ function goToMailBoxLeftContent(){
 		}
 	});
 }
+
+function openMessage(idMessage, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/viewMessage.php',
+		data : {id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+		}
+	});
+}

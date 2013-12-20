@@ -19,7 +19,7 @@ function countMessNotRead(){
 function countMessRead(){
 	$s1 = run("select count(idMessage) as Nb
 				from m5f_message
-				where etat != 'Non Lu';");
+				where etat!='Non Lu';");
 	$s2 =  run("select count(idFormContact) as Nb
 				from m5f_contact
 				where lu=1;");
@@ -40,16 +40,15 @@ function countMessAllRead(){
 
 
 function getAllMess(){
-	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
-			ORDER BY M.etat desc, M.date asc
-			");
+			ORDER BY M.date desc");
 	return $s1;
 }
 
 function getMessRead(){
-	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
 			AND M.etat != 'Non Lu'
@@ -57,11 +56,19 @@ function getMessRead(){
 	return $s1;
 }
 function getMessNotRead(){
-	 $s1 = run("SELECT M.intitule, M.date, M.etat, U.nom, U.prenom
+	 $s1 = run("SELECT M.idMessage, M.intitule, M.date, M.etat, U.nom, U.prenom
 			FROM m5f_message M, m5f_user U
 			WHERE M.idUser = U.idUser
 			AND M.etat = 'Non Lu'
 			order by date desc");
+	return $s1;
+}
+
+function getMessageById($id){
+	$s1 = run("SELECT M.intitule, M.contenu, M.date, M.etat, U.nom, U.prenom
+			FROM m5f_message M, m5f_user U
+			WHERE M.idUser = U.idUser
+			AND M.idMessage = ".$id);
 	return $s1;
 }
 ?>
