@@ -42,5 +42,21 @@ function getUserById($id){
 				WHERE idUser = '".$id."'");
 	return $sql;
 }
+function modifyPassword($idUser, $mdp){
+	$sql = run("UPDATE m5f_user set mdp = '".md5($mdp)."' where idUser = ".$idUser);
+}
 
+function updateFromAD(){
+	$sql = run("INSERT INTO m5f_user (login,mdp,nom,prenom,mail,fonction)
+				SELECT  givenName,dbo.MD5(givenName),sn,givenName,mail,title
+				FROM OPENQUERY (ADSI, 'SELECT givenName,initials,telephoneNumber,sn,mail,title
+				FROM ''LDAP://M5F.ProjetKM.lan''
+				WHERE objectCategory = ''Person'' AND objectClass = ''user''
+				')
+				WHERE givenName IS NOT NULL 
+				AND sn IS NOT NULL
+				AND title IS NOT NULL
+				AND givenName NOT IN (SELECT login from m5f_user);
+			");
+}
 ?>
