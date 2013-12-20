@@ -5,10 +5,12 @@ function goToPage(){
 		success:function(data) 
 		{
 			$('#RightContent').html(data);
-			$('#titleRightContent').html("Liste des personnes inscrites");
+			$('#titleRightContent').html("Liste des personnes inscrites <span style='float:right'><input type='button' class='bouton' style='width : 170px;' onclick='javascript:synchroAD()' value='Synchroniser AD'/></span>");
+			$('#LeftContent').html("test");
 		}
 	});
 }
+
 
 function goToPageLeft(){
 	$.ajax({
@@ -31,11 +33,14 @@ function reinitPass(idUser){
 			type :'POST', 
 			success:function(data) 
 			{
-				$('#LeftContent').html("");
 				$('#RightContent').html(data);
 				$('#titleRightContent').html("Liste des personnes inscrites");
-				$('#titleLeftContent').html("");
+				$('#LeftContent').html("");
 			}
 		});
 	}	
+}
+
+function synchroAD(){
+	
 }

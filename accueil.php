@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="css/accueil.css"/>
 		<link rel="stylesheet" href="css/bouton.css"/>
 		<link rel="stylesheet" href="css/sameLogs.css"/>
+		<link rel="stylesheet" href="css/prism.css"/>
 		<link rel="icon" type="image/png" href="Images/favicon.png" />
 		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
         <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
@@ -26,6 +27,7 @@
 		<script type="text/javascript" src="JS/passEmployees.js"></script>
 		<script type="text/javascript" src="JS/mailBox.js"></script>
 		<script type="text/javascript" src="JS/manageMenus.js"></script>
+		<script type="text/javascript" src="JS/prism.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
