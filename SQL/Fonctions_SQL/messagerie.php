@@ -78,11 +78,11 @@ function setMessageRead($id){
 	$s1 = run("Update m5f_message set etat = 'Lu' where idMessage = ".$id);
 }
 
-function setMessageAccepted($id){
-	$s1 = run("Update m5f_message set etat = 'Accepté' where idMessage = ".$id);
+function setMessageAccepted($id, $comm){
+	$s1 = run("Update m5f_message set etat = 'Accepté', commentaires = '".$comm."' where idMessage = ".$id);
 }
 
-function setMessageRefused($id){
-	$s1 = run("Update m5f_message set etat = 'Refusé' where idMessage = ".$id);
+function setMessageRefused($id, $comm){
+	$s1 = run("Update m5f_message set etat = 'Refusé', commentaires = '".$comm."' where idMessage = ".$id);
 }
 ?>

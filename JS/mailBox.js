@@ -42,7 +42,7 @@ function openMessage(idMessage, objet){
 function validMessage(idMessage){
 	$.ajax({
 		url : 'Defauts/Contenu/mailBox/acceptMessage.php',
-		data : {id : idMessage},
+		data : {id : idMessage, comm : document.getElementById('commentaire').value},
 		dataType : 'text',
 		type :'POST', 
 		success:function(data) 
@@ -56,7 +56,7 @@ function validMessage(idMessage){
 function refuseMessage(idMessage){
 	$.ajax({
 		url : 'Defauts/Contenu/mailBox/refuseMessage.php',
-		data : {id : idMessage},
+		data : {id : idMessage, comm : document.getElementById('commentaire').value},
 		dataType : 'text',
 		type :'POST', 
 		success:function(data) 

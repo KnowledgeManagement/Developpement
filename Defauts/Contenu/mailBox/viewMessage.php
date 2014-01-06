@@ -47,7 +47,7 @@
 	if($message[0]['etat'] == 'Non Lu' || $message[0]['etat'] == 'Lu'){
 ?>
 	<div style="margin-top : 50px;">
-		Commentaire : <input type="text" class="label" style="width : 350px;" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
+		Commentaire : <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
 		<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage(<?php echo $idMessage; ?>)"/>
 		<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage(<?php echo $idMessage; ?>)"/>
 		<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage(<?php echo $idMessage; ?>)"/>
