@@ -35,6 +35,14 @@ function openMessage(idMessage, objet){
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Objet : "+objet);
 			goToMailBoxLeftContent();
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#UserMenu').html(data);
+				}
+			});
 		}
 	});
 }
