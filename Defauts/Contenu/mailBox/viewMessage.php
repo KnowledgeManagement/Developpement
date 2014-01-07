@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	$idMessage = $_POST['id'];
 	if($_POST['type'] == 'mess'){
 		$message = getMessageById($idMessage);
-		if($message[0]['etat'] == 'Non Lu'){
+		if($message[0]['etatTmp'] == 'Non Lu'){
 			setMessageRead($idMessage);
 		}
 	}else{
@@ -16,7 +16,7 @@
 <table>
 	<tr>
 		<td>
-			Expéditeur :
+			<b>Expéditeur :</b>
 		</td>
 		<td>
 			<?php echo $message[0]['nom'].' '.$message[0]['prenom']; ?>
@@ -24,10 +24,16 @@
 	</tr>
 	<tr>
 		<td>
-			Date :
+			<b>Date :</b>
 		</td>
 		<td>
-			<?php echo $message[0]['date']->format('d/m/Y H:i:s'); ?>
+			<?php 
+				if($_POST['type'] == 'mess'){
+					echo $message[0]['dateTmp']->format('d/m/Y H:i:s');
+				}else{
+					echo $message[0]['date']->format('d/m/Y H:i:s');
+				}
+			?>
 		</td>
 	</tr>
 	<?php
@@ -35,7 +41,7 @@
 	?>
 		<tr>
 			<td>
-				Catégorie :
+				<b>Catégorie :</b>
 			</td>
 			<td>
 				<?php echo $message[0]['nomCat']; ?>
@@ -43,7 +49,7 @@
 		</tr>
 		<tr>
 			<td>
-				Sous-catégorie :
+				<b>Sous-catégorie :</b>
 			</td>
 			<td>
 				<?php echo $message[0]['nomSousCat']; ?>
@@ -55,33 +61,21 @@
 </table>
 <?php
 	echo "<br />";
-	echo "Contenu :<br /><br/>";
-	echo $message[0]['contenu'];
+	echo "<b>Contenu :</b><br /><br/>";
 	if($_POST['type'] == 'mess'){
-		if($message[0]['etat'] == 'Non Lu' || $message[0]['etat'] == 'Lu'){
+		echo '<b>Description : </b><br/>'.$message[0]['descriptionTmp'].'<br/></br>';
+		echo '<b>Exemple : </b><br/>'.$message[0]['exempleTmp'];
+		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu'){
 	?>
 		<div style="margin-top : 50px;">
-			Commentaire : <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
-			<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage(<?php echo $idMessage; ?>)"/>
-			<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage(<?php echo $idMessage; ?>)"/>
-			<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage(<?php echo $idMessage; ?>)"/>
+			<b>Commentaire :</b> <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
+			<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"/>
+			<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage('<?php echo $idMessage; ?>')"/>
+			<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"/>
 		</div>
 	<?php
 		}
+	}else{
+		echo $message[0]['contenu'];
 	}
-
-$maildomaine = $_SESSION['mail'];
-
-$sujet = 'Ajout une fonction';
-$message = "Bonjour,Ceci est un message texte envoyé grâce à php. merci :)";
-$destinataire = 'debas.thomas@gmail.com';
-$headers = "From:".$maildomaine ;
-$headers .= "Reply-To: moi@domaine.com\n";
-$headers .= "Content-Type: html/plain; charset=\"iso-8859-1\"";
-
-if(mail($destinataire,$sujet,$message,$headers))
-{ echo "L'email a bien été envoyé.";}
-else
-{echo "Une erreur c'est produite lors de l'envois de l'email.";}
-
 ?>

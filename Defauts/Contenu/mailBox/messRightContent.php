@@ -21,7 +21,7 @@
 			break;
 	}
 	for($i=0;$i<sizeof($messages);$i++){
-		if($messages[$i]['etat'] == "Non lu" || $messages[$i]['etat'] == 'Non Lu'){ 
+		if($messages[$i]['etatTmp'] == "Non lu" || $messages[$i]['etatTmp'] == 'Non Lu'){ 
 			echo "<tr style='background-color:#11283e;'>";
 		}else{
 			echo "<tr>";
@@ -37,25 +37,25 @@
 			</td>
 			<td id='messTitle'>
 				<label for="<?php echo "check".$i; ?>">
-					<a href='#' onclick="javacript:openMessage(<?php echo $messages[$i]['idMessage'] ?>, '<?php echo $messages[$i]['intitule']; ?>')">
-						<?php echo $messages[$i]['intitule']; ?>
+					<a href='#' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+						<?php echo $messages[$i]['intituleTmp']; ?>
 					</a>
 				</label>
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
 					<?php
-						if($messages[$i]['etat'] == "Refusé"){
-							echo "<span title='".addslashes($messages[$i]['commentaires'])."'>".urldecode($messages[$i]['etat'])."</span>";
+						if($messages[$i]['etatTmp'] == "Refusé"){
+							echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
 						}else{
-							echo urldecode($messages[$i]['etat']);
+							echo urldecode($messages[$i]['etatTmp']);
 						}
 					?>
 				</label>
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['date']->format('d/m/Y H:i:s'); ?>
+					<?php echo $messages[$i]['dateTmp']->format('d/m/Y H:i:s'); ?>
 				</label>
 			</td>
 		</tr>
