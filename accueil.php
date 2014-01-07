@@ -26,6 +26,7 @@
 		<script type="text/javascript" src="JS/sameLogs.js"></script>
 		<script type="text/javascript" src="JS/passEmployees.js"></script>
 		<script type="text/javascript" src="JS/mailBox.js"></script>
+		<script type="text/javascript" src="JS/functions.js"></script>
 		<script type="text/javascript" src="JS/manageMenus.js"></script>
 		<script type="text/javascript" src="JS/prism.js"></script>
 		<!--[if lt IE 9]>
@@ -58,7 +59,7 @@
 									if(isset($SousMenu)){
 										for($j = 0; $j < sizeof($SousMenu); $j++){
 									?>
-										<li><a href="#"><?php echo $SousMenu[$j]['nomSousCat']; ?></a></li>
+										<li><a href="#" onclick="javascript:goToFunction(<?php echo $SousMenu[$j]['idSousCat']; ?>)"><?php echo $SousMenu[$j]['nomSousCat']; ?></a></li>
 									<?php
 										}
 									}

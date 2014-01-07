@@ -19,9 +19,10 @@ function getSousCategorieByCategorie($id){
 
 /* Selectionne les données d'une sous-catégorie dont on précisera son identifiant en paramètre */
 function getSousCategorieById($id){
-	$sql = run("SELECT idSousCat, nomSousCat, idCat 
-				FROM m5f_sous_categorie 
-				WHERE idSousCat = '".$id."';");
+	$sql = run("SELECT idSousCat, nomSousCat, nomCat
+				FROM m5f_sous_categorie, m5f_categorie
+				where m5f_categorie.idCat = m5f_sous_categorie.idCat
+				and idSousCat = ".$id);
 	return $sql;
 }
 
@@ -37,7 +38,20 @@ function deleteSousCategorie($id){
 				WHERE idSousCat = '".$id."';");
 }
 
+function getFunctionNameBySousCategorie($id){
+	$sql = run("SELECT intituleDoc, idReference 
+				FROM m5f_document
+				WHERE idSousCat = ".$id."
+				ORDER by intituleDoc");
+	return $sql;
+}
 
+function getFunctionBySousCategorie($id){
+	$sql = run("SELECT intituleDoc, idReference, date, description, exemple, lienTelechargement
+				FROM m5f_document
+				WHERE idReference = '".$id."'");
+	return $sql;
+}
 
 
 
