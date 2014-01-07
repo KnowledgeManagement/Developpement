@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	$idMessage = $_POST['id'];
 	if($_POST['type'] == 'mess'){
@@ -69,4 +69,19 @@
 	<?php
 		}
 	}
+
+$maildomaine = $_SESSION['mail'];
+
+$sujet = 'Ajout une fonction';
+$message = "Bonjour,Ceci est un message texte envoyé grâce à php. merci :)";
+$destinataire = 'debas.thomas@gmail.com';
+$headers = "From:".$maildomaine ;
+$headers .= "Reply-To: moi@domaine.com\n";
+$headers .= "Content-Type: html/plain; charset=\"iso-8859-1\"";
+
+if(mail($destinataire,$sujet,$message,$headers))
+{ echo "L'email a bien été envoyé.";}
+else
+{echo "Une erreur c'est produite lors de l'envois de l'email.";}
+
 ?>

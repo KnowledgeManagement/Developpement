@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once("connexion.php");
 
 /* Renvoie le nombre de messages non lus dans la messagerie
