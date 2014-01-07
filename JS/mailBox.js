@@ -27,7 +27,30 @@ function goToMailBoxLeftContent(){
 function openMessage(idMessage, objet){
 	$.ajax({
 		url : 'Defauts/Contenu/mailBox/viewMessage.php',
-		data : {id : idMessage},
+		data : {type : 'mess',id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+			goToMailBoxLeftContent();
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#UserMenu').html(data);
+				}
+			});
+		}
+	});
+}
+
+function openMessageContact(idMessage, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/viewMessage.php',
+		data : {type : 'cont', id : idMessage},
 		dataType : 'text',
 		type :'POST', 
 		success:function(data) 

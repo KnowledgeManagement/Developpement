@@ -85,4 +85,41 @@ function setMessageAccepted($id, $comm){
 function setMessageRefused($id, $comm){
 	$s1 = run("Update m5f_message set etat = 'Refusé', commentaires = '".$comm."' where idMessage = ".$id);
 }
+
+function getAllMessContact(){
+	 $s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+			FROM m5f_contact C, m5f_user U
+			WHERE C.idUser = U.idUser
+			ORDER BY C.date desc");
+	return $s1;
+}
+
+function getMessReadContact(){
+	 $s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+			FROM m5f_contact C, m5f_user U
+			WHERE C.idUser = U.idUser
+			AND C.lu = 1
+			order by C.date desc");
+	return $s1;
+}
+function getMessNotReadContact(){
+	 $s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+			FROM m5f_contact C, m5f_user U
+			WHERE C.idUser = U.idUser
+			AND C.lu = 1
+			order by date desc");
+	return $s1;
+}
+
+function getMessageByIdContact($id){
+	$s1 = run("SELECT C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+			FROM m5f_contact C, m5f_user U
+			where C.idUser = U.idUser
+			AND C.idFormContact = ".$id);
+	return $s1;
+}
+
+function setMessageReadContact($id){
+	$s1 = run("Update m5f_contact set lu = '1' where idFormContact = ".$id);
+}
 ?>
