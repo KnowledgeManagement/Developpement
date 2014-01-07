@@ -97,3 +97,41 @@ function refuseMessage(idMessage){
 		}
 	});
 }
+function deleteMessages(){
+	var i;
+	var nb = 0;
+	var list = new Array();
+	var objs = document.getElementsByName('boxMess[]');
+	var nbElements = objs.length;
+	for (i = 0; i< nbElements ; i++){
+		if (objs[i].checked){
+			nb++;
+			list.push(document.getElementsByName('boxMess[]')[i].value);
+		}
+	}
+	if(nb == 0){
+		alert("Veuillez sélectionner au moins un message !");
+	}else{
+		if(confirm("Êtes-vous sûrs de vouloir supprimer ces messages ?")){
+			$.ajax({
+				url : 'Defauts/Contenu/mailBox/deleteMessages.php',
+				data : {lesMessages : list},
+				dataType : 'text',
+				type :'POST', 
+				success:function(data) 
+				{
+					goToMailBoxLeftContent();
+					goToMailBoxRightContent('allMessages');
+					$.ajax({
+						url : 'Defauts/Contenu/WhoIsIt.php',
+						type :'POST', 
+						success:function(data) 
+						{
+							$('#UserMenu').html(data);
+						}
+					});
+				}
+			});
+		}
+	}
+}

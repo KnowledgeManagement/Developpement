@@ -123,4 +123,11 @@ function getMessageByIdContact($id){
 function setMessageReadContact($id){
 	$s1 = run("Update m5f_contact set lu = '1' where idFormContact = ".$id);
 }
+
+function deleteMessages($id){
+	$s1 = run("delete from m5f_tmp where idReferenceTmp = '".$id."'");
+}
+function deleteMessagesContact($id){
+	$s1 = run("delete from m5f_contact where idFormContact = ".$id);
+}
 ?>
