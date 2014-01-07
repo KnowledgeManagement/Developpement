@@ -6,6 +6,9 @@
 	
 	/*******************************************************************************/
 ?>
+<div id="info">
+
+</div>
 	<h3>Ajout/Modification de fonctions</h3>
 	<table id='messArray'>
 <?php
@@ -28,7 +31,7 @@
 		}
 ?>
 			<td id='messCheckbox'>
-				<input type='checkbox' <?php echo 'id="check'.$i.'"' ?> value=''>
+				<input type='checkbox' name='boxMess[]' <?php echo 'value="check'.$messages[$i]['idReferenceTmp'].'"' ?> value=''>
 			</td>
 			<td id='messName'>
 				<label for="<?php echo "check".$i; ?>">
@@ -86,7 +89,7 @@
 		}
 ?>
 			<td id='messCheckbox'>
-				<input type='checkbox' <?php echo 'id="check'.$i.'"' ?> value=''>
+				<input type='checkbox' name='boxMess[]' <?php echo 'value="check'.$messages[$i]['idFormContact'].'"' ?> value=''>
 			</td>
 			<td id='messName'>
 				<label for="<?php echo "check".$i; ?>">
@@ -121,4 +124,4 @@
 	}
 ?>
 	</table>
-	<input type='submit' class='bouton' id='messDelete' name='messButton' value='Supprimer' />
+	<input type='button' onclick="javascript:deleteMessages()" class='bouton' id='messDelete' name='messButton' value='Supprimer' />
