@@ -29,7 +29,7 @@
 		<td>
 			<?php 
 				if($_POST['type'] == 'mess'){
-					echo $message[0]['dateTmp']->format('d/m/Y H:i:s');
+					echo $message[0]['dateTmp']->format('d/m/Y');
 				}else{
 					echo $message[0]['date']->format('d/m/Y H:i:s');
 				}
@@ -63,8 +63,8 @@
 	echo "<br />";
 	echo "<b>Contenu :</b><br /><br/>";
 	if($_POST['type'] == 'mess'){
-		echo '<b>Description : </b><br/>'.$message[0]['descriptionTmp'].'<br/></br>';
-		echo '<b>Exemple : </b><br/>'.$message[0]['exempleTmp'];
+		echo '<b>Description : </b><br/><br/>'.$message[0]['descriptionTmp'].'<br/></br>';
+		echo '<b>Exemple : </b><br/><br/>'.$message[0]['exempleTmp'];
 		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu'){
 	?>
 		<div style="margin-top : 50px;">

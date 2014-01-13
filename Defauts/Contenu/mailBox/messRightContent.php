@@ -11,6 +11,13 @@
 </div>
 	<h3>Ajout/Modification de fonctions</h3>
 	<table id='messArray'>
+		<tr>
+			<th>&nbsp;</th>
+			<th>De...</th>
+			<th>Objet</th>
+			<th>Etat</th>
+			<th>Date</th>
+		</tr>
 <?php
 	switch($_POST['etat']){
 		case 'allMessages':
@@ -58,7 +65,7 @@
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['dateTmp']->format('d/m/Y H:i:s'); ?>
+					<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
 				</label>
 			</td>
 		</tr>
@@ -69,6 +76,13 @@
 	
 	<h3>Autres messages</h3>
 	<table id='messArray'>
+		<tr>
+			<th>&nbsp;</th>
+			<th>De...</th>
+			<th>Objet</th>
+			<th>Etat</th>
+			<th>Date</th>
+		</tr>
 <?php
 	switch($_POST['etat']){
 		case 'allMessages':

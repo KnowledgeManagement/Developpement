@@ -28,6 +28,14 @@
 					</a>
 				</li>
 			<?php
+				}else if($_SESSION['fonction'] == "Contributeur"){
+			?>
+				<li>
+					<a href="#" onclick="javascript:seeMyAsking()">
+						Gérer mes demandes
+					</a>
+				</li>
+			<?php
 				}
 			?>
 			<li><a href="Defauts/Contenu/deconnexion.php">Déconnexion</a></li>

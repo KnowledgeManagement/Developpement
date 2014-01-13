@@ -53,6 +53,22 @@ function getFunctionBySousCategorie($id){
 	return $sql;
 }
 
+function deleteFiles($reference){
+	$info = getFunctionBySousCategorie($reference);
+	$directory = $_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defaults/'.$info[0]['lienTelechargement'];
+	unlink($directory);
+}
 
+function findLink($reference){
+	$info = getFunctionBySousCategorie($reference);
+	$directory = $info[0]['lienTelechargement'];
+	return $directory;
+}
+
+function deleteFunction($reference){
+	deleteFiles($reference);
+	$sql = run("DELETE from m5f_document WHERE idReference = '".$reference."'");
+	//$_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defauts/dlExemples/Reseaux/AdressageIP/REEEE.txt';
+}
 
 ?>

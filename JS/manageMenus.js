@@ -21,3 +21,51 @@ function goToManageMenusLeftContent(){
 		}
 	});
 }
+
+function contactAdmin(){
+	$.ajax({
+		url : 'Defauts/Contenu/manageMenus/contactAdmin.php',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#LeftContent').html("");
+			$('#titleLeftContent').html("Navigation");
+			$('#titleRightContent').html("Formulaire de contact");
+		}
+	});
+}
+
+function sendContact(){
+	if(document.getElementById('objet').value == "" || document.getElementById('textArea').value == ""){
+		alert("Merci de remplir tous les champs.");
+	}else{
+		$.ajax({
+			url : 'Defauts/Contenu/manageMenus/sendContact.php',
+			data : {objet : document.getElementById('objet').value, description : document.getElementById('textArea').value},
+			dataType : 'TEXT',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#RightContent').html("Votre formulaire a bien été envoyé.");
+				$('#LeftContent').html("");
+				$('#titleLeftContent').html("Navigation");
+				$('#titleRightContent').html("Formulaire de contact");
+			}
+		});
+	}
+}
+
+function seeMyAsking(){
+	$.ajax({
+		url : 'Defauts/Contenu/manageMenus/seeMyAsking.php',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#LeftContent').html("");
+			$('#titleLeftContent').html("Navigation");
+			$('#titleRightContent').html("Mes demandes");
+		}
+	});
+}

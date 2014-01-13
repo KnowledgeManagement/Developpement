@@ -49,7 +49,7 @@ function seeFunction(intitule, sousCategorie, idReference){
 	$.ajax({
 		url : 'Defauts/Contenu/functions/seeFunction.php',
 		type :'POST', 
-		data : {idReference : idReference},
+		data : {idReference : idReference, sousCategorie : sousCategorie},
 		dataType : 'text',
 		success:function(data) 
 		{
@@ -68,4 +68,23 @@ function seeFunction(intitule, sousCategorie, idReference){
 			$('#RightContent').html(data);
 		}
 	});
+}
+
+function deleteFunction(idReference, sousCategorie){
+	if(confirm("Êtes-vous sûr de vouloir supprimer cette fonction de la base ?")){
+		$.ajax({
+			url : 'Defauts/Contenu/functions/deleteFunction.php',
+			type :'POST', 
+			data : {idReference : idReference},
+			dataType : 'text',
+			success:function(data) 
+			{
+				goToFunction(sousCategorie);
+			}
+		});
+	}
+}
+
+function downloadFunction(lien){
+	window.open('Defauts/downloadFiles.php?file='+lien);
 }

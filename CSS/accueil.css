@@ -65,7 +65,7 @@ header{
 
 .menu li a {
 	display:block;
-	width:100px;
+	min-width:100px;
 	color:white;
 	text-decoration:none;
 	padding:5px;
@@ -82,7 +82,7 @@ header{
  }
 .menu ul li ul {
 	display:none;
-	width : 100px;
+	min-width : 100px;
  }
 .menu ul li:hover ul {
 	display:block;
@@ -275,6 +275,10 @@ h3{
 	text-align : right;
 }
 
+.tab{
+	float : left;
+}
+
 .tab_top_bottom{
 	padding-left : 50px;
 }
@@ -305,6 +309,15 @@ h3{
 	width : 150px;
 }
 
+.textarea{
+	margin-left : 15px;
+	border-radius : 15px;
+	padding : 3px 5px 3px 10px;
+	border : solid #06131f 1px;
+	width : 90%;
+	height : 150px;
+}
+
 .strucTabAuth{
 	padding-top : 50px;
 }
@@ -332,18 +345,7 @@ height : auto;
 .menuTab{
 	margin-bottom : 10px;
 	width : 400px;
-}
-
-.cat{
-	float : left;
-	margin-left : 0px;
-	padding-left: 0px;
-}
-
-.sous_cat{
-	float : left;
-	margin-left : 0px;
-	padding-left: 20px;
+	
 }
 
 .menuSousCat{
@@ -358,7 +360,7 @@ height : auto;
 
 /********************** MESSAGERIE DEBUT ************************/
 
-#messArray {
+.messArray {
 	border : solid 1px white;
 	width : 100%;
 	margin : 20px 0px 10px 0px;
@@ -379,7 +381,7 @@ height : auto;
 #messName{
 	width : 35%;
 }
-#messDelete{
+#messButton{
 	float : right;
 }
 
@@ -438,6 +440,10 @@ height : auto;
 	background-color : #1d3d5f;
 	text-align : center;
 	width : 100%;
+	padding : 0 20px 20px 20px;
+	margin-bottom : 20px;
+	margin-right : 20px;
+	margin-left : 20px; 
 }
 
 .alert{

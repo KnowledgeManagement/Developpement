@@ -59,4 +59,8 @@ function updateFromAD(){
 				AND givenName NOT IN (SELECT login from m5f_user);
 			");
 }
+
+function sendContact($objet, $description){
+	$sql = run("INSERT INTO m5f_contact(objet, contenu, lu, date, idUser) values('".$objet."', '".$description."', 0, GetDate(), ".$_SESSION['id'].")");
+}
 ?>

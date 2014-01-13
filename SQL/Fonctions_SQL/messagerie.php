@@ -113,7 +113,7 @@ function getMessNotReadContact(){
 }
 
 function getMessageByIdContact($id){
-	$s1 = run("SELECT C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+	$s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
 			FROM m5f_contact C, m5f_user U
 			where C.idUser = U.idUser
 			AND C.idFormContact = ".$id);
@@ -129,5 +129,23 @@ function deleteMessages($id){
 }
 function deleteMessagesContact($id){
 	$s1 = run("delete from m5f_contact where idFormContact = ".$id);
+}
+
+function getAllMessByUser($idUser){
+	 $s1 = run("SELECT M.idReferenceTmp, M.commentaireTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
+			FROM m5f_tmp M, m5f_user U
+			WHERE M.idUser = U.idUser
+			AND U.idUser = ".$idUser."
+			ORDER BY M.dateTmp desc");
+	return $s1;
+}
+
+
+function getContactByIdUser($id){
+	$s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
+			FROM m5f_contact C, m5f_user U
+			where C.idUser = U.idUser
+			AND C.idUser = ".$id);
+	return $s1;
 }
 ?>

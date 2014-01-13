@@ -83,7 +83,7 @@
 				if($_SESSION['fonction'] != "Administrateur"){
 			?>			
 				<div id="help">
-					<a href="#">?</a>
+					<a href="#" onclick="javascript:contactAdmin()">?</a>
 				</div>
 			<?php
 				}
