@@ -14,7 +14,7 @@ function getLink(sousCategorie){
 		{
 			var doc = eval('(' + data + ')');
 			$('#titleRightContent').html(doc['nomCat']+" > "+doc['nomSousCat']);
-			$('#titleLeftContent').html(doc['nomSousCat']);
+			$('#titleLeftContent').html(doc['nomSousCatGauche']);
 		}
 	});
 }
@@ -87,4 +87,8 @@ function deleteFunction(idReference, sousCategorie){
 
 function downloadFunction(lien){
 	window.open('Defauts/downloadFiles.php?file='+lien);
+}
+
+function addFunctionContributeur(){
+	alert("A faire");
 }

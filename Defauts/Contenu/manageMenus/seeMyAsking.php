@@ -15,7 +15,7 @@
 			echo '<tr>';
 		?>
 			<td id='messTitle'>
-				<a href='#' onclick="">
+				<a href='#' onclick="javacript:openMessageContributeur('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
 					<?php echo $messages[$i]['intituleTmp']; ?>
 				</a>
 			</td>
@@ -50,7 +50,7 @@
 			echo '<tr>';
 		?>
 			<td id='messTitle'>
-				<a href='#' onclick="">
+				<a href='#' onclick="javacript:openMessageContactContributeur(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo $messages[$i]['objet']; ?>')">
 					<?php echo $messages[$i]['objet']; ?>
 				</a>
 			</td>

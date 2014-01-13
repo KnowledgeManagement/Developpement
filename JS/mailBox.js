@@ -135,3 +135,31 @@ function deleteMessages(){
 		}
 	}
 }
+
+function openMessageContributeur(idMessage, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/viewMessage.php',
+		data : {type : 'mess',id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+		}
+	});
+}
+
+function openMessageContactContributeur(idMessage, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/viewMessage.php',
+		data : {type : 'cont', id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+		}
+	});
+}
