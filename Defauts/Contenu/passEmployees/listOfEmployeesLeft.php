@@ -1,8 +1,6 @@
-<?php
-	include_once "../../../SQL/Fonctions_SQL/user.php";
-
-		$listOfUsers = getAllUser();
-		for($j = 0; $j < sizeof($listOfUsers); $j++){
-			echo '<span style="float:left;">'.$listOfUsers[$j]['nom'].' '.$listOfUsers[$j]['prenom'].'</span><br/>'; 
-		}
+<?php 
+echo "<a href='#'>[Tous]</a>";
+for ($i=65; $i<=90; $i++) {
+    echo "[<a href='#'>".chr($i)."</a>]";
+}
 ?>
