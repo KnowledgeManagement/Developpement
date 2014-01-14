@@ -65,7 +65,7 @@ header{
 
 .menu li a {
 	display:block;
-	min-width:100px;
+	width:130px;
 	color:white;
 	text-decoration:none;
 	padding:5px;
@@ -73,16 +73,18 @@ header{
 	background-color : #1d3d5f;
 	font-weight : bold;
 	text-shadow: 2px 2px 0px #0b1b29;
+
  }
 
 .menu li a:hover {
 	background-color: #11283e; 
 	border-top : solid #ffffff 1px;
 	border-bottom : solid #ffffff 1px;
+	
  }
 .menu ul li ul {
 	display:none;
-	min-width : 100px;
+	width : 130px;
  }
 .menu ul li:hover ul {
 	display:block;
@@ -275,10 +277,6 @@ h3{
 	text-align : right;
 }
 
-.tab{
-	float : left;
-}
-
 .tab_top_bottom{
 	padding-left : 50px;
 }
@@ -307,8 +305,7 @@ h3{
 	padding : 3px 5px 3px 10px;
 	border : solid #06131f 1px;
 	width : 150px;
-}
-
+	
 .textarea{
 	margin-left : 15px;
 	border-radius : 15px;
@@ -316,6 +313,7 @@ h3{
 	border : solid #06131f 1px;
 	width : 90%;
 	height : 150px;
+}
 }
 
 .strucTabAuth{
@@ -329,6 +327,12 @@ h3{
 .butAuthForm{
 	padding-left : 10px;
 }
+
+a{
+	color : #ffffff;
+	text-decoration : none;
+}
+
 /********************** MISE EN FORME DIVERS FIN ************************/
 
 /********************** TABLEAU GERER MENU DEBUT ************************/
@@ -340,12 +344,33 @@ margin-top : 0px;
 #menuButtonNew{
 margin : auto;
 height : auto;
+border : solid 1 px black;
+}
+
+.sous_cat{
+	float : left;
+}
+
+.sous_cat{
+	float : left;
+	padding-left : 20px;
 }
 
 .menuTab{
 	margin-bottom : 10px;
 	width : 400px;
-	
+}
+
+.cat{
+	float : left;
+	margin-left : 0px;
+	padding-left: 0px;
+}
+
+.sous_cat{
+	float : left;
+	margin-left : 0px;
+	padding-left: 20px;
 }
 
 .menuSousCat{
@@ -356,11 +381,21 @@ height : auto;
 .menuButton{
 	width : 20%;
 }
+
+.input_text{
+	margin-left : 15px;
+	border-radius : 15px;
+	padding : 3px 5px 3px 10px;
+	border : solid #06131f 1px;
+	width : 200px;
+	position : relative;
+	
+}
 /********************** TABLEAU GERER MENU FIN ************************/
 
 /********************** MESSAGERIE DEBUT ************************/
 
-.messArray {
+#messArray {
 	border : solid 1px white;
 	width : 100%;
 	margin : 20px 0px 10px 0px;
@@ -381,60 +416,14 @@ height : auto;
 #messName{
 	width : 35%;
 }
+#messDelete{
+	float : right;
+}
 #messButton{
 	float : right;
 }
-
 /********************** MESSAGERIE FIN ************************/
 
-/********************** BOUTON DEGRADE DEBUT ************************/
-#boutonAjout {
-	-moz-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
-	box-shadow:inset 0px 1px 0px 0px #1d3d5f;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1d3d5f), color-stop(1, #11283e) );
-	background:-moz-linear-gradient( center top, #1d3d5f 5%, #11283e 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d3d5f', endColorstr='#11283e');
-	background-color:#1d3d5f;
-	-webkit-border-top-left-radius:20px;
-	-moz-border-radius-topleft:20px;
-	border-top-left-radius:20px;
-	-webkit-border-top-right-radius:20px;
-	-moz-border-radius-topright:20px;
-	border-top-right-radius:20px;
-	-webkit-border-bottom-right-radius:20px;
-	-moz-border-radius-bottomright:20px;
-	border-bottom-right-radius:20px;
-	-webkit-border-bottom-left-radius:20px;
-	-moz-border-radius-bottomleft:20px;
-	border-bottom-left-radius:20px;
-	text-indent:0px;
-	border:1px solid #06131f;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:14px;
-	font-weight:bold;
-	font-style:normal;
-	height:20px;
-	line-height:20px;
-	width:22px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #0b1b29;
-	
-}
-#boutonAjout:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #11283e), color-stop(1, #1d3d5f) );
-	background:-moz-linear-gradient( center top, #11283e 5%, #1d3d5f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#11283e', endColorstr='#1d3d5f');
-	background-color:#11283e;
-}
-#boutonAjout:active {
-	position:relative;
-	top:1px;
-}
-/********************** BOUTON DEGRADE FIN ************************/
 
 #tabListUsers{
 	background-color : #1d3d5f;

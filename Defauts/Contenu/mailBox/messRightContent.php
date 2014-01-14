@@ -130,7 +130,7 @@
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['date']->format('d/m/Y H:i:s'); ?>
+					<?php echo $messages[$i]['date']->format('d/m/Y'); ?>
 				</label>
 			</td>
 		</tr>
