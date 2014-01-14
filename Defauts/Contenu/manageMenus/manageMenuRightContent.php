@@ -3,15 +3,15 @@
 	include_once "../../../SQL/Fonctions_SQL/souscategorie.php";
 	
 	$lesCate = getAllCategorie();
-	
+	echo '<a href="#" style="float:right" id="menuButtonNew" class="bouton_manage" onclick="javascript:goToManageMenusRightContentCreateMenu();">Nouveau</a>';
 	for($i = 0; $i < sizeof($lesCate); $i++){
 ?>
-
+		
 		<table class="menuTab">
 			<tr>
 				<td class="menuCat"><?php echo $lesCate[$i]['nomCat']; ?></td>
-				<td class="menuButton"><input type="button" value="Modifier" class="bouton"></td>
-				<td class="menuButton"><input type="button" value="Supprimer" class="bouton"></td>
+				<td class="menuButton"><a href="#" class="bouton_manage" onclick="javascript:goToManageMenusRightContentEditMenu();">Modifier</a></td>
+				<td class="menuButton"><a href="#" class="bouton_manage">Supprimer</a></td>
 			</tr>	
 	<?php		
 		$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
@@ -21,8 +21,8 @@
 			?>
 				<tr>
 					<td class="menuSousCat"><?php echo $SousMenu[$j]['nomSousCat']; ?></td>
-					<td class="menuButton"><input type="button" value="Modifier" class="bouton"></td>
-					<td class="menuButton"><input type="button" value="Supprimer" class="bouton"></td>
+					<td class="menuButton"><a href="#" class="bouton_manage" onclick="javascript:goToManageMenusRightContentEditSousMenu();">Modifier</a></td>
+					<td class="menuButton"><a href="#" class="bouton_manage">Supprimer</a></td>
 				</tr>
 			<?php
 			}
@@ -30,9 +30,9 @@
 	?>
 		</table>
 		
-	<hr style="width:80%"/>
-	<center><input type="button" value="Nouveau" id="menuButtonNew" class="bouton"></center>
-	<hr style="width:80%"/>
+	<hr style="width:40%;border:solid 1px #06131f"/>
+	<center><span class="vide"><a href="#" id="menuButtonNew" class="bouton_manage" onclick="javascript:goToManageMenusRightContentAddSousMenu();">Ajouter</a></span></center>
+	<hr style="width:40%;border:solid 1px #06131f"/>
 <?php
 	}
 ?>
