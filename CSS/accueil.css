@@ -61,6 +61,7 @@ header{
 	float:left;
 	margin:auto;
 	border-left : solid #0b1b29 2px;
+	
 }
 
 .menu li a {
@@ -73,13 +74,17 @@ header{
 	background-color : #1d3d5f;
 	font-weight : bold;
 	text-shadow: 2px 2px 0px #0b1b29;
-
+	
+ }
+ .menu ul li ul li a {
+  border-right : solid #0b1b29 2px;
+  border-bottom : solid #0b1b29 1px;
  }
 
 .menu li a:hover {
 	background-color: #11283e; 
-	border-top : solid #ffffff 1px;
-	border-bottom : solid #ffffff 1px;
+	/*border-top : solid #ffffff 1px;
+	border-bottom : solid #ffffff 1px;*/
 	
  }
 .menu ul li ul {
