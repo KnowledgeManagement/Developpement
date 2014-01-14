@@ -1,4 +1,8 @@
 /********************** MISE EN PAGE DEBUT ************************/
+*{
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
 html{
     background-color : #ffffff;
 	background-image : url("../Images/background.png");
@@ -15,6 +19,9 @@ html{
 body{
 	height : 100%;
 	margin : 0px;
+	position: relative;
+	width : 100%;
+	display : table;
 }
 /********************** MISE EN PAGE FIN ************************/
 
@@ -26,6 +33,7 @@ header{
 	top : 0;
 	width : 100%;
 	padding-left : 100px;
+	border-bottom : solid #0b1b29 2px;
 }
 
 #logo {
@@ -61,7 +69,6 @@ header{
 	float:left;
 	margin:auto;
 	border-left : solid #0b1b29 2px;
-	
 }
 
 .menu li a {
@@ -219,7 +226,7 @@ table#RightMainContent{
 	border : solid #06131f 1px;
 	border-radius : 10px;
 	box-shadow : 5px 10px 20px #1d3d5f;
-	margin-bottom : 20px;
+	margin-bottom : 55px;
 	margin-right : 20px;
 	margin-left : 300px; 
 }
@@ -241,16 +248,18 @@ table#RightMainContent{
 footer{
 	bottom : 0;
 	clear : both;
-	position : fixed;
-	height : 24px;
+	position : absolute;
+	height : 30px;
 	background-color : #1d3d5f;
-	padding-top : 8px;
+	padding-top : 5px;
 	width:100%;
 	text-align : center;
 	margin-top : 25px;
 	font-weight : bold;
 	font-size : 12px;
 	text-shadow: 2px 2px 0px #0b1b29;
+	border-top : solid #0b1b29 2px;
+	display : table-row;
 }
 /********************** FOOTER FIN ************************/
 				/**** FOOTER RESPONSIVE DEBUT ****/
