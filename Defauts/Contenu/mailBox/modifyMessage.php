@@ -57,10 +57,15 @@
 	</tr>
 	<tr>
 		<td class="tdModifFunction">Exemple : </td>
+		<?php //$taVariable = htmlentities(addslashes(nl2br($taVariable))); ?>
 		<td><textarea class="textarea"></textarea></td>
 	</tr>
 	<tr>
 		<td class="tdModifFunction">Pièce jointe : </td>
 		<td><input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLinkTmp($idMessage); ?>')"/> </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="text-align : right;"><input type='button' class='bouton' value='Valider la modification' onclick='javascript:validModif()'/></td>
 	</tr>
 </table>
