@@ -163,3 +163,30 @@ function openMessageContactContributeur(idMessage, objet){
 		}
 	});
 }
+
+function modifMessage(idMessage, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/modifyMessage.php',
+		data : {id : idMessage},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+		}
+	});
+}
+
+function showSousCategorie(idMessage, idCategorie){
+	$.ajax({
+		url : 'Defauts/Contenu/mailBox/modifyMessage.php',
+		data : {id : idMessage, idCategorie : idCategorie},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+		}
+	});
+}
