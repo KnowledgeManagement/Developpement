@@ -3,12 +3,13 @@
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	include_once "../../../SQL/Fonctions_SQL/souscategorie.php";
 	include_once "../../../SQL/Fonctions_SQL/categorie.php";
+	include_once "../../../SQL/Fonctions_SQL/user.php";
 	$idMessage = $_POST['id'];
 	$myMessage = getMessageById($idMessage);
 ?>
-<table>
+<table style="width : 100%;">
 	<tr>
-		<td>Catégorie : </td>
+		<td class="tdModifFunction">Catégorie : </td>
 		<td>
 			<select name="categorie" class="option" id="categorie" onChange="javascript:showSousCategorie('<?php echo $idMessage ?>', this.options[this.selectedIndex].value)">
 				<?php
@@ -27,7 +28,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Sous Catégorie : </td>
+		<td class="tdModifFunction">Sous Catégorie : </td>
 		<td>
 			<?php
 				if(isset($_POST['idCategorie'])){
@@ -50,6 +51,16 @@
 			</select>
 		</td>
 	</tr>
-Description : <br/><br/><textarea class="textarea"></textarea><br/><br/>
-Exemple : <br/><br/><textarea class="textarea"></textarea><br/><br/>
-Pièce jointe : <input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLink($idReference); ?>')"/>
+	<tr>
+		<td class="tdModifFunction">Description :</td>
+		<td><textarea class="textarea"></textarea></td>
+	</tr>
+	<tr>
+		<td class="tdModifFunction">Exemple : </td>
+		<td><textarea class="textarea"></textarea></td>
+	</tr>
+	<tr>
+		<td class="tdModifFunction">Pièce jointe : </td>
+		<td><input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLinkTmp($idMessage); ?>')"/> </td>
+	</tr>
+</table>
