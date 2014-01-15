@@ -19,7 +19,7 @@ function getSousCategorieByCategorie($id){
 
 /* Selectionne les données d'une sous-catégorie dont on précisera son identifiant en paramètre */
 function getSousCategorieById($id){
-	$sql = run("SELECT idSousCat, nomSousCat, nomCat
+	$sql = run("SELECT idSousCat, nomSousCat, nomCat, m5f_categorie.idCat
 				FROM m5f_sous_categorie, m5f_categorie
 				where m5f_categorie.idCat = m5f_sous_categorie.idCat
 				and idSousCat = ".$id);

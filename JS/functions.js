@@ -89,6 +89,28 @@ function downloadFunction(lien){
 	window.open('Defauts/downloadFiles.php?file='+lien);
 }
 
-function addFunctionContributeur(){
-	alert("A faire");
+function addFunctionContributeur(sousCategorie, categorie){
+	$.ajax({
+		url : 'Defauts/Contenu/functions/addFunction.php',
+		type :'POST',
+		data : {idCategorie : categorie, idSousCategorie : sousCategorie},
+		dataType : 'text',
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+		}
+	});
+}
+
+function showSousCategorieAddFunction(idCategorie){
+	$.ajax({
+		url : 'Defauts/Contenu/functions/addFunction.php',
+		type :'POST',
+		data : {idCategorie : idCategorie},
+		dataType : 'text',
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+		}
+	});
 }
