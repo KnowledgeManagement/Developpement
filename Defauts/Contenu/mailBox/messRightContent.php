@@ -1,10 +1,6 @@
 <?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
-	/*******************************************************************************/
-	
-	/* Ne pas oublier d'intégrer la table m5f_contact dans la gestion des messages !!
-	
-	/*******************************************************************************/
+
 ?>
 <div id="info">
 
@@ -130,7 +126,7 @@
 			</td>
 			<td class='messTime'>
 				<label for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['date']->format('d/m/Y'); ?>
+					<?php echo $messages[$i]['date']->format('d/m/Y H:i:s'); ?>
 				</label>
 			</td>
 		</tr>

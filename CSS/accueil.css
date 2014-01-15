@@ -3,6 +3,7 @@
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
 }
+
 html{
     background-color : #ffffff;
 	background-image : url("../Images/background.png");
@@ -73,7 +74,7 @@ header{
 
 .menu li a {
 	display:block;
-	width:130px;
+	min-width:100px;
 	color:white;
 	text-decoration:none;
 	padding:5px;
@@ -81,22 +82,21 @@ header{
 	background-color : #1d3d5f;
 	font-weight : bold;
 	text-shadow: 2px 2px 0px #0b1b29;
-	
  }
- .menu ul li ul li a {
-  border-right : solid #0b1b29 2px;
-  border-bottom : solid #0b1b29 1px;
- }
+ 
+.menu ul li ul li a {
+	border-right : solid #0b1b29 2px;
+	border-bottom : solid #0b1b29 1px;
+}
 
 .menu li a:hover {
 	background-color: #11283e; 
 	/*border-top : solid #ffffff 1px;
 	border-bottom : solid #ffffff 1px;*/
-	
  }
 .menu ul li ul {
 	display:none;
-	width : 130px;
+	min-width : 100px;
  }
 .menu ul li:hover ul {
 	display:block;
@@ -154,15 +154,15 @@ header{
 	border-right : solid #0b1b29 2px;
  }
 #UserMenu li a {
-	 display:block;
-	 width:250px;
-	 color:white;
-	 text-decoration:none;
-	 padding:5px;
-	 font-size : 13px;
-	 background-color : #1d3d5f;
-	 font-weight : bold;
-	 text-shadow: 2px 2px 0px #0b1b29;
+	display:block;
+	width:250px;
+	color:white;
+	text-decoration:none;
+	padding:5px;
+	font-size : 13px;
+	background-color : #1d3d5f;
+	font-weight : bold;
+	text-shadow: 2px 2px 0px #0b1b29;
  }
 #UserMenu li a:hover {
 	background-color: #11283e; 
@@ -226,7 +226,7 @@ table#RightMainContent{
 	border : solid #06131f 1px;
 	border-radius : 10px;
 	box-shadow : 5px 10px 20px #1d3d5f;
-	margin-bottom : 55px;
+	margin-bottom : 20px;
 	margin-right : 20px;
 	margin-left : 300px; 
 }
@@ -291,6 +291,10 @@ h3{
 	text-align : right;
 }
 
+.tab{
+	float : left;
+}
+
 .tab_top_bottom{
 	padding-left : 50px;
 }
@@ -319,7 +323,8 @@ h3{
 	padding : 3px 5px 3px 10px;
 	border : solid #06131f 1px;
 	width : 150px;
-	
+}
+
 .textarea{
 	margin-left : 15px;
 	border-radius : 15px;
@@ -327,7 +332,6 @@ h3{
 	border : solid #06131f 1px;
 	width : 90%;
 	height : 150px;
-}
 }
 
 .strucTabAuth{
@@ -346,45 +350,23 @@ a{
 	color : #ffffff;
 	text-decoration : none;
 }
-
 /********************** MISE EN FORME DIVERS FIN ************************/
 
 /********************** TABLEAU GERER MENU DEBUT ************************/
 #menuButtonTitle{
-float : right;
-margin-top : 0px;
+	float : right;
+	margin-top : 0px;
 }
 
 #menuButtonNew{
-margin : auto;
-height : auto;
-border : solid 1 px black;
-}
-
-.sous_cat{
-	float : left;
-}
-
-.sous_cat{
-	float : left;
-	padding-left : 20px;
+	margin : auto;
+	height : auto;
 }
 
 .menuTab{
 	margin-bottom : 10px;
 	width : 400px;
-}
-
-.cat{
-	float : left;
-	margin-left : 0px;
-	padding-left: 0px;
-}
-
-.sous_cat{
-	float : left;
-	margin-left : 0px;
-	padding-left: 20px;
+	
 }
 
 .menuSousCat{
@@ -396,7 +378,19 @@ border : solid 1 px black;
 	width : 20%;
 }
 
-.input_text{
+.cat{
+	float : left;
+	margin-left : 0px;
+	padding-left: 0px;
+}
+
+.sousCat{
+	float : left;
+	margin-left : 0px;
+	padding-left: 20px;
+}
+
+.inputText{
 	margin-left : 15px;
 	border-radius : 15px;
 	padding : 3px 5px 3px 10px;
@@ -409,7 +403,7 @@ border : solid 1 px black;
 
 /********************** MESSAGERIE DEBUT ************************/
 
-#messArray {
+.messArray {
 	border : solid 1px white;
 	width : 100%;
 	margin : 20px 0px 10px 0px;
@@ -430,14 +424,60 @@ border : solid 1 px black;
 #messName{
 	width : 35%;
 }
-#messDelete{
-	float : right;
-}
 #messButton{
 	float : right;
 }
+
 /********************** MESSAGERIE FIN ************************/
 
+/********************** BOUTON DEGRADE DEBUT ************************/
+#boutonAjout {
+	-moz-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	box-shadow:inset 0px 1px 0px 0px #1d3d5f;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1d3d5f), color-stop(1, #11283e) );
+	background:-moz-linear-gradient( center top, #1d3d5f 5%, #11283e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d3d5f', endColorstr='#11283e');
+	background-color:#1d3d5f;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0px;
+	border:1px solid #06131f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	font-style:normal;
+	height:20px;
+	line-height:20px;
+	width:22px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #0b1b29;
+	
+}
+#boutonAjout:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #11283e), color-stop(1, #1d3d5f) );
+	background:-moz-linear-gradient( center top, #11283e 5%, #1d3d5f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#11283e', endColorstr='#1d3d5f');
+	background-color:#11283e;
+}
+#boutonAjout:active {
+	position:relative;
+	top:1px;
+}
+/********************** BOUTON DEGRADE FIN ************************/
 
 #tabListUsers{
 	background-color : #1d3d5f;
@@ -455,4 +495,9 @@ border : solid 1 px black;
 
 .pointer{
 	cursor : pointer;
+}
+
+.option{
+	border-radius : 15px;
+	padding : 5px;
 }

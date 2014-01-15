@@ -8,7 +8,7 @@
 		$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
 		if(isset($SousMenu)){
 			for($j = 0; $j < sizeof($SousMenu); $j++){
-				echo '<span class="sous_cat">'.$SousMenu[$j]['nomSousCat'].'</span><br/>'; 
+				echo '<span class="sousCat">'.$SousMenu[$j]['nomSousCat'].'</span><br/>'; 
 			}
 		}
 		echo '<br/>';
