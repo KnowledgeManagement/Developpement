@@ -6,7 +6,7 @@
 	echo '<a href="#" style="float:right" id="menuButtonNew" class="boutonManage" onclick="javascript:goToManageMenusRightContentCreateMenu();">Nouveau</a>';
 	for($i = 0; $i < sizeof($lesCate); $i++){
 ?>
-		
+
 		<table class="menuTab">
 			<tr>
 				<td class="menuCat"><?php echo $lesCate[$i]['nomCat']; ?></td>
@@ -31,7 +31,7 @@
 		</table>
 		
 	<hr style="width:40%;border:solid 1px #06131f"/>
-	<center><span class="vide"><a href="#" id="menuButtonNew" class="bouton_manage" onclick="javascript:goToManageMenusRightContentAddSousMenu();">Ajouter</a></span></center>
+	<center><span class="vide"><a href="#" id="menuButtonNew" class="boutonManage" onclick="javascript:goToManageMenusRightContentAddSousMenu();">Ajouter</a></span></center>
 	<hr style="width:40%;border:solid 1px #06131f"/>
 <?php
 	}

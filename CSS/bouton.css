@@ -91,7 +91,7 @@
 	top:1px;
 }
 
-.bouton_manage {
+.boutonManage {
 	-moz-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #1d3d5f;
 	box-shadow:inset 0px 1px 0px 0px #1d3d5f;
@@ -128,12 +128,13 @@
 	margin : 10px 5px 0px 10px;
 	padding-bottom : 0px;
 }
-.bouton_manage:hover {
+.boutonManage:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #11283e), color-stop(1, #1d3d5f) );
 	background:-moz-linear-gradient( center top, #11283e 5%, #1d3d5f 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#11283e', endColorstr='#1d3d5f');
 	background-color:#11283e;
-}.bouton_manage:active {
+}
+.boutonManage:active {
 	position:relative;
 	top:1px;
 }

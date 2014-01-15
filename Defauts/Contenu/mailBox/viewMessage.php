@@ -70,7 +70,7 @@
 		<div style="margin-top : 50px;">
 			<b>Commentaire :</b> <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
 			<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"/>
-			<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage('<?php echo $idMessage; ?>')"/>
+			<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo $message[0]['intituleTmp']; ?>')"/>
 			<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"/>
 		</div>
 	<?php
