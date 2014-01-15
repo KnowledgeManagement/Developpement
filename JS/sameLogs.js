@@ -6,7 +6,7 @@ function gradient(id, level){
 	box.style.filter = "alpha(opacity=" + level * 100 + ")";
 	box.style.display="block";
 	return;
-	}
+}
 function fadein(id){//Affiche joliment lors de l'arrivée de la pop up
 	var level = 0;
 	while(level <= 1)
