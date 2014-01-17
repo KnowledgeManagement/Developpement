@@ -20,7 +20,7 @@ function getCategorieById($id){
 /* Fonction qui ajoute une catégorie dont on saisira l'intitulé */
 function addCategorie($intitule_cat){
 	$sql = run("INSERT INTO m5f_categorie(nomCat) 
-				VALUES('".$intitule_cat."')");
+				VALUE('".$intitule_cat."')");
 }
 
 /* Fonction qui supprime une catégorie dont on précisera l'identifiant */

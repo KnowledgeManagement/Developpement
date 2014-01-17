@@ -29,7 +29,7 @@ function getSousCategorieById($id){
 /* Ajoute une sous-catégorie. On précisera les valeurs "intitulé" et l'"identifiant" de la catégorie pour laquelle la sous-catégorie est rattachée */
 function addSousCategorie($intitule_sous_cat,$id_cat){
 	$sql = run("INSERT INTO m5f_sous_categorie(nomSousCat, idCat) 
-				VALUES('".$intitule_sous_cat."','".$id_cat."')");
+				VALUE('".$intitule_sous_cat."','".$id_cat."')");
 }
 
 /* Supprime une sous-catégorie avec en paramètre son identifiant */
@@ -65,6 +65,13 @@ function getFunctionBySousCategorie($id){
 	return $sql;
 }
 
+function getFunctionBySousCategorieTmp($id){
+	$sql = run("SELECT intituleTmp, idReferenceTmp, dateTmp, descriptionTmp, exempleTmp, lienTelechargementTmp
+				FROM m5f_tmp
+				WHERE idReferenceTmp = '".$id."'");
+	return $sql;
+}
+
 function deleteFiles($reference){
 	$info = getFunctionBySousCategorie($reference);
 	$directory = $_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defaults/'.$info[0]['lienTelechargement'];
@@ -74,6 +81,12 @@ function deleteFiles($reference){
 function findLink($reference){
 	$info = getFunctionBySousCategorie($reference);
 	$directory = $info[0]['lienTelechargement'];
+	return $directory;
+}
+
+function findLinkTmp($reference){
+	$info = getFunctionBySousCategorieTmp($reference);
+	$directory = $info[0]['lienTelechargementTmp'];
 	return $directory;
 }
 
@@ -87,4 +100,5 @@ function deleteFunctionBySousCategorie($idSousCat){
 	deleteFiles($idSousCat);
 	$sql = run("DELETE from m5f_document WHERE idSousCat = '".$idSousCat."'");
 }
+
 ?>

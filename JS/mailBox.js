@@ -1,3 +1,4 @@
+var firstClick = 1;
 function goToMailBoxRightContent(type){
 	$.ajax({
 		url : 'Defauts/Contenu/mailBox/messRightContent.php',
@@ -188,5 +189,61 @@ function showSousCategorie(idMessage, idCategorie){
 		{
 			$('#RightContent').html(data);
 		}
+	});
+}
+
+function clickOnExemple(idMessage, action){
+	if(firstClick == 1){
+		var data = $('#myGreatExemple').html();
+		$.ajax({
+			url : 'Defauts/Contenu/functions/changeExemple.php',
+			data : {idMessage : idMessage, action : "modify"},
+			dataType : 'text',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#myGreatExemple').html(data);
+				firstClick = 0;
+			}
+		});
+	}/*else{
+		$.ajax({
+			url : 'Defauts/Contenu/functions/changeExemple.php',
+			data : {idMessage : idMessage, action : "write"},
+			dataType : 'text',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#myGreatExemple').html(data);
+				firstClick = 1;
+			}
+		});
+	}*/
+}
+
+function modifExemple(idMessage){
+	if(firstClick == 0){
+		$.ajax({
+			url : 'Defauts/Contenu/functions/changeExemple.php',
+			data : {idMessage : idMessage, action : "write"},
+			dataType : 'text',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#myGreatExemple').html(data);
+				firstClick = 1;
+			}
+		});
+	}
+}
+
+function saveExemple(){
+	var contenu = document.getElementById('textExemple').value;
+	str = contenu.replace(/\n/g, "\n"+"/g");
+	$.ajax({
+		url : 'Defauts/Contenu/functions/changeExemple.php',
+		data : {action : "save", contenu : document.getElementById('textExemple').value},
+		dataType : 'text',
+		type :'POST'
 	});
 }
