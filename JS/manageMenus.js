@@ -22,34 +22,9 @@ function goToManageMenusLeftContent(){
 	});
 }
 
-
-function goToManageMenusRightContentCreateMenu(){
+function goToEditMenu(){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentCreateMenu.php',
-		type :'POST', 
-		success:function(data) 
-		{
-			$('#RightContent').html(data);
-			$('#titleRightContent').html("Créer un menu");
-		}
-	});
-}
-
-function goToManageMenusRightContentAddSousMenu(){
-	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentAddSousMenu.php',
-		type :'POST', 
-		success:function(data) 
-		{
-			$('#RightContent').html(data);
-			$('#titleRightContent').html("Ajouter un sous-menu");
-		}
-	});
-}
-
-function goToManageMenusRightContentEditMenu(){
-	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentEditMenu.php',
+		url : 'Defauts/Contenu/manageMenusEditMenu.php',
 		type :'POST', 
 		success:function(data) 
 		{
@@ -59,9 +34,9 @@ function goToManageMenusRightContentEditMenu(){
 	});
 }
 
-function goToManageMenusRightContentEditSousMenu(){
+function goToEditSousMenu(){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentEditSousMenu.php',
+		url : 'Defauts/Contenu/manageMenus/EditSousMenu.php',
 		type :'POST', 
 		success:function(data) 
 		{
@@ -69,9 +44,9 @@ function goToManageMenusRightContentEditSousMenu(){
 			$('#titleRightContent').html("Modifier un sous-menu");
 		}
 	});
-}function goToManageMenusRightContentCreateMenu(){
+}function goToCreateMenu(){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentCreateMenu.php',
+		url : 'Defauts/Contenu/manageMenus/CreateMenu.php',
 		type :'POST', 
 		success:function(data) 
 		{
@@ -81,10 +56,11 @@ function goToManageMenusRightContentEditSousMenu(){
 	});
 }
 
-function goToManageMenusRightContentAddSousMenu(){
+function goToAddSousMenu(idCat, nomCat){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentAddSousMenu.php',
+		url : 'Defauts/Contenu/manageMenus/AddSousMenu.php',
 		type :'POST', 
+		data : {idCat : idCat, nomCat : nomCat},
 		success:function(data) 
 		{
 			$('#RightContent').html(data);
@@ -93,10 +69,11 @@ function goToManageMenusRightContentAddSousMenu(){
 	});
 }
 
-function goToManageMenusRightContentEditMenu(){
+function goToEditMenu(idCat, nomCat){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentEditMenu.php',
+		url : 'Defauts/Contenu/manageMenus/EditMenu.php',
 		type :'POST', 
+		data : {idCat : idCat, nomCat : nomCat},
 		success:function(data) 
 		{
 			$('#RightContent').html(data);
@@ -105,10 +82,11 @@ function goToManageMenusRightContentEditMenu(){
 	});
 }
 
-function goToManageMenusRightContentEditSousMenu(){
+function goToEditSousMenu(idSousCat, nomSousCat, idCat, nomCat){
 	$.ajax({
-		url : 'Defauts/Contenu/manageMenus/ManageMenuRightContentEditSousMenu.php',
+		url : 'Defauts/Contenu/manageMenus/EditSousMenu.php',
 		type :'POST', 
+		data : {idSousCat : idSousCat, nomSousCat : nomSousCat, idCat : idCat, nomCat : nomCat},
 		success:function(data) 
 		{
 			$('#RightContent').html(data);
@@ -161,6 +139,94 @@ function seeMyAsking(){
 			$('#LeftContent').html("");
 			$('#titleLeftContent').html("Navigation");
 			$('#titleRightContent').html("Mes demandes");
+		}
+	});
+}
+
+function deleteSousCat(idSousCat){
+	if(confirm("Êtes-vous sûr de vouloir supprimer cette sous-catégorie de la base ?")){
+		$.ajax({
+			url : 'Defauts/Contenu/manageMenus/DeleteSousMenu.php',
+			type :'POST', 
+			data : {idSousCat : idSousCat},
+			dataType : 'text',
+			success:function(data) 
+			{
+				goToManageMenusLeftContent();
+				goToManageMenusRightContent();
+			}
+		});
+	}
+}
+
+function deleteCat(idCat){
+	if(confirm("Êtes-vous sûr de vouloir supprimer cette catégorie ?")){
+		$.ajax({
+			url : 'Defauts/Contenu/manageMenus/DeleteMenu.php',
+			type :'POST', 
+			data : {idCat : idCat},
+			dataType : 'text',
+			success:function(data) 
+			{
+				goToManageMenusLeftContent();
+				goToManageMenusRightContent();
+			}
+		});
+	}
+}
+
+function AddSousCat(nomSousCat, idCat){
+		$.ajax({
+			url : 'Defauts/Contenu/manageMenus/AddSousMenuExecute.php',
+			type :'POST', 
+			data : {nomSousCat : nomSousCat, idCat : idCat},
+			dataType : 'text',
+			success:function(data) 
+			{
+				goToManageMenusLeftContent();
+				goToManageMenusRightContent();
+			}
+		});
+}
+
+function CreateMenu(nomCat){
+	$.ajax({
+		url : 'Defauts/Contenu/manageMenus/CreateMenuExecute.php',
+		type :'POST', 
+		data : {nomCat : nomCat},
+		dataType : 'text',
+		success:function(data) 
+		{
+			goToManageMenusLeftContent();
+			goToManageMenusRightContent();
+		}
+	});
+}
+
+function EditCat(nomCat, idCat){
+	$.ajax({
+		url : 'Defauts/Contenu/manageMenus/EditMenuExecute.php',
+		type :'POST', 
+		data : {nomCat : nomCat, idCat : idCat},
+		dataType : 'text',
+		success:function(data) 
+		{
+			goToManageMenusLeftContent();
+			goToManageMenusRightContent();
+		}
+	});
+}
+
+function EditSousCat(nomSousCat, idSousCat){
+	$.ajax({
+		url : 'Defauts/Contenu/manageMenus/EditSousMenuExecute.php',
+		type :'POST', 
+		data : {nomSousCat : nomSousCat, idSousCat : idSousCat},
+		dataType : 'text',
+		success:function(data) 
+		{
+			goToManageMenusLeftContent();
+			goToManageMenusRightContent();
 		}
 	});
 }

@@ -29,13 +29,25 @@ function getSousCategorieById($id){
 /* Ajoute une sous-catégorie. On précisera les valeurs "intitulé" et l'"identifiant" de la catégorie pour laquelle la sous-catégorie est rattachée */
 function addSousCategorie($intitule_sous_cat,$id_cat){
 	$sql = run("INSERT INTO m5f_sous_categorie(nomSousCat, idCat) 
-				VALUE('".$intitule_sous_cat."','".$id_cat."')");
+				VALUES('".$intitule_sous_cat."','".$id_cat."')");
 }
 
 /* Supprime une sous-catégorie avec en paramètre son identifiant */
 function deleteSousCategorie($id){
 	$sql = run("DELETE FROM m5f_sous_categorie
 				WHERE idSousCat = '".$id."';");
+}
+
+function UpdateSousCategorie($intitule_sous_cat, $id){
+	$sql = run("UPDATE m5f_sous_categorie
+				SET nomSousCat = '".$intitule_sous_cat."'
+				WHERE idSousCat = '".$id."';");
+}
+
+function getSousCategorieDinstinctCategorie(){
+	$sql = run("SELECT DISTINCT(idCat)
+				FROM m5f_sous_categorie");
+	return $sql;
 }
 
 function getFunctionNameBySousCategorie($id){
@@ -71,4 +83,8 @@ function deleteFunction($reference){
 	//$_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defauts/dlExemples/Reseaux/AdressageIP/REEEE.txt';
 }
 
+function deleteFunctionBySousCategorie($idSousCat){
+	deleteFiles($idSousCat);
+	$sql = run("DELETE from m5f_document WHERE idSousCat = '".$idSousCat."'");
+}
 ?>

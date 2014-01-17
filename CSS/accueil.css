@@ -369,17 +369,17 @@ a{
 /********************** MISE EN FORME DIVERS FIN ************************/
 
 /********************** TABLEAU GERER MENU DEBUT ************************/
-#menuButtonNew{
-margin : auto;
-height : auto;
-border : solid 1 px black;
+/*********Add/Create/Edit/Delete DEBUT*********/
+.input_text{
+	margin-left : 15px;
+	border-radius : 15px;
+	padding : 3px 5px 3px 10px;
+	border : solid #06131f 1px;
+	width : 200px;
+	position : relative;	
 }
-
-.menuTab{
-	margin-bottom : 10px;
-	width : 400px;
-}
-
+/*********Add/Create/Edit/Delete FIN*********/
+/*********LeftContent DEBUT*********/
 .cat{
 	float : left;
 	margin-left : 0px;
@@ -391,29 +391,43 @@ border : solid 1 px black;
 	margin-left : 0px;
 	padding-left: 20px;
 }
-
-.menuSousCat{
-	width : ;
-	text-align : right;
+/*********LeftContent FIN*********/
+/*********RightContent DEBUT*********/
+#menuButtonNew{
+	margin : auto;
+	height : auto;
+	float:right;
+	margin-top : -48px;
 }
 
-.menuButton{
-	width : 20%;
+.manageMenu{
+	margin : 0px;
+	padding : 0px;
+	list-style: none;
 }
 
-.input_text{
-	margin-left : 15px;
-	border-radius : 15px;
-	padding : 3px 5px 3px 10px;
-	border : solid #06131f 1px;
-	width : 200px;
-	position : relative;
-	
+.Menu{
+	border : solid 1px #06131f;
+	margin-bottom : 5px;
+	background-color : ;
+	padding : 5px 0px 5px 0px;
+	background : url("../Images/puce.png") left no-repeat #11283e;
+	background-size : 14px 14px;
 }
+.sousMenu{
+	padding : 0px;
+	margin : 0px;
+	list-style: none;
+	background-color : #1d3d5f;
+}
+
+.tab_manageMenu{
+	padding : 0px 0px 5px 20px;	
+}
+
+/*********RightContent FIN*********/
 /********************** TABLEAU GERER MENU FIN ************************/
-
 /********************** MESSAGERIE DEBUT ************************/
-
 #messArray {
 	border : solid 1px white;
 	width : 100%;
