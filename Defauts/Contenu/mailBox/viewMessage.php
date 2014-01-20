@@ -64,7 +64,9 @@
 	echo "<b>Contenu :</b><br /><br/>";
 	if($_POST['type'] == 'mess'){
 		echo '<b>Description : </b><br/><br/>'.$message[0]['descriptionTmp'].'<br/></br>';
-		echo '<b>Exemple : </b><br/><br/>'.$message[0]['exempleTmp'];
+		echo '<b>Exemple : </b><br/><br/><section class="language-php"><pre class="line-numbers" style="solid cadetblue 4px;"><code>'.htmlspecialchars($message[0]['exempleTmp']).'</code></pre></section>';
+
+
 		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu'){
 	?>
 		<div style="margin-top : 50px;">
@@ -79,3 +81,8 @@
 		echo $message[0]['contenu'];
 	}
 ?>
+<script type="text/javascript">
+ $( document ).ready(function() {
+  Prism.highlightAll();
+ });
+</script>

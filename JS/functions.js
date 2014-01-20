@@ -114,3 +114,18 @@ function showSousCategorieAddFunction(idCategorie){
 		}
 	});
 }
+
+function fieldVerification(){
+	if (document.getElementById('description').value == "")
+	{
+		alert('Vérifier le champ description');
+	}
+	else if (document.getElementById('exemple').value == "")
+	{
+		alert('Vérifier le champ exemple');
+	}
+	else if (document.getElementById('piecejointe').value == "")
+	{
+		alert('Vérifier qu\'il y a une piéce jointe');
+	}
+}
