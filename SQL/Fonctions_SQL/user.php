@@ -42,6 +42,14 @@ function getUserById($id){
 				WHERE idUser = '".$id."'");
 	return $sql;
 }
+
+function getUserByAlpha($alpha){
+	$sql = run("SELECT *
+				FROM m5f_user
+				WHERE nom LIKE '".$alpha."%'");
+	return $sql;
+}
+
 function modifyPassword($idUser, $mdp){
 	$sql = run("UPDATE m5f_user set mdp = '".md5($mdp)."' where idUser = ".$idUser);
 }
@@ -63,4 +71,5 @@ function updateFromAD(){
 function sendContact($objet, $description){
 	$sql = run("INSERT INTO m5f_contact(objet, contenu, lu, date, idUser) values('".$objet."', '".$description."', 0, GetDate(), ".$_SESSION['id'].")");
 }
+
 ?>

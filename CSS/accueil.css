@@ -373,17 +373,6 @@ a{
 	text-decoration : none;
 }
 
-
-#tabListUsers{
-	background-color : #1d3d5f;
-	text-align : center;
-	width : 100%;
-	padding : 0 20px 20px 20px;
-	margin-bottom : 20px;
-	margin-right : 20px;
-	margin-left : 20px; 
-}
-
 .alert{
 	color : red;
 }
@@ -393,7 +382,30 @@ a{
 }
 
 /********************** MISE EN FORME DIVERS FIN ************************/
+/********************** GERER MDP DEBUT ************************/
+#tabListUsers{
+	background-color : #1d3d5f;
+	text-align : center;
+	width : 100%;
+	margin : 20px 0px 5px 0px;
+	border-left : solid 1px  #11283e;
+	border-bottom : solid 1px  #11283e;
+	border-right : solid 1px  #11283e;
+}
 
+#tabListUsers tr.titre{
+	background-color :  #11283e;
+	font-weight : bold;
+}
+
+.alpha{
+	float : left;
+}
+
+.alpha:hover{
+	color : #06131f;
+}
+/********************** GERER MDP FIN ************************/
 /********************** TABLEAU GERER MENU DEBUT ************************/
 /*********Add/Create/Edit/Delete DEBUT*********/
 .input_text{
@@ -460,9 +472,15 @@ a{
 /********************** TABLEAU GERER MENU FIN ************************/
 /********************** MESSAGERIE DEBUT ************************/
 #messArray {
-	border : solid 1px white;
 	width : 100%;
 	margin : 20px 0px 10px 0px;
+	border-left : solid 1px  #11283e;
+	border-bottom : solid 1px  #11283e;
+	border-right : solid 1px  #11283e;
+}
+#messArray tr.titre {
+	background-color :  #11283e;
+	font-weight : bold;
 }
 #messCheckbox{
 	width : 5%;

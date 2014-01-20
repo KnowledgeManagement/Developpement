@@ -83,12 +83,12 @@
 	}
 	 
 	$refaleatoire = generateRandomString();
-	$extension = ;
+	$extension = "";
 	$contenu = $refaleatoire.'.'.$extension;	// R5D4D.java
 	
 	$chaine = '..\..\dlExemples\Developpement\\'.$extension.'\\'.$contenu;
 	
-	$recup_contenu = '<?php echo phpinfo(); echo "salut"?>'; $POST['exemple']
+	$recup_contenu = '<?php echo phpinfo(); echo "salut"?>'; $POST['exemple'];
 	
 	$fichier = fopen($chaine, "w+");
 	
