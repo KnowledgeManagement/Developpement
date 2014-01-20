@@ -84,7 +84,7 @@ function setMessageAccepted($id, $comm){
 }
 
 function setMessageRefused($id, $comm){
-	$s1 = run("Update m5f_message set etat = 'Refusé', commentaireTmp = '".$comm."' where idReferenceTmp = '".$id."'");
+	$s1 = run("Update m5f_tmp set etatTmp = 'Refusé', commentaireTmp = '".$comm."' where idReferenceTmp = '".$id."'");
 }
 
 function getAllMessContact(){
