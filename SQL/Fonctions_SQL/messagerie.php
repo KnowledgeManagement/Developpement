@@ -155,5 +155,6 @@ function tmpToDocument($id){
 				from m5f_tmp where idReferenceTmp = '".$id."'");
 	$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
 				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$s1[0]['descriptionTmp']."', 1, '".$s1[0]['exempleTmp']."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
+	$s3 = run("DELETE FROM m5f_tmp where idReferenceTmp = '".$id."'");
 }
 ?>
