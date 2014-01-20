@@ -79,8 +79,9 @@ function setMessageRead($id){
 	$s1 = run("Update m5f_tmp set etatTmp = 'Lu' where idReferenceTmp = '".$id."'");
 }
 
-function setMessageAccepted($id, $comm){
-	$s1 = run("Update m5f_tmp set etatTmp = 'Accepté', commentaireTmp = '".$comm."' where idReferenceTmp = '".$id."'");
+function setMessageAccepted($id){
+	$s1 = run("Update m5f_tmp set etatTmp = 'Accepté' where idReferenceTmp = '".$id."'");
+	tmpToDocument($id);
 }
 
 function setMessageRefused($id, $comm){
@@ -147,5 +148,12 @@ function getContactByIdUser($id){
 			where C.idUser = U.idUser
 			AND C.idUser = ".$id);
 	return $s1;
+}
+
+function tmpToDocument($id){
+	$s1 = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, exempleTmp, lienTelechargementTmp, idSousCat 
+				from m5f_tmp where idReferenceTmp = '".$id."'");
+	$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
+				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$s1[0]['descriptionTmp']."', 1, '".$s1[0]['exempleTmp']."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
 }
 ?>
