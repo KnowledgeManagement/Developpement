@@ -29,6 +29,10 @@
 		<script type="text/javascript" src="JS/functions.js"></script>
 		<script type="text/javascript" src="JS/manageMenus.js"></script>
 		<script type="text/javascript" src="JS/prism.js"></script>
+		
+		<link rel="stylesheet" href="css/jquery.css">
+		<script src="JS/Jquery/jquery-1.9.1.js"></script>
+		<script src="JS/Jquery/jquery-ui.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -43,7 +47,7 @@
 		<header>
 			<!--- LOGO + BARRE DE RECHERCHE --->
 			<a href="accueil.php"><img id="logo" src="Images/logo.png" alt="Logo"/></a>
-			<input id="search" type="text" placeholder="Rechercher..." name="rechercher" />
+			<input id="search" type="text" placeholder="Rechercher..." name="search" />
 			<?php
 				/* Selectionne les catégories par ordre d'identifiant */
 				$lesCate = getAllCategorie();
@@ -161,5 +165,54 @@
 		}
 	});
 	
+	$(function() {
+		var availableTags;
+		$.ajax({
+			url : 'Defauts/Contenu/searchBox/findWord.php',
+			type :'POST', 
+			success:function(data) 
+			{
+				availableTags = eval('(' + data + ')');
+			}
+		});
+		function split( val ) {
+		  return val.split( /,\s*/ );
+		}
+		function extractLast( term ) {
+		  return split( term ).pop();
+		}
+	 
+		$("#search")
+		  // don't navigate away from the field on tab when selecting an item
+			.bind( "keydown", function( event ) {
+				if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "ui-autocomplete" ).menu.active ) {
+						event.preventDefault();
+					}
+			})
+			.autocomplete({
+				minLength: 0,
+				source: function( request, response ) {
+				  // delegate back to autocomplete, but extract the last term
+				  response( $.ui.autocomplete.filter(
+					availableTags, extractLast( request.term ) ) );
+				},
+				focus: function() {
+				  // prevent value inserted on focus
+				  return false;
+				},
+				select: function( event, ui ) {
+				  var terms = split( this.value );
+				  // remove the current input
+				  terms.pop();
+				  // add the selected item
+				  terms.push( ui.item.value );
+				  // add placeholder to get the comma-and-space at the end
+				  terms.push( "" );
+				  this.value = terms.join( ", " );
+				  return false;
+				}
+			});
+	});
 });
 </script>
