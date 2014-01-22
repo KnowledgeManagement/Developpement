@@ -468,6 +468,11 @@ a{
 	padding : 0px 0px 5px 20px;	
 }
 
+.tab_manageMenu td.titre{
+	padding-bottom : 15px;
+	padding-top : 10px;
+}
+
 /*********RightContent FIN*********/
 /********************** TABLEAU GERER MENU FIN ************************/
 /********************** MESSAGERIE DEBUT ************************/
