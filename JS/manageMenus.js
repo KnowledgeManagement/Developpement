@@ -143,12 +143,12 @@ function seeMyAsking(){
 	});
 }
 
-function deleteSousCat(idSousCat){
+function deleteSousCat(idSousCat, nomSousCat, nomCat){
 	if(confirm("Êtes-vous sûr de vouloir supprimer cette sous-catégorie de la base ?")){
 		$.ajax({
 			url : 'Defauts/Contenu/manageMenus/DeleteSousMenu.php',
 			type :'POST', 
-			data : {idSousCat : idSousCat},
+			data : {idSousCat : idSousCat, nomSousCat : nomSousCat, nomCat : nomCat},
 			dataType : 'text',
 			success:function(data) 
 			{
@@ -159,12 +159,12 @@ function deleteSousCat(idSousCat){
 	}
 }
 
-function deleteCat(idCat){
+function deleteCat(idCat, nomCat){
 	if(confirm("Êtes-vous sûr de vouloir supprimer cette catégorie ?")){
 		$.ajax({
 			url : 'Defauts/Contenu/manageMenus/DeleteMenu.php',
 			type :'POST', 
-			data : {idCat : idCat},
+			data : {idCat : idCat, nomCat : nomCat},
 			dataType : 'text',
 			success:function(data) 
 			{
@@ -175,11 +175,11 @@ function deleteCat(idCat){
 	}
 }
 
-function AddSousCat(nomSousCat, idCat){
+function AddSousCat(nomSousCat, idCat, nomCat){
 		$.ajax({
 			url : 'Defauts/Contenu/manageMenus/AddSousMenuExecute.php',
 			type :'POST', 
-			data : {nomSousCat : nomSousCat, idCat : idCat},
+			data : {nomSousCat : nomSousCat, idCat : idCat, nomCat : nomCat},
 			dataType : 'text',
 			success:function(data) 
 			{
@@ -203,11 +203,11 @@ function CreateMenu(nomCat){
 	});
 }
 
-function EditCat(nomCat, idCat){
+function EditCat(nomCat, idCat, oldCat){
 	$.ajax({
 		url : 'Defauts/Contenu/manageMenus/EditMenuExecute.php',
 		type :'POST', 
-		data : {nomCat : nomCat, idCat : idCat},
+		data : {nomCat : nomCat, idCat : idCat, oldCat : oldCat},
 		dataType : 'text',
 		success:function(data) 
 		{
@@ -217,11 +217,11 @@ function EditCat(nomCat, idCat){
 	});
 }
 
-function EditSousCat(nomSousCat, idSousCat){
+function EditSousCat(nomSousCat, idSousCat, nomCat, oldSousCat){
 	$.ajax({
 		url : 'Defauts/Contenu/manageMenus/EditSousMenuExecute.php',
 		type :'POST', 
-		data : {nomSousCat : nomSousCat, idSousCat : idSousCat},
+		data : {nomSousCat : nomSousCat, idSousCat : idSousCat, nomCat : nomCat, oldSousCat : oldSousCat},
 		dataType : 'text',
 		success:function(data) 
 		{

@@ -7,5 +7,9 @@ $nomCat = $_POST['nomCat'];
 
 if($nomCat != ""){
 	addCategorie($nomCat);
+	
+	$dir = '..\..\dlExemples\\'. utf8_decode($nomCat).'\\';
+	$create_folders = mkdir($dir, 0777, true);
 }
+
 ?>

@@ -13,31 +13,34 @@ for($i = 0; $i < sizeof($lesCate); $i++){
 	<li class="Menu">
 		<a href="#" style="padding-left:20px"><?php echo $lesCate[$i]['nomCat']; ?></a>
 			<ul class="sousMenu">
-				<table class="tab_manageMenu" cellpadding="0" cellspacing="0" >
 					<li>
-						<tr>
-							<td class="titre"><a href="#" class="boutonManage" onclick="javascript:goToAddSousMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Ajouter</a></td>
-		 					<td class="titre"><a href="#" class="boutonManage" onclick="javascript:goToEditMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Modifier</a></td>
-							<?php $lesSousCat = getSousCategorieDinstinctCategorie(); if(isset($lesSousCat[$i]['idCat']) != $lesCate[$i]['idCat']) { ?>
-							<td class="titre"><a href="#" class="boutonManage" onclick="javascript:deleteCat('<?php echo $lesCate[$i]['idCat']; ?>')">Supprimer</a></td>
-							<?php } ?>
-						</tr>
+						<table class="tab_manageMenu" cellpadding="0" cellspacing="0" >
+							<tr>
+								<td class="titre"><a href="#" class="boutonManage" onclick="javascript:goToAddSousMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Ajouter</a></td>
+			 					<td class="titre"><a href="#" class="boutonManage" onclick="javascript:goToEditMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Modifier</a></td>
+								<?php $lesSousCat = getSousCategorieDinstinctCategorie(); if(isset($lesSousCat[$i]['idCat']) != $lesCate[$i]['idCat']) { ?>
+								<td class="titre"><a href="#" class="boutonManage" onclick="javascript:deleteCat('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')">Supprimer</a></td>
+								<?php } ?>
+							</tr>
+						</table>	
 					</li>
 					<?php $SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
 						if(isset($SousMenu)){
 							for($j = 0; $j < sizeof($SousMenu); $j++){
 					?>
 					<li>
-						<tr>
-							<td><?php echo $SousMenu[$j]['nomSousCat']; ?></td>
-							<td><a href="#" class="boutonManage" onclick="javascript:goToEditSousMenu('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $SousMenu[$j]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Modifier</a></td>
-							<td><a href="#" class="boutonManage" onclick="javascript:deleteSousCat('<?php echo $SousMenu[$j]['idSousCat']; ?>')">Supprimer</a></td>
-						</tr>
+						<table class="tab_manageMenu" cellpadding="0" cellspacing="0" >
+							<tr>
+								<td class="line"><?php echo $SousMenu[$j]['nomSousCat']; ?></td>
+								<td class="button"><a href="#" class="boutonManage" onclick="javascript:goToEditSousMenu('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $SousMenu[$j]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');">Modifier</a></td>
+								<td class="button"><a href="#" class="boutonManage" onclick="javascript:deleteSousCat('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')">Supprimer</a></td>
+							</tr>
+						</table>
 					</li>
 						<?php
 							}
 						} ?>
-				</table>	
+				
 			</ul>
 	</li>
 </ul>
