@@ -11,7 +11,7 @@
 	}
 ?>
 <form method="POST" id="formulaire" enctype="multipart/form-data" action="Defauts\Contenu\mailBox\sendMail.php"> 
-	<table style="width : 100%;">
+	<table style="width : 100%;" id="tablefunction">
 		<tr>
 			<td class="tdModifFunction">Catégorie : </td>
 			<td>
@@ -59,14 +59,23 @@
 			<td><textarea class="textarea" id="description" name="description" required ></textarea></td>
 		</tr>
 		<tr>
-			<td class="tdModifFunction">Exemple : </td>
-			<td><textarea class="textarea" id="exemple" name="exemple" required ></textarea></td>
-		</tr>
-		<tr>
 			<td>Pièce jointe : </td>
 			<td><input type="file" name="pj" id="piecejointe" value="Insérer" required /></td>
 		</tr>
+		<tr>
+			<td class="tdModifFunction">Explication :</td>
+			<td><textarea class="textarea" id="explication0" name="explication0" required ></textarea></td>
+		</tr>
+		<tr>
+			<td class="tdModifFunction">Exemple : </td>
+			<td><textarea class="textarea" id="exemple0" name="exemple0" required ></textarea></td>
+		</tr>
+		
 	</table>
+	<tr>
+			<td><a href="#" style="margin-left : 50px;" title="Ajouter un exemple" id="boutonAjout" onclick="javascript:addexemple()">+</a></td>
+	</tr>
+		<input type="hidden" id="nombre" name="nombre" value=0 />
 	<tr>
 		<td><input type="submit" class="bouton" value="Envoyer" onclick="javascript:fieldVerification()" /></td>
 	</tr>
