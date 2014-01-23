@@ -30,22 +30,28 @@
 	$uploaddir = '\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
 
 	// Création du dossier courrant s'il n'existe pas
-	$result = mkdir($uploaddir, 0777, true);
+	//$result = mkdir($uploaddir, 0777, true);
 	
 	$extension = explode('.',$_FILES['pj']['name']);
 	$reference = generateRandomString();
 	$uploadfile = $uploaddir.$reference;
-	
+	/*
 	// Vérifie que la référence n'existe pas
-	while(file_exists($uploadFile))
+	while(file_exists($uploadfile))
 	{
 		$uploadfile = $uploaddir.generateRandomString();
 	}
 
 	// Upload le fichier sur le serveur
-	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);
-
-	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),$_POST['description'],'"'.$_POST['exemple'].'"',$uploadfile.'.'.$extension[1],$_POST['sousCategorie'],$_SESSION['id']);
+	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);*/
+	$exemple = "" ;
+	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++){
+		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div>'.
+					'<section class="language-php"><pre class="line-numbers" style="solid cadetblue 4px;">
+					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+	
+	}
+	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,$uploadfile.'.'.$extension[1],$_POST['sousCategorie'],$_SESSION['id']);
 	// Ajoute le formulaire dans la base de donnée
 	//----------------------------------------------- 
 	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
@@ -85,7 +91,6 @@
 	$message .= 'Content-Transfer-Encoding: 8bit'."\n\n"; 
 	$message .= $message_html."\n\n"; 
 
-<<<<<<< .mine
 	$message .= '--'.$frontiere."\n";*/
 
 
@@ -107,8 +112,7 @@
 	else 
 	{ 
 	  echo 'Le mail n\'a pu être envoyé'; 
-	}*/
-=======
+	}*//*
 	 $recup_file = $message;
      if(mail($email_expediteur,$message_texte,$message,$headers)) 
      { 
@@ -117,7 +121,7 @@
      else 
      { 
           echo 'Le mail n\'a pu être envoyé'; 
-     } */
+     } 
 	 function generateRandomString($length = 5)
 	 {
 		$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -138,8 +142,7 @@
 	
 	$fichier = fopen($chaine, "w+");
 	
-	fwrite($fichier, $recup_contenu);
+	fwrite($fichier, $recup_contenu);*/
 	
->>>>>>> .r65
 ?>
 
