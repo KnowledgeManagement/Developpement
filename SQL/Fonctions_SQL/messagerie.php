@@ -148,14 +148,12 @@ function getContactByIdUser($id){
 			AND C.idUser = ".$id);
 	return $s1;
 }
-<<<<<<< .mine
 
 function addFunctionBddTmp($idReference,$intitule,$description,$exemple,$lienTelechargement,$idSousCategorie,$idUser){
 	$s1 = run("INSERT INTO m5f_tmp (idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp,idSousCat,idUser)
 			VALUES ('".$idReference."','".$intitule."' ,'".$description."',GetDate(),'Non Lu','".$exemple."','".$lienTelechargement."',".$idSousCategorie.",".$idUser.")");
 	return $s1;
 }
-=======
 
 function tmpToDocument($id){
 	$s1 = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, exempleTmp, lienTelechargementTmp, idSousCat 
@@ -164,5 +162,4 @@ function tmpToDocument($id){
 				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$s1[0]['descriptionTmp']."', 1, '".$s1[0]['exempleTmp']."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
 	$s3 = run("DELETE FROM m5f_tmp where idReferenceTmp = '".$id."'");
 }
->>>>>>> .r65
 ?>
