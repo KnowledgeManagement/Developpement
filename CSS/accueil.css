@@ -533,4 +533,10 @@ a{
 #messButton{
 	float : right;
 }
+.cadreMessage{
+	border : 2px dashed;
+	padding : 20px;
+
+}
+
 /********************** MESSAGERIE FIN ************************/
