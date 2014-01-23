@@ -129,3 +129,11 @@ function fieldVerification(){
 		alert('Vérifier qu\'il y a une piéce jointe');
 	}
 }
+function addexemple(){
+	var table=document.getElementById('tablefunction');
+	var id = document.getElementById('nombre').value;
+	id++;
+	document.getElementById('nombre').value=id;
+	
+	table.innerHTML +='<tr><td class="tdModifFunction">Explication :</td><td><textarea class="textarea" id="explication'+id+'" name="explication'+id+'" required ></textarea></td></tr><tr><td class="tdModifFunction">Exemple : </td><td><textarea class="textarea" id="exemple'+id+'" name="exemple'+id+'" required ></textarea></td></tr>';
+}
