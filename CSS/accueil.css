@@ -476,7 +476,7 @@ a{
 	}
 	
 .sousMenu{
-	padding : 0px;
+	padding : 0px 0px 15px 0px;
 	margin : 0px;
 	list-style: none;
 	background-color : #1d3d5f;
@@ -491,7 +491,7 @@ a{
 	padding-top : 10px;
 }
 .tab_manageMenu td.line{
-	width : 35%;
+	width : 60%;
 }
 .tab_manageMenu td.button{
 	width : auto;
