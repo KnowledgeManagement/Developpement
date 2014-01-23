@@ -1,8 +1,7 @@
 <?php
 include_once("connexion.php");
 
-/* Renvoie le nombre de messages non lus dans la messagerie
-*/
+/* Renvoie le nombre de messages non lus dans la messagerie*/
 function countMessNotRead(){
 	$s1 = run("select count(idReferenceTmp) as Nb
 				from m5f_tmp
@@ -14,8 +13,7 @@ function countMessNotRead(){
 	return ($s1[0]['Nb']+$s2[0]['Nb']);
 }
 
-/* Renvoie le nombre de messages lus dans la messagerie
-*/
+/* Renvoie le nombre de messages lus dans la messagerie*/
 function countMessRead(){
 	$s1 = run("select count(idReferenceTmp) as Nb
 				from m5f_tmp
@@ -27,8 +25,7 @@ function countMessRead(){
 	return ($s1[0]['Nb']+$s2[0]['Nb']);
 }
 
-/* Renvoie le nombre de messages lus et non lus dans la messagerie
-*/
+/* Renvoie le nombre de messages lus et non lus dans la messagerie*/
 function countMessAllRead(){
 	$s1 = run("select count(idReferenceTmp) as Nb
 				from m5f_tmp;");

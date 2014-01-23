@@ -27,23 +27,34 @@
 	
 	$categorie = getCategorieById($_POST['categorie']);
 	$souscategorie = getsousCategorieById($_POST['sousCategorie']);
-	$uploaddir = '\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
+	$uploaddir = '..\..\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
 
 	// Création du dossier courrant s'il n'existe pas
-	//$result = mkdir($uploaddir, 0777, true);
-	
+	$result = mkdir($uploaddir, 0777, true);
+ 
 	$extension = explode('.',$_FILES['pj']['name']);
-	$reference = generateRandomString();
+	$reference = "OLLTB";//generateRandomString();
 	$uploadfile = $uploaddir.$reference;
-	/*
-	// Vérifie que la référence n'existe pas
-	while(file_exists($uploadfile))
+	
+	// Vérifie que la référence n'existe pas	
+	/*$sql = "SELECT idReference FROM m5f_document WHERE idReference = '".$reference."'";	
+	$ok = 1;
+	while ($ok == 1)
 	{
-		$uploadfile = $uploaddir.generateRandomString();
-	}
-
+		if ($reference == $sql[0]['idReference'])
+		{
+			echo 'NON OK';
+			$ok = 1;
+			$uploadfile = $uploaddir.generateRandomString();
+		}else{
+			echo 'OK';
+			$ok = 0;
+		}
+	}*/
+	
 	// Upload le fichier sur le serveur
-	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);*/
+	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);
+	
 	$exemple = "" ;
 	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++){
 		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div>'.
@@ -52,7 +63,7 @@
 	
 	}
 	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,$uploadfile.'.'.$extension[1],$_POST['sousCategorie'],$_SESSION['id']);
-	// Ajoute le formulaire dans la base de donnée
+	
 	//----------------------------------------------- 
 	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
 	//----------------------------------------------- 
@@ -112,8 +123,8 @@
 	else 
 	{ 
 	  echo 'Le mail n\'a pu être envoyé'; 
-	}*//*
-	 $recup_file = $message;
+	}*/
+	/* $recup_file = $message;
      if(mail($email_expediteur,$message_texte,$message,$headers)) 
      { 
           echo 'Le mail a été envoyé'; 
@@ -121,7 +132,7 @@
      else 
      { 
           echo 'Le mail n\'a pu être envoyé'; 
-     } 
+     }
 	 function generateRandomString($length = 5)
 	 {
 		$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -145,4 +156,3 @@
 	fwrite($fichier, $recup_contenu);*/
 	
 ?>
-
