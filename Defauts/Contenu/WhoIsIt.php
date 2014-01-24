@@ -4,7 +4,7 @@
 ?>
 <ul>
 	<li>
-		<a href="#">
+		<a href="#" >
 			<?php
 				if($_SESSION['fonction'] == "Administrateur"){
 					$notRead = countMessNotRead();
@@ -18,7 +18,7 @@
 				if($_SESSION['fonction'] == "Administrateur"){
 			?>
 				<li>
-					<a href="#" onclick="javascript:goToMailBoxRightContent('allMessages');goToMailBoxLeftContent()">
+					<a href="#" style="margin-top : 2px;" onclick="javascript:goToMailBoxRightContent('allMessages');goToMailBoxLeftContent()">
 						Ma Messagerie
 					</a>
 				</li>
