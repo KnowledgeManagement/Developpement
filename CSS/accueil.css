@@ -53,8 +53,12 @@ header{
 /**** MENU MENU-DEROULANT/SOUS-MENU DEBUT ****/
 .menu{
 	position : relative;	
-	margin-top : -34px;
+	margin-top : -36px;
 	margin-left : 290px;
+}
+
+.titre_menu{
+	margin-bottom:2px;
 }
 
 .menu ul{
@@ -69,6 +73,7 @@ header{
 	float:left;
 	margin:auto;
 	border-left : solid #0b1b29 2px;
+	height : auto;
 }
 
 .menu li a {
@@ -76,27 +81,20 @@ header{
 	min-width:100px;
 	color:white;
 	text-decoration:none;
-	padding:5px;
+	padding:7px;
 	font-size : 13px;
 	background-color : #1d3d5f;
 	font-weight : bold;
 	text-shadow: 2px 2px 0px #0b1b29;
  }
 
-.menu li a:hover {
-	background-color: #11283e; 
-	/*border-top : solid #ffffff 1px;
-	border-bottom : solid #ffffff 1px;*/
-	
- }
- 
  .menu li ul {
 	position:absolute;
  }
  
 .menu ul li ul {
 	display:none;
-	min-width:140px;
+	min-width:160px;
 	border-bottom : solid #0b1b29 1px;
  }
 .menu ul li:hover ul {
