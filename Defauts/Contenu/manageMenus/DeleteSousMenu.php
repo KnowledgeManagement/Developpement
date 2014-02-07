@@ -7,7 +7,7 @@
 	$nomCat = $_POST['nomCat'];
 	
 	deleteSousCategorie($idSousCat);
-	deleteFunctionBySousCategorie($idSousCat);
+	
 	
 	$dir = '..\..\dlExemples\\'. utf8_decode($nomCat).'\\'.utf8_decode($nomSousCat).'\\';
 	

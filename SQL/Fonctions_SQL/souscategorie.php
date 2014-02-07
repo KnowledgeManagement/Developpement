@@ -32,11 +32,6 @@ function addSousCategorie($intitule_sous_cat,$id_cat){
 				VALUES('".$intitule_sous_cat."','".$id_cat."')");
 }
 
-/* Supprime une sous-catégorie avec en paramètre son identifiant */
-function deleteSousCategorie($id){
-	$sql = run("DELETE FROM m5f_sous_categorie
-				WHERE idSousCat = '".$id."';");
-}
 
 function UpdateSousCategorie($intitule_sous_cat, $id){
 	$sql = run("UPDATE m5f_sous_categorie
@@ -67,7 +62,7 @@ function getFunctionBySousCategorie($id){
 
 function deleteFiles($reference){
 	$info = getFunctionBySousCategorie($reference);
-	$directory = $_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defaults/'.$info[0]['lienTelechargement'];
+	$directory = $_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defauts/'.$info[0]['lienTelechargement'];
 	unlink($directory);
 }
 
@@ -87,4 +82,13 @@ function deleteFunctionBySousCategorie($idSousCat){
 	deleteFiles($idSousCat);
 	$sql = run("DELETE from m5f_document WHERE idSousCat = '".$idSousCat."'");
 }
+
+/* Supprime une sous-catégorie avec en paramètre son identifiant */
+function deleteSousCategorie($id){
+	deleteFiles($id);
+	$sql = run("DELETE FROM m5f_document WHERE idSousCat = '".$id."'");
+	$sql = run("DELETE FROM m5f_tmp WHERE idSousCat = '".$id."'");
+	$sql = run("DELETE FROM m5f_sous_categorie WHERE idSousCat = '".$id."';");
+}
+
 ?>

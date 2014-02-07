@@ -105,7 +105,7 @@ function getMessNotReadContact(){
 	 $s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
 			FROM m5f_contact C, m5f_user U
 			WHERE C.idUser = U.idUser
-			AND C.lu = 1
+			AND C.lu = 0
 			order by date desc");
 	return $s1;
 }
@@ -137,6 +137,7 @@ function getAllMessByUser($idUser){
 			ORDER BY M.dateTmp desc");
 	return $s1;
 }
+
 
 function getContactByIdUser($id){
 	$s1 = run("SELECT C.idFormContact, C.objet, C.contenu, C.date, C.lu, U.nom, U.prenom
