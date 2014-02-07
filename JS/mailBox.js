@@ -98,6 +98,7 @@ function refuseMessage(idMessage){
 		}
 	});
 }
+
 function deleteMessages(){
 	var i;
 	var nb = 0;

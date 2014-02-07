@@ -1,15 +1,9 @@
 <?php
-
-// TO DO
-//	REQUETE SQL INSERTION BDD des valeurs POST RECU TABLE TMP
-//	REMOVE FICHIER COTE ADMINISTRATEUR SI MAIL NON-VALIDE
-//	REQUETE LIENTELECHARGEMENT DANS BDD
-//	CHANGER LE WHILE PAR UNE VERIFICATION PAR REFERENCE DANS LA BDD
-
 	session_start();
 	include_once("../../../SQL/Fonctions_SQL/souscategorie.php");
 	include_once("../../../SQL/Fonctions_SQL/categorie.php");
 	include_once("../../../SQL/Fonctions_SQL/messagerie.php");
+	require_once('../pclzip.lib.php');
 	
 	//-----------------------------------------------
 	// FONCTION NOMBRE ALEATOIRE
@@ -25,44 +19,59 @@
 		return $randomString;
 	}
 	
+	//Récupération du bon lien 
 	$categorie = getCategorieById($_POST['categorie']);
 	$souscategorie = getsousCategorieById($_POST['sousCategorie']);
-	$uploaddir = '..\..\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
-
-	// Création du dossier courrant s'il n'existe pas
-	$result = mkdir($uploaddir, 0777, true);
+	$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
  
+	// Création de la référence aléatoire
 	$extension = explode('.',$_FILES['pj']['name']);
-	$reference = "OLLTB";//generateRandomString();
-	$uploadfile = $uploaddir.$reference;
+	$reference = generateRandomString();
 	
 	// Vérifie que la référence n'existe pas	
-	/*$sql = "SELECT idReference FROM m5f_document WHERE idReference = '".$reference."'";	
+	$sql = run("SELECT idReferenceTmp FROM m5f_tmp WHERE idReferenceTmp = '".$reference."'");
+	$sql2 = run("SELECT idReference FROM m5f_document WHERE idReference = '".$reference."'");
 	$ok = 1;
 	while ($ok == 1)
 	{
-		if ($reference == $sql[0]['idReference'])
+		if ($reference == $sql[0]['idReferenceTmp'] || $reference == $sql2[0]['idReference']  )
 		{
-			echo 'NON OK';
 			$ok = 1;
-			$uploadfile = $uploaddir.generateRandomString();
-		}else{
-			echo 'OK';
-			$ok = 0;
-		}
-	}*/
+			$reference = generateRandomString();
+		}else{ $ok = 0; }
+	}
+	$uploadfile = $uploaddir.$reference;
 	
 	// Upload le fichier sur le serveur
 	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);
+    
+    $filename = $uploadfile.'.'.$extension[1];
+    $zip = new PclZip($uploadfile.'.zip');
+    $zip->create($filename,PCLZIP_OPT_REMOVE_ALL_PATH);
 	
+	// Suppression fichier coté serveur
+	unlink($uploadfile.'.'.$extension[1]);
+		
+	//Mise en forme des éléments rentrés
 	$exemple = "" ;
-	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++){
-		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div>'.
-					'<section class="language-php"><pre class="line-numbers" style="solid cadetblue 4px;">
-					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+	$souscategorie[0]['nomSousCat'] = strtolower($souscategorie[0]['nomSousCat']);
 	
+	if ($souscategorie[0]['nomSousCat'] == "html")
+	{
+		$souscategorie[0]['nomSousCat'] = "markup";
 	}
-	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,$uploadfile.'.'.$extension[1],$_POST['sousCategorie'],$_SESSION['id']);
+	else if ($souscategorie[0]['nomSousCat'] == "C#")
+	{
+		$souscategorie[0]['nomSousCat'] = "csharp";
+	}
+	
+	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
+	{
+		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div></br></br>'.
+					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
+					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+	}
+	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference).'.zip',$_POST['sousCategorie'],$_SESSION['id']);
 	
 	//----------------------------------------------- 
 	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
@@ -155,4 +164,5 @@
 	
 	fwrite($fichier, $recup_contenu);*/
 	
+	header('Location:../../../accueil.php');
 ?>

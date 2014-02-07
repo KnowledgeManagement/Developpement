@@ -37,20 +37,18 @@
 				<input type='checkbox'  name='boxMess[]' <?php echo 'value="check'.$messages[$i]['idReferenceTmp'].'"' ?> value=''>
 				<label class="checkbox_label"></label>
 			</td>
-			<td id='messName'>
-				<label for="<?php echo "check".$i; ?>">
+			<td id='messName' class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 					<?php echo $messages[$i]['nom'].' '.$messages[$i]['prenom']; ?>
 				</label>
 			</td>
-			<td id='messTitle'>
-				<label for="<?php echo "check".$i; ?>">
-					<a href='#' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+			<td id='messTitle' class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 						<?php echo $messages[$i]['intituleTmp']; ?>
-					</a>
 				</label>
 			</td>
-			<td class='messTime'>
-				<label for="<?php echo "check".$i; ?>">
+			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 					<?php
 						if($messages[$i]['etatTmp'] == "Refusé"){
 							echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
@@ -60,8 +58,8 @@
 					?>
 				</label>
 			</td>
-			<td class='messTime'>
-				<label for="<?php echo "check".$i; ?>">
+			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 					<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
 				</label>
 			</td>

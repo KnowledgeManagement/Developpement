@@ -62,7 +62,7 @@
 	</tr>
 	<tr>
 		<td class="tdModifFunction">Pièce jointe : </td>
-		<td><input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLinkTmp($idMessage); ?>')"/> </td>
+		<td><input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo getLink($idMessage); ?>')"/> </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>

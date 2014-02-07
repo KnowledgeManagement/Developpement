@@ -86,7 +86,7 @@ function deleteFunction(idReference, sousCategorie){
 }
 
 function downloadFunction(lien){
-	window.open('Defauts/downloadFiles.php?file='+lien);
+	window.open("ftp://www.knowledgemanagement.fr/Defauts/dlExemples/"+escape(lien));
 }
 
 function addFunctionContributeur(sousCategorie, categorie){
@@ -115,7 +115,7 @@ function showSousCategorieAddFunction(idCategorie){
 	});
 }
 
-function fieldVerification(){
+/*function fieldVerification(){
 	if (document.getElementById('description').value == "")
 	{
 		alert('Vérifier le champ description');
@@ -128,12 +128,40 @@ function fieldVerification(){
 	{
 		alert('Vérifier qu\'il y a une piéce jointe');
 	}
-}
+}*/
 function addexemple(){
-	var table=document.getElementById('tablefunction');
 	var id = document.getElementById('nombre').value;
 	id++;
+	var explication=new Array;
+	var exemple = new Array;
+	for(var i=0;i<id;i++)
+	{
+		explication[i] = document.getElementById('explication'+i).value;
+		exemple[i] = document.getElementById('exemple'+i).value;
+	}
+	var table=document.getElementById('tablefunction');
+	var description = document.getElementById('description').value;
+	var intitule = document.getElementById('intitule').value;
+	
 	document.getElementById('nombre').value=id;
 	
-	table.innerHTML +='<tr><td class="tdModifFunction">Explication :</td><td><textarea class="textarea" id="explication'+id+'" name="explication'+id+'" required ></textarea></td></tr><tr><td class="tdModifFunction">Exemple : </td><td><textarea class="textarea" id="exemple'+id+'" name="exemple'+id+'" required ></textarea></td></tr>';
+$.ajax({
+		url : 'Defauts/Contenu/functions/addTextarea.php',
+		type :'POST', 
+		data:{
+				id:id
+		},
+		dataType : 'text',
+		success:function(data) 
+		{
+			table.innerHTML += data;
+			document.getElementById('intitule').value=intitule;
+			document.getElementById('description').value=description;
+			for(var j=0;j<id;j++)
+			{
+				document.getElementById('explication'+j).value=explication[j];
+				document.getElementById('exemple'+j).value=exemple[j];
+			}
+		}
+	});
 }

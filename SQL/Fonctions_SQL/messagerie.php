@@ -1,5 +1,6 @@
 <?php
 include_once("connexion.php");
+include_once("souscategorie.php");
 
 /* Renvoie le nombre de messages non lus dans la messagerie*/
 function countMessNotRead(){
@@ -123,6 +124,9 @@ function setMessageReadContact($id){
 }
 
 function deleteMessages($id){
+	$info = getFunctionBySousCategorieTmp($reference);
+	$directory = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'.utf8_decode($info[0]['lienTelechargement']);
+	unlink($directory);
 	$s1 = run("delete from m5f_tmp where idReferenceTmp = '".$id."'");
 }
 function deleteMessagesContact($id){

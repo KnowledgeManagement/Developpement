@@ -60,9 +60,17 @@ function getFunctionBySousCategorie($id){
 	return $sql;
 }
 
-function deleteFiles($reference){
+function getFunctionBySousCategorieTmp($id){
+	$sql = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, commentaireTmp, lienTelechargementTmp
+				FROM m5f_tmp
+				WHERE idReferenceTmp = '".$id."'");
+	return $sql;
+}
+
+function deleteFiles($reference)
+{
 	$info = getFunctionBySousCategorie($reference);
-	$directory = $_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defauts/'.$info[0]['lienTelechargement'];
+	$directory = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'.utf8_decode($info[0]['lienTelechargement']);
 	unlink($directory);
 }
 
@@ -75,7 +83,6 @@ function findLink($reference){
 function deleteFunction($reference){
 	deleteFiles($reference);
 	$sql = run("DELETE from m5f_document WHERE idReference = '".$reference."'");
-	//$_SERVER['DOCUMENT_ROOT'].'/ProjetKM/Defauts/dlExemples/Reseaux/AdressageIP/REEEE.txt';
 }
 
 function deleteFunctionBySousCategorie($idSousCat){

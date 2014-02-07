@@ -14,10 +14,11 @@ pre[class*="language-"] {
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
+	padding-bottom: 1em;
+	
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
 
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
@@ -31,6 +32,7 @@ pre[class*="language-"] {
 	margin: .5em 0;
 	overflow: auto;
 	border-radius: 0.3em;
+	min-height:400px;
 }
 
 :not(pre) > code[class*="language-"],
@@ -114,12 +116,12 @@ color: #66d9ef;
 
 pre.line-numbers {
 	position: relative;
-	padding-left: 3.8em;
+	padding-left: 1em;
 	counter-reset: linenumber;
 }
 
 pre.line-numbers > code {
-	position: relative;
+	position: absolute;
 }
 
 .line-numbers .line-numbers-rows {

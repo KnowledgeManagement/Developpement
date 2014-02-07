@@ -61,23 +61,25 @@
 </table>
 <?php
 	echo "<br />";
-	echo "<b>Contenu :</b><br /><br/>";
-	if($_POST['type'] == 'mess'){
-		echo '<b>Description : </b><br/><br/>'.$message[0]['descriptionTmp'].'<br/></br><hr>';
+	echo "<b>Contenu :</b><br/><br/>";
+	if($_POST['type'] == 'mess')
+	{
+		echo '<b>Description : </b><br/><br/>'.$message[0]['descriptionTmp'].'<br/></br><hr></br>';
 		echo $message[0]['exempleTmp'];
-
-
-		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu'){
-	?>
-		<div style="margin-top : 50px;">
-			<b>Commentaire :</b> <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
-			<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"/>
-			<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo $message[0]['intituleTmp']; ?>')"/>
-			<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"/>
-		</div>
-	<?php
+		
+		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu')
+		{
+			?>
+			<div style="margin-top : 50px;">
+				<b>Commentaire :</b> <input type="text" class="label" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/><br/><br/>
+				<input type="button" class="bouton" value="Accepter" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"/>
+				<input type="button" class="bouton" value="Modifier" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo $message[0]['intituleTmp']; ?>')"/>
+				<input type="button" class="bouton" value="Refuser" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"/>
+			</div>
+			<?php
 		}
-	}else{
+	}else
+	{
 		echo $message[0]['contenu'];
 	}
 ?>
