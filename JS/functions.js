@@ -165,3 +165,17 @@ $.ajax({
 		}
 	});
 }
+
+function modifyFunction(idReference, objet){
+	$.ajax({
+		url : 'Defauts/Contenu/functions/modifyFunction.php',
+		data : {idReference : idReference},
+		dataType : 'text',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Objet : "+objet);
+		}
+	});
+}

@@ -20,7 +20,7 @@
 	<?php
 		if($_SESSION['fonction'] != "Accesseur"){
 	?>
-		<input type="button" class="bouton" value="Modifier"/>
+		<input type="button" class="bouton" value="Modifier" onclick="javascript:modifyFunction('<?php echo $idReference; ?>', '<?php echo $infos[0]['intituleDoc'] ?>')"/>
 	<?php
 		}
 		if($_SESSION['fonction'] == "Administrateur"){
