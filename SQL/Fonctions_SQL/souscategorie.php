@@ -54,9 +54,11 @@ function getFunctionNameBySousCategorie($id){
 }
 
 function getFunctionBySousCategorie($id){
-	$sql = run("SELECT intituleDoc, idReference, date, description, exemple, lienTelechargement
-				FROM m5f_document
-				WHERE idReference = '".$id."'");
+	$sql = run("SELECT intituleDoc, idReference, date, description, exemple, lienTelechargement, nomSousCat, nomCat
+				FROM m5f_document, m5f_sous_categorie, m5f_categorie
+				WHERE idReference = '".$id."'
+				and m5f_document.idSousCat = m5f_sous_categorie.idSousCat
+				and m5f_sous_categorie.idCat = m5f_categorie.idCat");
 	return $sql;
 }
 
