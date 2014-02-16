@@ -15,8 +15,12 @@
 				<?php
 					$cate = getAllCategorie();
 					for($i = 0; $i < sizeof($cate); $i++){
-						if(isset($_POST['idCategorie']) && $_POST['idCategorie'] == $cate[$i]['idCat']){
-							echo "<option class='option' selected='selected' value='".$cate[$i]['idCat']."'>".$cate[$i]['nomCat']."</option>";
+						if(isset($_POST['idCategorie'])){
+							if($_POST['idCategorie'] == $cate[$i]['idCat']){
+								echo "<option class='option' selected='selected' value='".$cate[$i]['idCat']."'>".$cate[$i]['nomCat']."</option>";
+							}else{
+								echo "<option class='option' value='".$cate[$i]['idCat']."'>".$cate[$i]['nomCat']."</option>";
+							}
 						}else if($myMessage[0]['nomCat'] == $cate[$i]['nomCat']){
 							echo "<option class='option' selected='selected' value='".$cate[$i]['idCat']."'>".$cate[$i]['nomCat']."</option>";
 						}else{
