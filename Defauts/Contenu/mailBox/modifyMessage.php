@@ -34,7 +34,7 @@
 				if(isset($_POST['idCategorie'])){
 					$idCat = $_POST['idCategorie'];
 				}else{
-					$idCat = 1;
+					$idCat = $myMessage[0]['idCat'];
 				}
 			?>
 			<select name="categorie" class="option" id="sousCategorie">

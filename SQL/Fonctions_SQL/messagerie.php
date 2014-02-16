@@ -63,7 +63,7 @@ function getMessNotRead(){
 }
 
 function getMessageById($id){
-	$s1 = run("SELECT M.intituleTmp, M.descriptionTmp, M.exempleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom, m5f_categorie.nomCat, m5f_sous_categorie.nomSousCat
+	$s1 = run("SELECT M.intituleTmp, M.descriptionTmp, M.exempleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom, m5f_categorie.nomCat, m5f_sous_categorie.nomSousCat, m5f_sous_categorie.idSousCat, m5f_sous_categorie.idCat
 			from m5f_tmp M, m5f_user U, m5f_categorie, m5f_sous_categorie
 			where M.idSousCat = m5f_sous_categorie.idSousCat
 			and m5f_sous_categorie.idSousCat = M.idSousCat
