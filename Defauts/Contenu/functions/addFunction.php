@@ -60,7 +60,7 @@
 		</tr>
 		<tr>
 			<td>Pièce jointe : </td>
-			<td><input type="file" name="pj" id="piecejointe" value="Insérer" required /></td>
+			<td><input type="file" name="pj" id="piecejointe" value="Insérer" /></td>
 		</tr>
 		<tr>
 			<td class="tdModifFunction">Explication n° 0 :</td>
@@ -68,7 +68,7 @@
 		</tr>
 		<tr>
 			<td class="tdModifFunction">Exemple n° 0 : </td>
-			<td><textarea onkeydown="insertTab(this, event);" class="textarea" id="exemple0" name="exemple0" required ></textarea></td>
+			<td><textarea onkeydown="insertTab(this, event);" class="textarea" id="exemple0" name="exemple0" ></textarea></td>
 		</tr>
 		
 	</table>
