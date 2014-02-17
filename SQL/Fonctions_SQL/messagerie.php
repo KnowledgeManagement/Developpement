@@ -63,7 +63,7 @@ function getMessNotRead(){
 }
 
 function getMessageById($id){
-	$s1 = run("SELECT M.intituleTmp, M.descriptionTmp, M.exempleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom, m5f_categorie.nomCat, m5f_sous_categorie.nomSousCat, m5f_sous_categorie.idSousCat, m5f_sous_categorie.idCat
+	$s1 = run("SELECT M.intituleTmp, M.descriptionTmp, M.exempleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom, m5f_categorie.nomCat, m5f_sous_categorie.nomSousCat, m5f_sous_categorie.idSousCat, m5f_sous_categorie.idCat, M.lienTelechargementTmp
 			from m5f_tmp M, m5f_user U, m5f_categorie, m5f_sous_categorie
 			where M.idSousCat = m5f_sous_categorie.idSousCat
 			and m5f_sous_categorie.idSousCat = M.idSousCat
@@ -123,9 +123,9 @@ function setMessageReadContact($id){
 	$s1 = run("Update m5f_contact set lu = '1' where idFormContact = ".$id);
 }
 
-function deleteMessages($id){
-	$info = getFunctionBySousCategorieTmp($reference);
-	$directory = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'.utf8_decode($info[0]['lienTelechargement']);
+function deleteMessages($id){	
+	$info = getFunctionBySousCategorieTmp($id);
+	$directory = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'.utf8_decode($info[0]['lienTelechargementTmp']);
 	unlink($directory);
 	$s1 = run("delete from m5f_tmp where idReferenceTmp = '".$id."'");
 }
@@ -154,14 +154,27 @@ function getContactByIdUser($id){
 function addFunctionBddTmp($idReference,$intitule,$description,$exemple,$lienTelechargement,$idSousCategorie,$idUser){
 	$s1 = run("INSERT INTO m5f_tmp (idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp,idSousCat,idUser)
 			VALUES ('".$idReference."','".$intitule."' ,'".$description."',GetDate(),'Non Lu','".$exemple."','".$lienTelechargement."',".$idSousCategorie.",".$idUser.")");
-	return $s1;
+	return "INSERT INTO m5f_tmp (idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp,idSousCat,idUser)
+			VALUES ('".$idReference."','".$intitule."' ,'".$description."',GetDate(),'Non Lu','".$exemple."','".$lienTelechargement."',".$idSousCategorie.",".$idUser.")";
 }
 
 function tmpToDocument($id){
+	$verif = run("SELECT idReferenceTmp,idReference from m5f_tmp,m5f_document where idReferenceTmp = idReference and idReference = '".$id."'");
 	$s1 = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, exempleTmp, lienTelechargementTmp, idSousCat 
 				from m5f_tmp where idReferenceTmp = '".$id."'");
-	$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
+	if(Empty($verif)){
+		$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
 				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$s1[0]['descriptionTmp']."', 1, '".$s1[0]['exempleTmp']."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
+	}
+	else{
+		$s2 = run("Update m5f_document set  description = '".$s1[0]['descriptionTmp']."',exemple = '".$s1[0]['exempleTmp']."' ,lienTelechargement = '".$s1[0]['lienTelechargementTmp']."' where idReference = '".$id."'");
+	}
 	$s3 = run("DELETE FROM m5f_tmp where idReferenceTmp = '".$id."'");
 }
+
+function updateMail($idReferenceTmp,$descriptionTmp,$exempleTmp,$lienTelechargementTmp,$idSousCat){
+	$s1 = run("Update m5f_tmp set  descriptionTmp = '".$descriptionTmp."',exempleTmp = '".$exempleTmp."' ,lienTelechargementTmp = '".$lienTelechargementTmp."',etatTmp = 'Non Lu', idSousCat = '".$idSousCat."' where idReferenceTmp = '".$idReferenceTmp."'");
+	return "Update m5f_tmp set  descriptionTmp = '".$descriptionTmp."',exempleTmp = '".$exempleTmp."' ,lienTelechargementTmp = '".$lienTelechargementTmp."',etatTmp = 'Non Lu', idSousCat = '".$idSousCat."' where idReferenceTmp = '".$idReferenceTmp."'";
+}
+
 ?>

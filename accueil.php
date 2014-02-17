@@ -38,6 +38,13 @@
 		if(isset($_SESSION['sameLogs'])){
 			echo '<input type="hidden" id="sameLogs" value="1"/>';
 		}
+		if(isset($_POST['id']) && isset($_POST['intitule'])){
+		?>
+			<script type="text/javascript">
+				window.onload=openMessage("<?php echo $_POST['id']; ?>", "<?php echo $_POST['intitule']; ?>");
+			</script>
+		<?php
+	}
 	?>
 	<!----------- HEADER DEBUT ----------->
 		<header>

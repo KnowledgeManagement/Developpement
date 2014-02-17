@@ -41,16 +41,17 @@
 		}else{ $ok = 0; }
 	}
 	$uploadfile = $uploaddir.$reference;
+	$nameOrigin = $uploaddir.$_FILES['pj']['name'];
 	
 	// Upload le fichier sur le serveur
-	move_uploaded_file($_FILES['pj']['tmp_name'], $uploadfile.'.'.$extension[1]);
+	move_uploaded_file($_FILES['pj']['tmp_name'], $nameOrigin);
     
     $filename = $uploadfile.'.'.$extension[1];
     $zip = new PclZip($uploadfile.'.zip');
-    $zip->create($filename,PCLZIP_OPT_REMOVE_ALL_PATH);
+    $zip->create($nameOrigin,PCLZIP_OPT_REMOVE_ALL_PATH);
 	
 	// Suppression fichier coté serveur
-	unlink($uploadfile.'.'.$extension[1]);
+	unlink($nameOrigin);
 		
 	//Mise en forme des éléments rentrés
 	$exemple = "" ;
