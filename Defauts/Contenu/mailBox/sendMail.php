@@ -68,7 +68,6 @@
 	else if ($souscategorie[0]['nomSousCat'] == "c#")
 	{
 		$souscategorie[0]['nomSousCat'] = "csharp";
-		echo 'toto';
 	}
 	
 	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
@@ -171,5 +170,5 @@
 	
 	fwrite($fichier, $recup_contenu);*/
 	
-	//header('Location:../../../accueil.php');
+	header('Location:../../../accueil.php');
 ?>
