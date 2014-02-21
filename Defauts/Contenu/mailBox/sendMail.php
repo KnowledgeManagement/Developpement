@@ -22,36 +22,40 @@
 	//Récupération du bon lien 
 	$categorie = getCategorieById($_POST['categorie']);
 	$souscategorie = getsousCategorieById($_POST['sousCategorie']);
-	$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
- 
-	// Création de la référence aléatoire
-	$extension = explode('.',$_FILES['pj']['name']);
-	$reference = generateRandomString();
-	
-	// Vérifie que la référence n'existe pas	
-	$sql = run("SELECT idReferenceTmp FROM m5f_tmp WHERE idReferenceTmp = '".$reference."'");
-	$sql2 = run("SELECT idReference FROM m5f_document WHERE idReference = '".$reference."'");
-	$ok = 1;
-	while ($ok == 1)
-	{
-		if ($reference == $sql[0]['idReferenceTmp'] || $reference == $sql2[0]['idReference']  )
+	$link = "";
+	if(!empty($_FILES['pj']['name'])){
+		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
+	 
+		// Création de la référence aléatoire
+		$extension = explode('.',$_FILES['pj']['name']);
+		$reference = generateRandomString();
+		
+		// Vérifie que la référence n'existe pas	
+		$sql = run("SELECT idReferenceTmp FROM m5f_tmp WHERE idReferenceTmp = '".$reference."'");
+		$sql2 = run("SELECT idReference FROM m5f_document WHERE idReference = '".$reference."'");
+		$ok = 1;
+		while ($ok == 1)
 		{
-			$ok = 1;
-			$reference = generateRandomString();
-		}else{ $ok = 0; }
+			if ($reference == $sql[0]['idReferenceTmp'] || $reference == $sql2[0]['idReference']  )
+			{
+				$ok = 1;
+				$reference = generateRandomString();
+			}else{ $ok = 0; }
+		}
+		$uploadfile = $uploaddir.$reference;
+		$nameOrigin = $uploaddir.$_FILES['pj']['name'];
+		
+		// Upload le fichier sur le serveur
+		move_uploaded_file($_FILES['pj']['tmp_name'], $nameOrigin);
+		
+		$filename = $uploadfile.'.'.$extension[1];
+		$zip = new PclZip($uploadfile.'.zip');
+		$zip->create($nameOrigin,PCLZIP_OPT_REMOVE_ALL_PATH);
+		
+		// Suppression fichier coté serveur
+		unlink($nameOrigin);
+		$link = utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference).'.zip';
 	}
-	$uploadfile = $uploaddir.$reference;
-	$nameOrigin = $uploaddir.$_FILES['pj']['name'];
-	
-	// Upload le fichier sur le serveur
-	move_uploaded_file($_FILES['pj']['tmp_name'], $nameOrigin);
-    
-    $filename = $uploadfile.'.'.$extension[1];
-    $zip = new PclZip($uploadfile.'.zip');
-    $zip->create($nameOrigin,PCLZIP_OPT_REMOVE_ALL_PATH);
-	
-	// Suppression fichier coté serveur
-	unlink($nameOrigin);
 		
 	//Mise en forme des éléments rentrés
 	$exemple = "" ;
@@ -72,7 +76,7 @@
 					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
 					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
-	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference).'.zip',$_POST['sousCategorie'],$_SESSION['id']);
+	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
 	
 	//----------------------------------------------- 
 	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
