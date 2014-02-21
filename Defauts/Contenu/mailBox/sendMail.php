@@ -23,12 +23,13 @@
 	$categorie = getCategorieById($_POST['categorie']);
 	$souscategorie = getsousCategorieById($_POST['sousCategorie']);
 	$link = "";
+	$reference = generateRandomString();
 	if(!empty($_FILES['pj']['name'])){
 		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
 	 
 		// Création de la référence aléatoire
 		$extension = explode('.',$_FILES['pj']['name']);
-		$reference = generateRandomString();
+		
 		
 		// Vérifie que la référence n'existe pas	
 		$sql = run("SELECT idReferenceTmp FROM m5f_tmp WHERE idReferenceTmp = '".$reference."'");
@@ -60,23 +61,24 @@
 	//Mise en forme des éléments rentrés
 	$exemple = "" ;
 	$souscategorie[0]['nomSousCat'] = strtolower($souscategorie[0]['nomSousCat']);
-	
 	if ($souscategorie[0]['nomSousCat'] == "html")
 	{
 		$souscategorie[0]['nomSousCat'] = "markup";
 	}
-	else if ($souscategorie[0]['nomSousCat'] == "C#")
+	else if ($souscategorie[0]['nomSousCat'] == "c#")
 	{
 		$souscategorie[0]['nomSousCat'] = "csharp";
+		echo 'toto';
 	}
 	
 	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
 	{
-		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div></br></br>'.
+		$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
 					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
-					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
-	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($_POST['description']),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
+	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
+	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($description),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
 	
 	//----------------------------------------------- 
 	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
@@ -169,5 +171,5 @@
 	
 	fwrite($fichier, $recup_contenu);*/
 	
-	header('Location:../../../accueil.php');
+	//header('Location:../../../accueil.php');
 ?>
