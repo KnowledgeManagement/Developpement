@@ -10,6 +10,8 @@
 		$_SESSION['login'] = $array[0]['login'];
 		$_SESSION['nom'] = $array[0]['nom'];
 		$_SESSION['fonction'] = $array[0]['fonction'];
+		$_SESSION['prenom'] = $array[0]['prenom'];
+		$_SESSION['mail'] = $array[0]['mail'];
 		header('Location:../../accueil.php');
 	}else{
 		header('Location:../../index.php?error');

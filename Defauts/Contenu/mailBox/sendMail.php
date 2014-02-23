@@ -24,6 +24,7 @@
 	$souscategorie = getsousCategorieById($_POST['sousCategorie']);
 	$link = "";
 	$reference = generateRandomString();
+	
 	if(!empty($_FILES['pj']['name'])){
 		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
 	 
@@ -78,97 +79,70 @@
 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
 	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($description),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
+
+	// ENVOI DE MAIL
 	
-	//----------------------------------------------- 
-	//GENERE LA FRONTIERE DU MAIL ENTRE TEXTE ET HTML 
-	//----------------------------------------------- 
-
-	//$frontiere = '-----=' . md5(uniqid(mt_rand())); 
-
-	//----------------------------------------------- 
-	//DECLARE LES VARIABLES 
-	//----------------------------------------------- 
-
-	/*$email_expediteur='thomasdebas@m5f.fr'; 
-	$email_reply='thomas.debas@epsi.fr'; 
-	$message_html=
-	'<html> 
-		<head> 
-			<title>Démonstration de code !!!</title> 
-		</head> 
-			<body>Test de message</body> 
-	</html>';*/
-
-	//----------------------------------------------- 
-	//HEADERS DU MAIL 
-	//----------------------------------------------- 
-
-	/*$headers = 'From: "Nom" <'.$email_expediteur.'>'."\n"; 
-	$headers .= 'Return-Path: <'.$email_reply.'>'."\n"; 
-	$headers .= 'MIME-Version: 1.0'."\n"; 
-	$headers .= 'Content-Type: multipart/mixed; boundary="'.$frontiere.'"';*/
-
-	//-----------------------------------------------
-	//MESSAGE HTML 
-	//----------------------------------------------- 
-	/*$message .= '--'.$frontiere."\n"; 
-
-	$message .= 'Content-Type: text/html; charset="iso-8859-1"'."\n"; 
-	$message .= 'Content-Transfer-Encoding: 8bit'."\n\n"; 
-	$message .= $message_html."\n\n"; 
-
-	$message .= '--'.$frontiere."\n";*/
-
-
-	//----------------------------------------------- 
-	//PIECE JOINTE 
-	//----------------------------------------------- 
-
-	/*$message .= 'Content-Type: text/html; name="CV.pdf"'."\n"; 
-	$message .= 'Content-Transfer-Encoding: base64'."\n"; 
-	$message .= 'Content-Disposition:attachement; filename="CV.pdf"'."\n\n";
-
-	$files = "C:\inetpub\wwwroot\www.KnowledgeManagement.fr\Defaut\Demo\CV.pdf";
-	$message .= chunk_split(base64_encode(file_get_contents($files)))."\n"; 
-
-	if(mail($email_expediteur,$message_texte,$message,$headers)) 
-	{ 
-	  echo 'Le mail a été envoyé'; 
-	} 
-	else 
-	{ 
-	  echo 'Le mail n\'a pu être envoyé'; 
-	}*/
-	/* $recup_file = $message;
-     if(mail($email_expediteur,$message_texte,$message,$headers)) 
-     { 
-          echo 'Le mail a été envoyé'; 
-     } 
-     else 
-     { 
-          echo 'Le mail n\'a pu être envoyé'; 
-     }
-	 function generateRandomString($length = 5)
-	 {
-		$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$randomString = '';
-		for ($i = 0; $i < $length; $i++) {
-			$randomString .= $characters[rand(0, strlen($characters) - 1)];
-		}
-		return $randomString;
-	}
+	// To
+		$to = 'debas.thomas@gmail.com';
 	 
-	$refaleatoire = generateRandomString();
-	$extension = "";
-	$contenu = $refaleatoire.'.'.$extension;	// R5D4D.java
+	// Subject
+		$subject = 'Nouvelle fonction ajoutée';
+	 
+	// clé aléatoire de limite
+		$boundary = md5(uniqid(microtime(), TRUE));
+	 
+	// Headers
+		$headers = 'From:'.$_SESSION['prenom'].' '.$_SESSION['nom'].'<'.$_SESSION['mail'].'>'."\r\n";
+		//$headers = 'From: Matthieu J <thomasdebas@m5f.fr>'."\r\n";
+		$headers .= 'Mime-Version: 1.0'."\r\n";
+		$headers .= 'Content-Type: multipart/mixed;boundary='.$boundary."\r\n";
+		$headers .= "\r\n";
+	 
+	// Message
+		$msg = 'This is a multipart/mixed message.'."\r\n\r\n";
+	 
+	// Texte
+		$msg .= '--'.$boundary."\r\n";
+		$msg .= 'Content-type:text/plain;charset=utf-8'."\r\n";
+		$msg .= 'Content-transfer-encoding:8bit'."\r\n";
+		$msg .= $description."\r\n";
+	 
+	// Pièce jointe
+
+		$file_name = $uploaddir.$reference.'.zip';
+		
+		if (file_exists($file_name))
+		{
+			$file_type = filetype($file_name);
+			$file_size = filesize($file_name);
+		 
+			$handle = fopen($file_name, 'r') or die('File '.$file_name.'can t be open');
+			$content = fread($handle, $file_size);
+
+			$content = chunk_split(base64_encode($content)); //chunk_split(base64_encode(file_get_contents($content)))."\n";			
+			
+			$f = fclose($handle);
+		 
+			$ext = $reference.".zip";
+			$msg .= '--'.$boundary."\r\n";
+			$msg .= 'Content-type:'.$file_type.';name='.$ext."\r\n";
+			$msg .= 'Content-transfer-encoding:base64'."\r\n";
+			$msg .= $content."\r\n";
+		}
+	 
+	// Fin
+		$msg .= '--'.$boundary."\r\n";
+	 
+	// Function mail()
+		if(mail($to, $subject, $msg, $headers)) 
+		{ 
+		  echo 'Le mail a été envoyé'; 
+		} 
+		else 
+		{ 
+		  echo 'Le mail n\'a pu être envoyé'; 
+		}
 	
-	$chaine = '..\..\dlExemples\Developpement\\'.$extension.'\\'.$contenu;
-	
-	$recup_contenu = '<?php echo phpinfo(); echo "salut"?>'; $POST['exemple'];
-	
-	$fichier = fopen($chaine, "w+");
-	
-	fwrite($fichier, $recup_contenu);*/
 	
 	header('Location:../../../accueil.php');
 ?>

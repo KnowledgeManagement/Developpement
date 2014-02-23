@@ -43,10 +43,11 @@
 	
 	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
 	{
-		$exemple .='<div class="cadreMessage">'.$_POST['explication'.$i].'</div></br></br>'.
+		$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
 					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
-					<code>'.str_replace("'","\"",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
-	updateMail($_POST['id'], $_POST['description'],$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference[0]).'.zip',$_POST['sousCategorie']);
+	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
+	updateMail($_POST['id'],$description,$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference[0]).'.zip',$_POST['sousCategorie']);
 	header('Location: header.php?id='.$_POST['id'].'&intitule='.$_POST['intituleTmp'].'');
 ?>
