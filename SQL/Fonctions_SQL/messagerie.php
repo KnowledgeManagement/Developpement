@@ -154,17 +154,19 @@ function getContactByIdUser($id){
 function addFunctionBddTmp($idReference,$intitule,$description,$exemple,$lienTelechargement,$idSousCategorie,$idUser){
 	$s1 = run("INSERT INTO m5f_tmp (idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp,idSousCat,idUser)
 			VALUES ('".$idReference."','".$intitule."' ,'".$description."',GetDate(),'Non Lu','".$exemple."','".$lienTelechargement."',".$idSousCategorie.",".$idUser.")");
-	return "INSERT INTO m5f_tmp (idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp,idSousCat,idUser)
-			VALUES ('".$idReference."','".$intitule."' ,'".$description."',GetDate(),'Non Lu','".$exemple."','".$lienTelechargement."',".$idSousCategorie.",".$idUser.")";
 }
+
 
 function tmpToDocument($id){
 	$verif = run("SELECT idReferenceTmp,idReference from m5f_tmp,m5f_document where idReferenceTmp = idReference and idReference = '".$id."'");
 	$s1 = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, exempleTmp, lienTelechargementTmp, idSousCat 
 				from m5f_tmp where idReferenceTmp = '".$id."'");
+	$description = str_replace("'","''",$s1[0]['descriptionTmp']);
+	$exemple = str_replace("'","''",$s1[0]['exempleTmp']);
 	if(Empty($verif)){
+		
 		$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
-				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$s1[0]['descriptionTmp']."', 1, '".$s1[0]['exempleTmp']."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
+				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$description."', 1, '".$exemple."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
 	}
 	else{
 		$s2 = run("Update m5f_document set  description = '".$s1[0]['descriptionTmp']."',exemple = '".$s1[0]['exempleTmp']."' ,lienTelechargement = '".$s1[0]['lienTelechargementTmp']."' where idReference = '".$id."'");
