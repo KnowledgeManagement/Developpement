@@ -73,7 +73,9 @@
 		
 	</table>
 	<tr>
-			<td><a href="#" style="margin-left : 50px;" title="Ajouter un exemple" id="boutonAjout" onclick="javascript:addexemple()">+</a></td>
+			<td><a href="#" style="margin-left : 50px;" title="Ajouter un exemple" id="boutonAjout" onclick="javascript:addexemple()">+</a>
+				<a href="#" style="margin-left : 50px;" title="Enlever un exemple" id="boutonAjout" onclick="javascript:removeexemple()">-</a>
+			</td>
 	</tr>
 		<input type="hidden" id="nombre" name="nombre" value=0 />
 	<tr>

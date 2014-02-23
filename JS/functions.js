@@ -145,7 +145,7 @@ function addexemple(){
 	
 	document.getElementById('nombre').value=id;
 	
-$.ajax({
+	$.ajax({
 		url : 'Defauts/Contenu/functions/addTextarea.php',
 		type :'POST', 
 		data:{
@@ -164,6 +164,17 @@ $.ajax({
 			}
 		}
 	});
+}
+
+function removeexemple(){
+	var id = document.getElementById('nombre').value;
+	if(id!=0){
+		document.getElementById("tablefunction").deleteRow(-1);
+		document.getElementById("tablefunction").deleteRow(-1);
+		id--;
+	}
+	document.getElementById('nombre').value=id;
+
 }
 
 function modifyFunction(idReference, objet){
