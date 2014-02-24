@@ -21,8 +21,17 @@ function goToMailBoxLeftContent(){
 		{
 			$('#LeftContent').html(data);
 			$('#titleLeftContent').html("Messagerie");
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#header').html(data);
+				}
+			});
 		}
 	});
+	
 }
 
 function openMessage(idMessage, objet){
