@@ -180,4 +180,12 @@ function updateMail($idReferenceTmp,$descriptionTmp,$exempleTmp,$lienTelechargem
 	return "Update m5f_tmp set  descriptionTmp = '".$descriptionTmp."',exempleTmp = '".$exempleTmp."' ,lienTelechargementTmp = '".$lienTelechargementTmp."',etatTmp = 'Non Lu', idSousCat = '".$idSousCat."' where idReferenceTmp = '".$idReferenceTmp."'";
 }
 
+function ifExistsInTmp($idReference){
+	$s1 = run("select idReferenceTmp from m5f_tmp where idReferenceTmp = '".$idReference."'");
+	if($s1){
+		return false;
+	}
+	return true;
+}
+
 ?>

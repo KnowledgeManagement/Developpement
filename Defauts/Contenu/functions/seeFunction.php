@@ -2,6 +2,7 @@
 	session_start();
 	include_once "../../../SQL/Fonctions_SQL/categorie.php";
 	include_once "../../../SQL/Fonctions_SQL/souscategorie.php";
+	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	//intituleDoc, idReference, date, description, exemple, lienTelechargement
 	$idReference = $_POST['idReference'];
 	$infos = getFunctionBySousCategorie($idReference);
@@ -19,9 +20,15 @@
 	<input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLink($idReference); ?>')"/>
 	<?php
 		if($_SESSION['fonction'] != "Accesseur"){
-	?>
-		<input type="button" class="bouton" value="Modifier" onclick="javascript:modifyFunction('<?php echo $idReference; ?>', '<?php echo $infos[0]['intituleDoc'] ?>')"/>
-	<?php
+			if(ifExistsInTmp($idReference)){
+				?>
+					<input type="button" class="bouton" value="Modifier" onclick="javascript:modifyFunction('<?php echo $idReference; ?>', '<?php echo $infos[0]['intituleDoc'] ?>')"/>
+				<?php
+			}else{
+				?>
+					<input type="button" class="bouton" value="Modifier" onclick="alert('Une modification est déjà en cours.');"/>
+				<?php
+			}
 		}
 		if($_SESSION['fonction'] == "Administrateur"){
 	?>
