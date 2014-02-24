@@ -123,6 +123,7 @@ function refuseMessage(idMessage){
 }
 
 function deleteMessages(){
+alert('toot');
 	var i;
 	var nb = 0;
 	var list = new Array();
@@ -142,9 +143,10 @@ function deleteMessages(){
 				url : 'Defauts/Contenu/mailBox/deleteMessages.php',
 				data : {lesMessages : list},
 				dataType : 'text',
-				type :'POST', 
+				type :'POST',
 				success:function(data) 
 				{
+					alert('toot');
 					goToMailBoxLeftContent();
 					goToMailBoxRightContent('allMessages');
 					$.ajax({

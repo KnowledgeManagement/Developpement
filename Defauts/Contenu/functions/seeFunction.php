@@ -6,7 +6,7 @@
 	//intituleDoc, idReference, date, description, exemple, lienTelechargement
 	$idReference = $_POST['idReference'];
 	$infos = getFunctionBySousCategorie($idReference);
-	
+	$findLink = findLink($idReference);
 ?><br/>
 <link rel="stylesheet" href="CSS/prism.css"/>
 <script type="text/javascript" src="JS/prism.js"></script>
@@ -17,7 +17,7 @@
 <p id="exemple"><?php echo $infos[0]['exemple']; ?></p><br/>
 
 <div style="width : 100%; text-align : right;">
-	<input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo findLink($idReference); ?>')"/>
+	<input type="button" class="bouton" value="Télécharger" onclick="javascript:downloadFunction('<?php echo $findLink;?>')"/>
 	<?php
 		if($_SESSION['fonction'] != "Accesseur"){
 			if(ifExistsInTmp($idReference)){

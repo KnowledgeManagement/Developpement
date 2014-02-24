@@ -32,11 +32,20 @@ function addSousCategorie($intitule_sous_cat,$id_cat){
 				VALUES('".$intitule_sous_cat."','".$id_cat."')");
 }
 
-
 function UpdateSousCategorie($intitule_sous_cat, $id){
 	$sql = run("UPDATE m5f_sous_categorie
 				SET nomSousCat = '".$intitule_sous_cat."'
 				WHERE idSousCat = '".$id."';");
+	$sql1 = run("select idReference, lienTelechargement from m5f_document where idSousCat = ".$id);
+	foreach($sql1 as $uneRequete){
+		$lienTel = explode("/", $uneRequete['lienTelechargement']);
+		run("update m5f_document set lienTelechargement = '".$lienTel[0]."/".$intitule_sous_cat.'/'.$lienTel[2]."' where idReference = '".$uneRequete['idReference']."'");
+	}
+	$sql2 = run("select idReferenceTmp, lienTelechargementTmp from m5f_tmp where idSousCat = ".$id);
+	foreach($sql2 as $uneRequete){
+		$lienTel = explode("/", $uneRequete['lienTelechargementTmp']);
+		run("update m5f_tmp set lienTelechargementTmp = '".$lienTel[0]."/".$intitule_sous_cat.'/'.$lienTel[2]."' where idReferenceTmp = '".$uneRequete['idReferenceTmp']."'");
+	}
 }
 
 function getSousCategorieDinstinctCategorie(){
@@ -66,6 +75,13 @@ function getFunctionBySousCategorieTmp($id){
 	$sql = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, commentaireTmp, lienTelechargementTmp
 				FROM m5f_tmp
 				WHERE idReferenceTmp = '".$id."'");
+	
+	return $sql;
+
+	}
+
+function getCategorieByReference($reference){
+	$sql = run("select nomSousCat, nomCat from m5f_sous_categorie, m5f_categorie, m5f_document where m5f_categorie.idCat = m5f_sous_categorie.idCat and m5f_sous_categorie.idSousCat = m5f_document.idSousCat and m5f_document.idReference='".$reference."'");
 	return $sql;
 }
 
@@ -99,5 +115,4 @@ function deleteSousCategorie($id){
 	$sql = run("DELETE FROM m5f_tmp WHERE idSousCat = '".$id."'");
 	$sql = run("DELETE FROM m5f_sous_categorie WHERE idSousCat = '".$id."';");
 }
-
 ?>

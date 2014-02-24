@@ -130,6 +130,7 @@ function deleteMessages($id){
 	unlink($directory);
 	$s1 = run("delete from m5f_tmp where idReferenceTmp = '".$id."'");
 }
+
 function deleteMessagesContact($id){
 	$s1 = run("delete from m5f_contact where idFormContact = ".$id);
 }
@@ -179,7 +180,6 @@ function updateMail($idReferenceTmp,$descriptionTmp,$exempleTmp,$lienTelechargem
 	$s1 = run("Update m5f_tmp set  descriptionTmp = '".$descriptionTmp."',exempleTmp = '".$exempleTmp."' ,lienTelechargementTmp = '".$lienTelechargementTmp."',etatTmp = 'Non Lu', idSousCat = '".$idSousCat."' where idReferenceTmp = '".$idReferenceTmp."'");
 	return "Update m5f_tmp set  descriptionTmp = '".$descriptionTmp."',exempleTmp = '".$exempleTmp."' ,lienTelechargementTmp = '".$lienTelechargementTmp."',etatTmp = 'Non Lu', idSousCat = '".$idSousCat."' where idReferenceTmp = '".$idReferenceTmp."'";
 }
-
 function ifExistsInTmp($idReference){
 	$s1 = run("select idReferenceTmp from m5f_tmp where idReferenceTmp = '".$idReference."'");
 	if($s1){

@@ -34,5 +34,16 @@ function UpdateCategorie($intitule_cat, $id){
 	$sql = run("UPDATE m5f_categorie
 				SET nomCat = '".$intitule_cat."'
 				WHERE idCat = '".$id."';");
+	$sql1 = run("select idReference, lienTelechargement from m5f_document, m5f_sous_categorie where m5f_sous_categorie.idSousCat = m5f_document.idSousCat and m5f_sous_categorie.idCat = ".$id);
+	foreach($sql1 as $uneRequete){
+		$lienTel = explode("/", $uneRequete['lienTelechargement']);
+		run("update m5f_document set lienTelechargement = '".$intitule_cat."/".$lienTel[1].'/'.$lienTel[2]."' where idReference = '".$uneRequete['idReference']."'");
+	}
+	
+	$sql2 = run("select idReferenceTmp, lienTelechargementTmp from m5f_tmp, m5f_sous_categorie where m5f_sous_categorie.idSousCat = m5f_tmp.idSousCat and m5f_sous_categorie.idCat = ".$id);
+	foreach($sql2 as $uneRequete){
+		$lienTel = explode("/", $uneRequete['lienTelechargementTmp']);
+		run("update m5f_tmp set lienTelechargementTmp = '".$intitule_cat."/".$lienTel[1].'/'.$lienTel[2]."' where idReferenceTmp = '".$uneRequete['idReferenceTmp']."'");
+	}
 }
 ?>
