@@ -9,6 +9,7 @@
 	$categorie = getCategorieById($_POST['categorie']);
 	$souscategorie = getsousCategorieById($_POST['souscategorie']);
 	$uploaddir = $_SERVER['DOCUMENT_ROOT'].'\Defauts\dlExemples\\'. utf8_decode($categorie[0]['nomCat']).'\\'.utf8_decode($souscategorie[0]['nomSousCat']).'\\';
+	echo $_POST['link'];
 	$link = explode("/", $_POST['link']);
 	$reference = explode(".", $link[2]);
 	$uploadfile = $uploaddir.$reference[0];
@@ -48,6 +49,6 @@
 					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
-	addFunctionBddTmp(utf8_decode($reference[0]), utf8_decode($_POST['intitule']),utf8_decode($description),$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference).'.zip',$_POST['souscategorie'],$_SESSION['id']);
-	header('Location: ../../../accueil.php');
+	addFunctionBddTmp(utf8_decode($reference[0]), utf8_decode($_POST['intitule']),utf8_decode($description),$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference[0]).'.zip',$_POST['souscategorie'],$_SESSION['id']);
+	header('Location:../../../accueil.php');
 ?>

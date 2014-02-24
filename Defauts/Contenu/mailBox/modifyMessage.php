@@ -116,6 +116,7 @@
 		</tr>
 		<tr>
 			<td><input type="hidden" name="intituleTmp" value="<?php echo $myMessage[0]['intituleTmp']; ?>"/></td>
+			<td><input type="hidden" name="nombre" value="<?php echo $exp-1; ?>"/></td>
 		</tr>
 	</table>
 </form>

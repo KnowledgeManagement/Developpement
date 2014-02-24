@@ -48,6 +48,6 @@
 					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
-	updateMail($_POST['id'],$description,$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference[0]).'.zip',$_POST['sousCategorie']);
+	updateMail($_POST['id'],$description,$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($_POST['id']).'.zip',$_POST['sousCategorie']);
 	header('Location: header.php?id='.$_POST['id'].'&intitule='.$_POST['intituleTmp'].'');
 ?>

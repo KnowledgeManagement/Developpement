@@ -89,7 +89,9 @@
 			<td><input type="hidden" name="intitule" value="<?php echo $myFunction[0]['intituleDoc']; ?>"/></td>
 		</tr>
 	</table>
+	<input type="hidden" name="nombre" id="nombre" value="<?php echo ($exp-1); ?>"/>
 </form>
+
 <script type="text/javascript">
  $( document ).ready(function() {
   Prism.highlightAll();
