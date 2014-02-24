@@ -92,18 +92,50 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 	INSERT INTO m5f_categorie VALUES ('Système'); /* id = 2 */
 	INSERT INTO m5f_categorie VALUES ('Développement');	/* id = 3 */
 
-/* SOUS-CATEGORIE */
+	/* SOUS-CATEGORIE */
 	INSERT INTO m5f_sous_categorie VALUES ('AdressageIP',1);
 	INSERT INTO m5f_sous_categorie VALUES ('VLAN',1);
 	INSERT INTO m5f_sous_categorie VALUES ('Modèle OSI',1);
 	INSERT INTO m5f_sous_categorie VALUES ('Protocole',1);
+	INSERT INTO m5f_sous_categorie VALUES ('TCP/IP',1);
+	INSERT INTO m5f_sous_categorie VALUES ('UDP',1);
+	INSERT INTO m5f_sous_categorie VALUES ('Paquet',1);
 
 	INSERT INTO m5f_sous_categorie VALUES ('CommandeDOS',2);
 	INSERT INTO m5f_sous_categorie VALUES ('PowerShell',2);
 	INSERT INTO m5f_sous_categorie VALUES ('Administration',2);
 	INSERT INTO m5f_sous_categorie VALUES ('Serveur',2);
+	INSERT INTO m5f_sous_categorie VALUES ('Linux',2);
+	INSERT INTO m5f_sous_categorie VALUES ('Active directory',2);
 	
 	INSERT INTO m5f_sous_categorie VALUES ('JAVA',3);
 	INSERT INTO m5f_sous_categorie VALUES ('C#',3);
+	INSERT INTO m5f_sous_categorie VALUES ('C++',3);
+	INSERT INTO m5f_sous_categorie VALUES ('C',3);
+	INSERT INTO m5f_sous_categorie VALUES ('Delphi',3);
+	INSERT INTO m5f_sous_categorie VALUES ('COBOL',3);
+	INSERT INTO m5f_sous_categorie VALUES ('Javascript',3);
+	INSERT INTO m5f_sous_categorie VALUES ('Perl',3);
+	INSERT INTO m5f_sous_categorie VALUES ('VB',3);
+	INSERT INTO m5f_sous_categorie VALUES ('Fortran',3);
 	INSERT INTO m5f_sous_categorie VALUES ('PHP',3);
 	INSERT INTO m5f_sous_categorie VALUES ('MySQL',3);
+	INSERT INTO m5f_sous_categorie VALUES ('maxDB',3);
+	INSERT INTO m5f_sous_categorie VALUES ('PostgreSQL',3);
+
+
+/* DOCUMENT */
+	INSERT INTO m5f_document VALUES(1,'UDP','02-24-2014','A quoi sert un UDP?', 'TRUE', 'Le paquet UDP est encapsulé dans un paquet IP. Il comporte un en-tête suivi des données proprement dites à transporter[...].', 6,'UDP.zip');
+	INSERT INTO m5f_document VALUES(2,'Paquet','01-13-2014', 'Qu''est ce qu''un paquet?', 'TRUE','Afin de transmettre un message d''une machine à une autre sur un réseau, celui-ci est découpé en plusieurs paquets transmis séparément[...].', 7, 'Paquet.zip');
+	INSERT INTO m5f_document VALUES(3,'VLAN', '02-14-2014', 'Qu''est ce qu''un VLAN', 'TRUE', 'Un réseau local virtuel, communément appelé VLAN, est un réseau informatique logique indépendant. De nombreux VLAN peuvent coexister sur un même commutateur réseau[...].', 2, 'VLAN.zip');
+	INSERT INTO m5f_document VALUES(4,'Modèle OSI', '04-06-2013', 'Le modèle OSI', 'TRUE', ' C''est un modèle de communications entre ordinateurs proposé par l''ISO qui décrit les fonctionnalités nécessaires à la communication et l''organisation de ces fonctions[...].', 3, 'OSI.zip');
+
+	INSERT INTO m5f_document VALUES(1,'DHCP');
+	INSERT INTO m5f_document VALUES(2,'DNS');
+	INSERT INTO m5f_document VALUES(3,'Server web');
+	INSERT INTO m5f_document VALUES(4,'IDS');
+
+	INSERT INTO m5f_document VALUES();
+	INSERT INTO m5f_document VALUES();
+	INSERT INTO m5f_document VALUES();
+	INSERT INTO m5f_document VALUES();
