@@ -1,5 +1,6 @@
 <?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
+	session_start();
 	$idMessage = $_POST['id'];
 	if($_POST['type'] == 'mess'){
 		$message = getMessageById($idMessage);
@@ -12,6 +13,7 @@
 			setMessageReadContact($idMessage);
 		}
 	}
+	$findLink = findLink($idMessage);
 ?>
 <table>
 	<tr>
@@ -67,7 +69,7 @@
 		echo '<b>Description : </b><br/><br/>'.$message[0]['descriptionTmp'].'<br/></br><hr></br>';
 		echo $message[0]['exempleTmp'];
 		
-		if($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu')
+		if(($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu') && $_SESSION['fonction']=="Administrateur")
 		{
 			?>
 			<div style="margin-top : 50px;">
