@@ -2,13 +2,13 @@
 	session_start();
 	include_once "../../SQL/Fonctions_SQL/messagerie.php";
 	include_once "../../SQL/Fonctions_SQL/categorie.php";
-	include_once "../../SQL/Fonctions_SQL/souscategorie.php";
+	include_once "../../SQL/Fonctions_SQL/souscategorie.php";/*
 ?>
 <!--- LOGO + BARRE DE RECHERCHE --->
 <a href="accueil.php"><img id="logo" src="Images/logo.png" alt="Logo"/></a>
 <input id="search" type="text" placeholder="Rechercher..." onkeyup="onSearch()" name="rechercher" />
 <?php
-	/* Selectionne les catégories par ordre d'identifiant */
+	/* Selectionne les catégories par ordre d'identifiant 
 	$lesCate = getAllCategorie();
 	for($i = 0; $i < sizeof($lesCate); $i++){
 ?>
@@ -34,8 +34,8 @@
 	<!--- MENU/SOUS-MENU FIN --->
 <!--- Si administrateur > Ajout d'un bouton de gestion des menus
 	  Si différent d'administrateur > Ajout d'un onglet pour contacter l'administrateur --->
-<?php
-	}
+<?php 
+	}*/
 	if($_SESSION['fonction'] == "Administrateur"){
 ?>
 	<div id="add">
