@@ -1,5 +1,4 @@
 <?php
-echo 'toto';
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	$lesMessages = $_POST['lesMessages'];
 	for($i = 0; $i < sizeof($lesMessages);$i++){

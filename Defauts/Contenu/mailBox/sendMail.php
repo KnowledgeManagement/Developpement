@@ -78,7 +78,8 @@
 					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
-	addFunctionBddTmp(utf8_decode($reference), utf8_decode($_POST['intitule']),utf8_decode($description),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
+	$intitule = str_replace("'", "''",$_POST['intitule'] );
+	addFunctionBddTmp(utf8_decode($reference),utf8_decode($intitule),utf8_decode($description),$exemple,$link,$_POST['sousCategorie'],$_SESSION['id']);
 
 	// ENVOI DE MAIL
 	
@@ -134,14 +135,7 @@
 		$msg .= '--'.$boundary."\r\n";
 	 
 	// Function mail()
-		if(mail($to, $subject, $msg, $headers)) 
-		{ 
-		  echo 'Le mail a été envoyé'; 
-		} 
-		else 
-		{ 
-		  echo 'Le mail n\'a pu être envoyé'; 
-		}
+		mail($to, $subject, $msg, $headers); 
 	
 	
 	header('Location:../../../accueil.php');

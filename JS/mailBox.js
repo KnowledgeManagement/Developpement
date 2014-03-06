@@ -132,7 +132,6 @@ function refuseMessage(idMessage){
 }
 
 function deleteMessages(){
-alert('toot');
 	var i;
 	var nb = 0;
 	var list = new Array();
@@ -155,7 +154,6 @@ alert('toot');
 				type :'POST',
 				success:function(data) 
 				{
-					alert('toot');
 					goToMailBoxLeftContent();
 					goToMailBoxRightContent('allMessages');
 					$.ajax({

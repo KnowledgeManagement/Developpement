@@ -165,10 +165,11 @@ function tmpToDocument($id){
 				from m5f_tmp where idReferenceTmp = '".$id."'");
 	$description = str_replace("'","''",$s1[0]['descriptionTmp']);
 	$exemple = str_replace("'","''",$s1[0]['exempleTmp']);
+	$intitule = str_replace("'","''",$s1[0]['intituleTmp']);
 	if(Empty($verif)){
 		
 		$s2 = run("INSERT INTO m5f_document(idReference, intituleDoc, date, description, validee, exemple, idSousCat, lienTelechargement)
-				VALUES('".$s1[0]['idReferenceTmp']."', '".$s1[0]['intituleTmp']."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$description."', 1, '".$exemple."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
+				VALUES('".$s1[0]['idReferenceTmp']."', '".$intitule."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$description."', 1, '".$exemple."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
 	}
 	else{
 		$s2 = run("Update m5f_document set  description = '".$s1[0]['descriptionTmp']."',exemple = '".$s1[0]['exempleTmp']."' ,lienTelechargement = '".$s1[0]['lienTelechargementTmp']."' where idReference = '".$id."'");
