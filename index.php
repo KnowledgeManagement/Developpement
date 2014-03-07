@@ -11,6 +11,9 @@
 		<title>PROJET KM // Base de Connaissances de Marianne et les 5 fantastiques</title>
 		<meta charset="utf-8"/>
 		<!-- Insertion du CSS et du Favicon -->
+		
+		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
+        <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
 		<link rel="stylesheet" href="css/bouton.css" />
 		<link rel="stylesheet" href="css/accueil.css"/>
 		<link rel="stylesheet" href="css/authentification.css"/>
@@ -22,6 +25,9 @@
 		<script type="text/javascript" src="JS/bootstrap.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
 		
+		<link rel='stylesheet' href='CSS/nprogress.css'/>
+		<script src='JS/nprogress.js'></script>
+
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -36,7 +42,7 @@
 					</div>
 				</div>
 			</nav>
-		</header>	
+		</header>
 		<!----------- HEADER FIN ----------->
 		<!----------- CORPS DEBUT ----------->
 		<section>
@@ -77,3 +83,12 @@
 		<!----------- FOOTER FIN ----------->
 	</body>
 </html>
+
+<script type="text/javascript">
+	$('body').show();
+	$('.version').text(NProgress.version);
+	NProgress.start();
+	setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+	NProgress.start ();
+	NProgress.done ();
+</script>

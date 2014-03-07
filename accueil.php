@@ -35,6 +35,10 @@
 		<script type="text/javascript" src="JS/prism.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
+
+		<link rel='stylesheet' href='CSS/nprogress.css'/>
+		<script src='JS/nprogress.js'></script>
+
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -184,4 +188,12 @@
 	});
 	
 });
+
+$('body').show();
+$('.version').text(NProgress.version);
+NProgress.start();
+setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+NProgress.start ();
+NProgress.done ();
+
 </script>
