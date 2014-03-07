@@ -14,6 +14,11 @@
 		
 		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
         <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
+		<script type="text/javascript" src="JS/bootstrap.js"></script>
+		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src='JS/nprogress.js'></script>
+
 		<link rel="stylesheet" href="css/bouton.css" />
 		<link rel="stylesheet" href="css/accueil.css"/>
 		<link rel="stylesheet" href="css/authentification.css"/>
@@ -22,12 +27,8 @@
 		<link rel="stylesheet" href="css/bootstrap-theme.css"/>
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
 		<link rel="icon" type="image/png" href="Images/favicon.png" />
-		<script type="text/javascript" src="JS/bootstrap.js"></script>
-		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
-		
 		<link rel='stylesheet' href='CSS/nprogress.css'/>
-		<script src='JS/nprogress.js'></script>
-
+		
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
