@@ -53,7 +53,7 @@
 				</label>
 			</td>
 			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
-				<p class="cursor" for="<?php echo "check".$i; ?>">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 					<?php
 						if($messages[$i]['etatTmp'] == "Refusé"){
 							echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
@@ -61,12 +61,12 @@
 							echo urldecode($messages[$i]['etatTmp']);
 						}
 					?>
-				</p>
+				</label>
 			</td>
 			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
-				<p class="cursor" for="<?php echo "check".$i; ?>">
+				<label class="cursor" for="<?php echo "check".$i; ?>">
 					<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
-				</p>
+				</label>
 			</td>
 		</tr>
 <?php

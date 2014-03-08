@@ -54,21 +54,25 @@
 				</tr>
 				<tr>
 					<td class="tdModifFunction">Description :</td>
-					<td><textarea class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="description" name="description" required ></textarea></td>
+					<td><textarea style="min-height: 130px;resize:vertical;" class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="description" name="description" required ></textarea></td>
 				</tr>
 				<tr>
 					<td class="tdModifFunction">Explication :</td>
-					<td><textarea class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="explication0" name="explication0" required ></textarea></td>
+					<td><textarea style="min-height: 130px;resize:vertical;" class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="explication0" name="explication0" required ></textarea></td>
 				</tr>
 				<tr>
 					<td class="tdModifFunction">Exemple : </td>
-					<td><textarea class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="exemple0" name="exemple0" ></textarea></td>
+					<td><textarea style="min-height: 130px;resize:vertical;" class="form-control" onkeydown="insertTab(this, event);" class="textarea" id="exemple0" name="exemple0" ></textarea></td>
 				</tr>
 				
+				<tr>
+					<td class="tdModifFunction"><p>Pièce jointe : </p></td>
+					<td><p><input type="file" name="pj" id="piecejointe" value="Insérer" /></p></td>
+				</tr>
+
 			</table>
 
-			<p>Pièce jointe : </p>
-			<p><input type="file" name="pj" id="piecejointe" value="Insérer" /></p>
+			
 			<br/>
 
 			<a href="#" class="btn btn-sm btn-warning" title="Ajouter un exemple" onclick="javascript:addexemple()"><i class="glyphicon glyphicon-plus-sign"></i></a>

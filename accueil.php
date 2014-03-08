@@ -17,6 +17,7 @@
 		<meta charset="utf-8"/>
 		<!-- Insertion du CSS et du Favicon -->
 		<script type="text/javascript" src="JS/Jquery/jquery.js"></script>
+		<script type="text/javascript" src="JS/Jquery/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="JS/Jquery/jquery.ui.js"></script>
 		<script type="text/javascript" src="JS/sameLogs.js"></script>
 		<script type="text/javascript" src="JS/passEmployees.js"></script>

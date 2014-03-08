@@ -20,10 +20,10 @@
 		<div class="panel-body">
 			<table class="table table-condensed">
 				<tr>
-					<td class="col-md-6">
+					<td class="col-md-2">
 						<p class="text-left"><b>Expéditeur</b></p>
 					</td>
-					<td class="col-md-6">
+					<td class="col-md-10">
 						<?php echo $message[0]['nom'].' '.$message[0]['prenom']; ?>
 					</td>
 				</tr>
@@ -69,7 +69,7 @@
 	if($_POST['type'] == 'mess')
 	{
 		echo '<b>Description : </b><br/><br/>'.html_entity_decode($message[0]['descriptionTmp']).'<br/></br><hr></br>';
-		echo html_entity_decode($message[0]['exempleTmp']);
+		echo '<b>Exemple : </b><br/><br/>'.html_entity_decode($message[0]['exempleTmp']);
 		
 		if(($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu') && $_SESSION['fonction']=="Administrateur")
 		{
@@ -79,7 +79,7 @@
 			</div>
 			<div class="btn-group btn-group-sm" style="float:right;margin-top:10px;">	
 				<a href="#" class="btn btn-success" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Accepter</a>
-				<a href="#" class="btn btn-primary" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo $message[0]['intituleTmp']; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Modifier</a>
+				<a href="#" class="btn btn-primary" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo addslashes($message[0]['intituleTmp']); ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Modifier</a>
 				<a href="#" class="btn btn-danger" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Refuser</a>
 			</div>
 			<?php
