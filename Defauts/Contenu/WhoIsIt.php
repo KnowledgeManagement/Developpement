@@ -26,26 +26,26 @@
 			<a class="navbar-brand" href="accueil.php"><i class="glyphicon glyphicon-home"></i> <b>M5F</b></a>
 		</div>
 		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
+			<div class="form-group" style="margin-bottom:-24px">
 				<span class="menu">
 					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"><i id="myButton" class="glyphicon glyphicon-th-large dropdown dropdown-toggle"  data-toggle="dropdown" title="Filtres"></i></a>
+						<li class="dropdown"><a href="#" class="filtre dropdown-toggle" data-toggle="dropdown"><i id="myButton" class="glyphicon glyphicon-th-large dropdown dropdown-toggle"  data-toggle="dropdown" title="Filtres"></i></a>
 							<ul class="dropdown-menu" id="filter">
-								<li><a href="#" class="btn btn-danger" style="color : white;" onclick="javascript:deleteFilter()"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer les filtres</a></li>
+								<li style="margin-bottom:10px"><a href="#" class="btn btn-danger btn-sm" style="color:white;" onclick="javascript:deleteFilter()"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer les filtres</a></li>
 								<?php
 								for($i = 0; $i < sizeof($lesCate); $i++){
 								?>
 									<!--- MENU/SOUS-MENU DEBUT --->
-									<li>
-										<label style="font-weight: normal;"><input type="checkbox" onclick="javascript:allCheck(<?php echo $lesCate[$i]['idCat']; ?>)" name="cate" value="<?php echo $lesCate[$i]['idCat']; ?>"/><?php echo $lesCate[$i]['nomCat']."<br/>"; ?></label>
+									<li class="filter_contenu">
+										<label style="color:#428bca;font-weight:normal"><input type="checkbox" onclick="javascript:allCheck(<?php echo $lesCate[$i]['idCat']; ?>)" name="cate" value="<?php echo $lesCate[$i]['idCat']; ?>" style="margin-right:10px" /><?php echo $lesCate[$i]['nomCat'] ?><i class="glyphicon glyphicon-folder-open" style="margin-left:10px"></i></label><br/>
 									</li>
-									<li style='margin-left : 50px;'>
+									<li class="filter_contenu" style="margin-left:20px;">
 										<?php
 											$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
 											if(isset($SousMenu)){
 												for($j = 0; $j < sizeof($SousMenu); $j++){
 											?>
-												<label style="font-weight: normal;"><input onclick="javascript:checkSousCat(<?php echo $SousMenu[$j]['idSousCat']; ?>)" type="checkbox" name="sousCat" value="<?php echo $SousMenu[$j]['idSousCat']; ?>"/><?php echo $SousMenu[$j]['nomSousCat']."</span><br/>"; ?>
+												<input onclick="javascript:checkSousCat(<?php echo $SousMenu[$j]['idSousCat']; ?>)" type="checkbox" name="sousCat" value="<?php echo $SousMenu[$j]['idSousCat']; ?>" style="margin-right:10px" /><?php echo $SousMenu[$j]['nomSousCat']."</span><br/>"; ?>
 											<?php
 												}
 											}

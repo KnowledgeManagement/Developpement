@@ -24,6 +24,19 @@ header{
 	z-index : 10;
 }
 
+.filtre{
+	top : -8px;
+}
+
+#filter{
+	top : 42px;
+	padding : 10px;
+}
+
+.filter_contenu{
+text-align : left;
+}
+
 /**** MENU MENU-DEROULANT/SOUS-MENU DEBUT ****/
 .menu{
 	position : relative;	
