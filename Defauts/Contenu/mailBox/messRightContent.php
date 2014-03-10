@@ -42,31 +42,23 @@
 				<input type='checkbox'  name='boxMess[]' <?php echo 'value="check'.$messages[$i]['idReferenceTmp'].'"' ?> value=''>
 				<label class="checkbox_label"></label>
 			</td>
-			<td id='messName' class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
-				<label class="cursor" for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['nom'].' '.$messages[$i]['prenom']; ?>
-				</label>
+			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
+				<?php echo $messages[$i]['nom'].' '.$messages[$i]['prenom']; ?>
 			</td>
-			<td id='messTitle' class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
-				<label class="cursor" for="<?php echo "check".$i; ?>">
-						<?php echo $messages[$i]['intituleTmp']; ?>
-				</label>
+			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
+				<?php echo $messages[$i]['intituleTmp']; ?>
 			</td>
-			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
-				<label class="cursor" for="<?php echo "check".$i; ?>">
-					<?php
-						if($messages[$i]['etatTmp'] == "Refusé"){
-							echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
-						}else{
-							echo urldecode($messages[$i]['etatTmp']);
-						}
-					?>
-				</label>
+			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
+				<?php
+					if($messages[$i]['etatTmp'] == "Refusé"){
+						echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
+					}else{
+						echo urldecode($messages[$i]['etatTmp']);
+					}
+				?>
 			</td>
-			<td class='messTime cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
-				<label class="cursor" for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
-				</label>
+			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
+				<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
 			</td>
 		</tr>
 <?php
@@ -105,28 +97,20 @@
 			<td id='messCheckbox'>
 				<input type='checkbox' name='boxMess[]' <?php echo 'value="check'.$messages[$i]['idFormContact'].'"' ?> value=''>
 			</td>
-			<td id='messName' class="cursor" onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
-				<p class="cursor" for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['nom'].' '.$messages[$i]['prenom']; ?>
-				</p>
+			<td class="cursor" onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
+				<?php echo $messages[$i]['nom'].' '.$messages[$i]['prenom']; ?>
 			</td>
-			<td id='messTitle' class="cursor">
-				<p class="cursor" for="<?php echo "check".$i; ?>">
-					<a href='#' onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
-						<?php echo $messages[$i]['objet']; ?>
-					</a>
-				</p>
+			<td class="cursor" onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
+				<?php echo $messages[$i]['objet']; ?>
 			</td>
-			<td class='messTime, cursor' onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
-				<p class="cursor" for="<?php echo "check".$i; ?>">
-					<?php
-						if($messages[$i]['lu'] == 0){
-							echo "Non Lu";
-						}else{
-							echo "Lu";
-						}
-					?>
-				</p>
+			<td class='cursor' onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
+				<?php
+					if($messages[$i]['lu'] == 0){
+						echo "Non Lu";
+					}else{
+						echo "Lu";
+					}
+				?>
 			</td>
 			<td class='messTime, cursor' onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
 				<p class="cursor" for="<?php echo "check".$i; ?>">

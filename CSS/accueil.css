@@ -75,51 +75,51 @@ header{
 	margin-left : 5px;
 }
 /**** MENU AJOUTER FIN ****/
-/**** MENU UTILISATEUR DEBUT ****/
+/**** MENU UTILISATEUR DEBUT ****/	
 #UserMenu{
-	position : fixed;	
-	right : 45px;
-	top : 1px;
+ position : fixed; 
+ right : 45px;
+ top : 1px;
 }
 
 #UserMenu ul{
-	list-style-type:none;
-	text-align:center;
+ list-style-type:none;
+ text-align:center;
 }
 
 #UserMenu li{
-	float:right;
-	margin:auto;
-	height : auto;
+ float:right;
+ margin:auto;
+ height : auto;
 }
 
 #UserMenu li a {
-	display:block;
-	min-width:100px;
-	text-decoration:none;
+ display:block;
+ min-width:100px;
+ text-decoration:none;
  }
 
 #UserMenu li ul {
-	position:absolute;
+ position:absolute;
  }
  
 #UserMenu ul li ul {
-	display:none;
-	
+ display:none;
+ 
  }
 #UserMenu ul li:hover ul {
-	display:block;
+ display:block;
  }
 #UserMenu li:hover ul li {
-	float:none;
+ float:none;
 }
 
 #UserMenu ul li ul li a {
-  	text-align : left;  
+   text-align : left;  
  }
  
 #UserMenu ul li ul li a:hover {
-  	text-align : left;  
+   text-align : left;  
  }
 /****MENU UTILISATEUR FIN ****/
 /**** MENU AIDE DEBUT ****/

@@ -138,7 +138,7 @@ function seeMyAsking(){
 			$('#RightContent').html(data);
 			$('#LeftContent').html("");
 			$('#titleLeftContent').html("Navigation");
-			$('#titleRightContent').html("Mes demandes");
+			$('#titleRightContent').html('Mes demandes <input type="button" style="float : right; margin-top:-8px;"  onclick="javascript:contactAdmin()" class="btn btn-info" value="Ajouter une demande"/>');
 		}
 	});
 }

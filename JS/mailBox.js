@@ -50,7 +50,7 @@ function openMessage(idMessage, objet){
 				type :'POST', 
 				success:function(data) 
 				{
-					$('#UserMenu').html(data);
+					$('#header').html(data);
 				}
 			});
 		}
@@ -73,7 +73,7 @@ function RedirectMessageModifie(idMessage, objet){
 				type :'POST', 
 				success:function(data) 
 				{
-					$('#UserMenu').html(data);
+					$('#header').html(data);
 				}
 			});
 		}
@@ -96,7 +96,7 @@ function openMessageContact(idMessage, objet){
 				type :'POST', 
 				success:function(data) 
 				{
-					$('#UserMenu').html(data);
+					$('#header').html(data);
 				}
 			});
 		}
@@ -161,7 +161,7 @@ function deleteMessages(){
 						type :'POST', 
 						success:function(data) 
 						{
-							$('#UserMenu').html(data);
+							$('#header').html(data);
 						}
 					});
 				}
