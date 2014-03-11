@@ -141,6 +141,10 @@
 function showHelp(){
 	if(document.getElementById("help").value == 0){
 		document.getElementById("helpDiv").style.display = "block";
+		$('#LeftContent').html("");
+		$('#titleRightContent').html("");
+		$('#RightContent').html("");
+		$("#titleLeftContent").html("");
 	}else{
 		document.getElementById("helpDiv").style.display = "none";
 	}
