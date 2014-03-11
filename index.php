@@ -53,21 +53,22 @@
 					<!--- FORMULAIRE DE CONNEXION --->
 					<form action="Defauts/Contenu/authentification.php" method="post">
 						<div class="form-inline panel panel-info">
-							<div class="panel-body">
-								<input type="text" name="identifiant" class="form-control" autofocus required placeholder="Identifiant" style="width:50%">
-									<?php
-										/* Si le mot de passe ou l'identifiant est faux, affichage d'un message d'erreur */
-										if(isset($_GET['error'])){
-											echo '<div class="alert alert-danger pull-right" style="width : 40%">';
-											echo '<i class="glyphicon glyphicon-exclamation-sign"></i>';
-											echo ' Identifiant ou mot de passe incorrect !';
-											echo '</div>';
-										}
-									?>
-								<br/><br/>
-	    						<input type="password" name="password" class="form-control" required placeholder="Mot de passe" style="width:50%"><br/><br/>
-	      						<button type="submit" class="btn btn-primary btn-small" name="connexion"> <i class="glyphicon glyphicon-user"></i> Connexion</button>
-							</div>
+							<div class="panel-heading">Authentification</div>
+								<div class="panel-body">
+									<input type="text" name="identifiant" class="form-control" autofocus required placeholder="Identifiant" style="width:50%">
+										<?php
+											/* Si le mot de passe ou l'identifiant est faux, affichage d'un message d'erreur */
+											if(isset($_GET['error'])){
+												echo '<div class="alert alert-danger pull-right" style="width : 40%">';
+												echo '<i class="glyphicon glyphicon-exclamation-sign"></i>';
+												echo ' Identifiant ou mot de passe incorrect !';
+												echo '</div>';
+											}
+										?>
+									<br/><br/>
+									<input type="password" name="password" class="form-control" required placeholder="Mot de passe" style="width:50%"><br/><br/>
+									<button type="submit" class="btn btn-primary btn-small" name="connexion"> <i class="glyphicon glyphicon-user"></i> Connexion</button>
+								</div>
 						</div>
 					</form>
 				</div>
