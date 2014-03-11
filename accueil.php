@@ -102,7 +102,7 @@
 		<?php
 			if($_SESSION['fonction'] != "Administrateur"){
 		?>
-			<input type="button" id="buttonHelp" value="Afficher l'aide" onclick="javascript:changeHelp()" style="position : fixed; bottom : 15px; left : 10px; z-index : 101;"/>
+			<a href="#" id="buttonHelp" title="Afficher l'aide" onclick="javascript:changeHelp();" style="position : fixed; bottom : 15px; left : 10px; z-index : 101;"><i class="glyphicon glyphicon-question-sign"></i></a>
 		<?php
 			}
 		?>		
@@ -153,7 +153,7 @@ function showHelp(){
 function changeHelp(){
 	if(document.getElementById("help").value == 1){
 		document.getElementById("help").value = 0;
-		document.getElementById("buttonHelp").value = "Enlever l'aide";
+		document.getElementById("buttonHelp").title = "Enlever l'aide";
 		showHelp();
 		showHelpWhoIsIt();
 		$.ajax({

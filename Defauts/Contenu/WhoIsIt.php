@@ -149,7 +149,7 @@
 			<?php 
 				if($_SESSION['fonction'] != "Administrateur"){
 			?>			
-				<a href="#" id="seeContact" style="margin-top : 15px; padding : 2px;" class="glyphicon glyphicon-question-sign"></a>
+				<a href="#" id="seeContact" style="margin-top : 15px; padding : 2px;" class="glyphicon glyphicon-info-sign"></a>
 			<?php 
 				}	
 			?>
