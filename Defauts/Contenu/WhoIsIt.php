@@ -58,35 +58,37 @@
 						</li>
 					</ul>
 				</span>
-				<input type="text" id="search" class="form-control" onkeyup="onSearch()" placeholder="Rechercher..." name="rechercher">
+				<input type="text" id="search" class="form-control" onkeyup="onSearch()" placeholder="Rechercher..." autocomplete="off" name="rechercher">
 			</div>
 		</form>
-		<?php
-			for($i = 0; $i < sizeof($lesCate); $i++){
-		?>
-		<!--- MENU/SOUS-MENU DEBUT --->
-		<span class="menu">
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"><?php echo $lesCate[$i]['nomCat']; ?></a>
-					<ul class="dropdown-menu">
-						<?php
-							$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
-							
-							if(isset($SousMenu)){
-								for($j = 0; $j < sizeof($SousMenu); $j++){
-							?>
-								<li><a href="#" onclick="javascript:goToFunction(<?php echo $SousMenu[$j]['idSousCat']; ?>)"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;&nbsp;<?php echo $SousMenu[$j]['nomSousCat']; ?></a></li>
+		<div id="menuNav" class="nav navbar-nav">
+			<?php
+				for($i = 0; $i < sizeof($lesCate); $i++){
+			?>
+			<!--- MENU/SOUS-MENU DEBUT --->
+			<span class="menu" id="menuNav">
+				<ul class="nav navbar-nav">
+					<li class="dropdown"><a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"><?php echo $lesCate[$i]['nomCat']; ?></a>
+						<ul class="dropdown-menu">
 							<?php
+								$SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
+								
+								if(isset($SousMenu)){
+									for($j = 0; $j < sizeof($SousMenu); $j++){
+								?>
+									<li><a href="#" onclick="javascript:goToFunction(<?php echo $SousMenu[$j]['idSousCat']; ?>)"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;&nbsp;<?php echo $SousMenu[$j]['nomSousCat']; ?></a></li>
+								<?php
+									}
 								}
-							}
-						?>
-					</ul>
-				</li>
-			</ul>
-		</span>
+							?>
+						</ul>
+					</li>
+				</ul>
+			</span>
 			<?php
 				}
 			?>
+		</div>
 		<!--- MENU/SOUS-MENU FIN --->
 		<!--- Si administrateur > Ajout d'un bouton de gestion des menus
 			  Si différent d'administrateur > Ajout d'un onglet pour contacter l'administrateur --->
@@ -102,6 +104,7 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
 					<a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown">
+						<span id="nameOfPerson" style="padding : 5px;">
 							<?php
 								if($_SESSION['fonction'] == "Administrateur"){
 									$notRead = countMessNotRead();
@@ -109,6 +112,7 @@
 								}
 								echo $_SESSION['nom'];
 							?>
+						</span>
 					</a>
 					<ul class="dropdown-menu" style="margin-left : -30px;">
 						<?php
@@ -145,14 +149,14 @@
 			<?php 
 				if($_SESSION['fonction'] != "Administrateur"){
 			?>			
-				<a href="#" style="margin-top : 15px;" class="glyphicon glyphicon-question-sign"></a>
+				<a href="#" id="seeContact" style="margin-top : 15px; padding : 2px;" class="glyphicon glyphicon-question-sign"></a>
 			<?php 
 				}	
 			?>
 		</div>
 	</div>
 </nav> 
-<div id="searchResult" style="display : none; border : solid black 1px; width : 100px; position : absolute; z-index : 50; background-color : white; color : black;">
+<div id="searchResult" style="display : none; border : solid black 1px; width : 1000px; position : absolute; z-index : 50; background-color : white; color : black;">
 
 </div>
 <!--- MENU UTILISATEUR FIN --->
@@ -179,6 +183,9 @@ function onSearch(){
 			type :'POST', 
 			success:function(data) 
 			{
+				document.getElementById('searchResult').style.display = "block";
+				document.getElementById('searchResult').style.top = "50px";
+				document.getElementById('searchResult').style.left = document.getElementById('search').offsetLeft+"px";
 				$("#searchResult").html(data);
 			}
 		});
@@ -245,4 +252,26 @@ function allCheck(idCat){
 function checkSousCat(){
 	onSearch();
 }
+
+$(document).ready(function() {
+	showHelpWhoIsIt();
+});
+
+function showHelpWhoIsIt(){
+	if(document.getElementById("help").value == 0){
+		document.getElementById("search").style.border = "solid red 2px";
+		document.getElementById("myButton").style.border = "solid red 2px";
+		document.getElementById("myButton").style.padding = "5px";
+		document.getElementById("menuNav").style.border = "solid red 2px";
+		document.getElementById("nameOfPerson").style.border = "solid red 2px";
+		document.getElementById("seeContact").style.border = "solid red 2px";
+	}else{
+		document.getElementById("search").style.border = "1px solid #ccc";
+		document.getElementById("myButton").style.border = "none";
+		document.getElementById("menuNav").style.border = "none";
+		document.getElementById("nameOfPerson").style.border = "none";
+		document.getElementById("seeContact").style.border = "none";
+	}
+}
+
 </script>

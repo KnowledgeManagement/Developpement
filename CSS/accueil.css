@@ -265,9 +265,7 @@ footer{
 	margin : 0px;
 	padding : 0px;
 }
-.table{
-	margin-top : 15px;
-}
+
 	
 .sousMenu{
 	list-style: none;
@@ -281,3 +279,7 @@ footer{
 }
 
 /********************** MESSAGERIE FIN ************************/
+
+.inputSearchHelp{
+	border:2px solid red;
+}

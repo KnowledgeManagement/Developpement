@@ -56,6 +56,7 @@
 		<?php
 	}
 	?>
+		<!--<div style="position : absolute; top : 0px; left : 0px; z-index : 100; opacity : 0.5; width : 100%; height : 100%;"><img src='Images/dessin.png' style="width : 100%; height : 100%;" alt="no"/></div>-->
 		<header id="header">
 		</header>
 		<!----------- CORPS DEBUT ----------->
@@ -98,7 +99,17 @@
 				</div>
 			</div>
 		</footer>
+		<?php
+			if($_SESSION['fonction'] != "Administrateur"){
+		?>
+			<input type="button" id="buttonHelp" value="Afficher l'aide" onclick="javascript:changeHelp()" style="position : absolute; bottom : 15px; left : 10px; z-index : 101;"/>
+		<?php
+			}
+		?>		
 		<!----------- FOOTER FIN ----------->
+		<input type="hidden" id="help" value="1"/>
+		<div id="helpDiv" style="z-index : 100; position : absolute; top : 0px; left : 0px; opacity : 0.2; background-color : black; width : 100%; height : 100%; display : none;"></div>
+		<div id="helpAppears" style="position : absolute; z-index : 50;"></div>
 	</body>
 </html>
 
@@ -124,8 +135,51 @@
 			$('#header').html(data);
 		}
 	});
-	
+	showHelp();
 });
+
+function showHelp(){
+	if(document.getElementById("help").value == 0){
+		document.getElementById("helpDiv").style.display = "block";
+	}else{
+		document.getElementById("helpDiv").style.display = "none";
+	}
+}
+
+function changeHelp(){
+	if(document.getElementById("help").value == 1){
+		document.getElementById("help").value = 0;
+		document.getElementById("buttonHelp").value = "Enlever l'aide";
+		showHelp();
+		showHelpWhoIsIt();
+		$.ajax({
+			url : 'Defauts/Contenu/help/divHelp.html',
+			type :'POST', 
+			success:function(data) 
+			{
+				$('#helpAppears').html(data);
+				document.getElementById("researchBarre").style.left = document.getElementById('search').offsetLeft+10+"px";
+				document.getElementById("researchBarre").style.top = document.getElementById('search').offsetTop+38+"px";
+				document.getElementById("filtreMenu").style.left = document.getElementById('myButton').offsetLeft+40+"px";
+				document.getElementById("filtreMenu").style.top = document.getElementById('myButton').offsetTop+33+"px";
+				document.getElementById("menuNavigation").style.left = document.getElementById('menuNav').offsetLeft+40+"px";
+				document.getElementById("menuNavigation").style.top = document.getElementById('menuNav').offsetTop+56+"px";
+				document.getElementById("myAccount").style.left = document.getElementById('UserMenu').offsetLeft-80+"px";
+				document.getElementById("myAccount").style.top = document.getElementById('UserMenu').offsetTop+43+"px";
+				document.getElementById("contact").style.left = document.getElementById('UserMenu').offsetLeft+"px";
+				document.getElementById("contact").style.top = document.getElementById('UserMenu').offsetTop+43+"px";
+			}
+		});
+	}else{
+		document.getElementById("help").value = 1;
+		document.getElementById("buttonHelp").value = "Afficher l'aide";
+		showHelp();
+		showHelpWhoIsIt();
+		$('#helpAppears').html("");
+	}
+	
+	//menuNavigation
+}
 
 $('body').show();
 $('.version').text(NProgress.version);
