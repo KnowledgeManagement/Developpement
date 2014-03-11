@@ -102,7 +102,7 @@
 		<?php
 			if($_SESSION['fonction'] != "Administrateur"){
 		?>
-			<input type="button" id="buttonHelp" value="Afficher l'aide" onclick="javascript:changeHelp()" style="position : absolute; bottom : 15px; left : 10px; z-index : 101;"/>
+			<input type="button" id="buttonHelp" value="Afficher l'aide" onclick="javascript:changeHelp()" style="position : fixed; bottom : 15px; left : 10px; z-index : 101;"/>
 		<?php
 			}
 		?>		
