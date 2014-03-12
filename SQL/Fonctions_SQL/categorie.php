@@ -46,4 +46,9 @@ function UpdateCategorie($intitule_cat, $id){
 		run("update m5f_tmp set lienTelechargementTmp = '".$intitule_cat."/".$lienTel[1].'/'.$lienTel[2]."' where idReferenceTmp = '".$uneRequete['idReferenceTmp']."'");
 	}
 }
+
+ function countAllCategorie(){
+ 	$s1 = run("SELECT count(*) AS categ FROM m5f_categorie");
+ 	return $s1[0]["categ"];
+ }
 ?>

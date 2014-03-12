@@ -22,6 +22,18 @@ function goToPageLeft(){
 	});
 }
 
+function goToPageDashboard(){
+	$.ajax({
+		url : 'Defauts/Contenu/dashBoard/dashBoard.php',
+		type :'POST', 
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Statistiques du site");
+		}
+	});
+}
+
 function reinitPass(idUser){
 	if(confirm("Êtes-vous sûr de vouloir réinitialiser le mot de passe de cet utilisateur ?")){
 		$.ajax({

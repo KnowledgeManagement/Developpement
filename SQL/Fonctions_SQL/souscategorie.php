@@ -115,4 +115,14 @@ function deleteSousCategorie($id){
 	$sql = run("DELETE FROM m5f_tmp WHERE idSousCat = '".$id."'");
 	$sql = run("DELETE FROM m5f_sous_categorie WHERE idSousCat = '".$id."';");
 }
+
+function countAllSousCategorie(){
+ 	$s1 = run("SELECT count(*) AS sousCateg FROM m5f_sous_categorie");
+ 	return $s1[0]["sousCateg"];
+}
+
+function countAllFunctions(){
+ 	$s1 = run("SELECT count(*) AS fonction FROM m5f_document");
+ 	return $s1[0]["fonction"];
+}
 ?>

@@ -128,6 +128,11 @@
 									<i class="glyphicon glyphicon-wrench"></i> Gérer les mots de passe
 								</a>
 							</li>
+							<li>
+								<a href="#" onclick="javascript:goToPageDashboard()">
+									<i class="glyphicon glyphicon-cog"></i> DashBoard
+								</a>
+							</li>
 						<?php
 							}else if($_SESSION['fonction'] == "Contributeur"){
 						?>
