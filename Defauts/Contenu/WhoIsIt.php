@@ -31,7 +31,7 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a href="#" class="filtre dropdown-toggle" data-toggle="dropdown"><i id="myButton" class="glyphicon glyphicon-th-large dropdown dropdown-toggle"  data-toggle="dropdown" title="Filtres"></i></a>
 							<ul class="dropdown-menu" id="filter">
-								<li style="margin-bottom:10px"><a href="#" class="btn btn-danger btn-sm" style="color:white;" onclick="javascript:deleteFilter()"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer les filtres</a></li>
+								<li style="margin-bottom:10px"><span class="btn btn-danger btn-sm" style="color:white;" onclick="javascript:deleteFilter()"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer les filtres</span></li>
 								<?php
 								for($i = 0; $i < sizeof($lesCate); $i++){
 								?>
