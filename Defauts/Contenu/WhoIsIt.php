@@ -37,7 +37,11 @@
 								?>
 									<!--- MENU/SOUS-MENU DEBUT --->
 									<li class="filter_contenu">
-										<label style="color:#428bca;font-weight:normal"><input type="checkbox" onclick="javascript:allCheck(<?php echo $lesCate[$i]['idCat']; ?>)" name="cate" value="<?php echo $lesCate[$i]['idCat']; ?>" style="margin-right:10px" /><?php echo $lesCate[$i]['nomCat'] ?><i class="glyphicon glyphicon-folder-open" style="margin-left:10px"></i></label><br/>
+										<label style="color:#428bca;font-weight:normal">	
+											<input type="checkbox" onclick="javascript:allCheck(<?php echo $lesCate[$i]['idCat']; ?>)" name="cate" value="<?php echo $lesCate[$i]['idCat']; ?>" style="margin-right:10px" />
+												<?php echo $lesCate[$i]['nomCat'] ?>
+												<i class="glyphicon glyphicon-folder-open" style="margin-left:10px"></i>
+										</label><br/>
 									</li>
 									<li class="filter_contenu" style="margin-left:20px;">
 										<?php
@@ -45,7 +49,7 @@
 											if(isset($SousMenu)){
 												for($j = 0; $j < sizeof($SousMenu); $j++){
 											?>
-												<input onclick="javascript:checkSousCat(<?php echo $SousMenu[$j]['idSousCat']; ?>)" type="checkbox" name="sousCat" value="<?php echo $SousMenu[$j]['idSousCat']; ?>" style="margin-right:10px" /><?php echo $SousMenu[$j]['nomSousCat']."</span><br/>"; ?>
+												<label style="font-weight:normal;padding:0px;margin:0px"><input onclick="javascript:checkSousCat(<?php echo $SousMenu[$j]['idSousCat']; ?>)" type="checkbox" name="sousCat" value="<?php echo $SousMenu[$j]['idSousCat']; ?>" style="margin-right:10px" /><?php echo $SousMenu[$j]['nomSousCat']; ?></label><br/>
 											<?php
 												}
 											}
