@@ -69,7 +69,8 @@ function getMessageById($id){
 			and m5f_sous_categorie.idSousCat = M.idSousCat
 			and m5f_sous_categorie.idCat = m5f_categorie.idCat
 			and M.idUser = U.idUser
-			AND M.idReferenceTmp = '".$id."'");
+			AND M.idReferenceTmp = '".$id."'
+			ORDER BY M.dateTmp");
 	return $s1;
 }
 
