@@ -98,6 +98,12 @@ function findLink($reference){
 	return $directory;
 }
 
+function findLinkTmp($reference){
+	$info = getFunctionBySousCategorieTmp($reference);
+	$directory = $info[0]['lienTelechargementTmp'];
+	return $directory;
+}
+
 function deleteFunction($reference){
 	deleteFiles($reference);
 	$sql = run("DELETE from m5f_document WHERE idReference = '".$reference."'");
