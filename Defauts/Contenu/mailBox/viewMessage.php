@@ -1,5 +1,6 @@
 <?php
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
+	include_once "../../../SQL/Fonctions_SQL/souscategorie.php";
 	session_start();
 	$idMessage = $_POST['id'];
 	if($_POST['type'] == 'mess'){
@@ -13,7 +14,7 @@
 			setMessageReadContact($idMessage);
 		}
 	}
-	$findLink = findLink($idMessage);
+	$findLink = findLinkTmp($idMessage);
 ?>
 <div class="form-inline">
 	<div class="panel panel-default">
@@ -74,10 +75,15 @@
 		if(($message[0]['etatTmp'] == 'Non Lu' || $message[0]['etatTmp'] == 'Lu') && $_SESSION['fonction']=="Administrateur")
 		{
 			?>
-			<div style="margin-top : 50px;">
-				<b>Commentaire :</b> <input type="text" class="form-control" style="width : 350px;" id="commentaire" placeholder="Le commentaire sera vu par le contributeur..."/>
-			</div>
-			<div class="btn-group btn-group-sm" style="float:right;margin-top:10px;">	
+			<div class="btn-group btn-group-sm" style="float:right;margin-top:10px;">
+				<?php
+				if(findLinkTmp($idMessage) != null)
+				{
+					?>
+					<a href="#" class="btn btn-info" onclick="javascript:downloadFunction('<?php echo findLinkTmp($idMessage); ?>')"><i class="glyphicon glyphicon-cloud-download"></i>&nbsp;&nbsp;Télécharger</a>
+					<?php
+				}
+				?>
 				<a href="#" class="btn btn-success" onclick="javascript:validMessage('<?php echo $idMessage; ?>')"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Accepter</a>
 				<a href="#" class="btn btn-primary" onclick="javascript:modifMessage('<?php echo $idMessage; ?>', '<?php echo addslashes($message[0]['intituleTmp']); ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Modifier</a>
 				<a href="#" class="btn btn-danger" onclick="javascript:refuseMessage('<?php echo $idMessage; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Refuser</a>
