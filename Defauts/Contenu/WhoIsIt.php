@@ -158,7 +158,37 @@
 			<?php 
 				if($_SESSION['fonction'] != "Administrateur"){
 			?>			
-				<a href="#" id="seeContact" style="margin-top : 15px; padding : 2px;" class="glyphicon glyphicon-info-sign"></a>
+			
+				<div class="pull-right">
+					<i style="margin-top : 15px; padding : 2px;" id="seeContact" class="glyphicon glyphicon-info-sign"></i>
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"></a>
+								<ul class="dropdown-menu" style="margin-left : -85px;margin-top : -12px;">
+									<p><em>Groupe d'administrateur</em></p>
+									<hr>
+									<li style="width:240px;"><i class="glyphicon glyphicon-user"></i> Thomas DEBAS</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> debas.thomas@gmail.com</li>
+									<hr>
+									<li><i class="glyphicon glyphicon-user"></i> Sébastien DESZCZ</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> sebastien.deszcz@gmail.com</li>
+									<hr>
+									<li><i class="glyphicon glyphicon-user"></i> Matthieu JAGOURY</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> jagoury.m@gmail.com</li>
+									<hr>
+									<li><i class="glyphicon glyphicon-user"></i> Rémy MAURICE</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> remy.maurice@epsi.fr</li>
+									<hr>
+									<li><i class="glyphicon glyphicon-user"></i> Grégoire MEURILLON</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> gregoire.meurillon@epsi.fr</li>
+									<hr>
+									<li><i class="glyphicon glyphicon-user"></i> Marianne STALTER</li>
+									<li><i class="glyphicon glyphicon-envelope"></i> marianne.stalter@epsi.fr</li>
+								</ul>
+						</li>
+					</ul>
+				</div>
+				
 			<?php 
 				}	
 			?>
