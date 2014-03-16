@@ -165,7 +165,7 @@
 						<li class="dropdown">
 							<a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"></a>
 								<ul class="dropdown-menu" style="margin-left : -85px;margin-top : -12px;">
-									<p><em>Groupe d'administrateur</em></p>
+									<p><em>Groupe d'administrateurs</em></p>
 									<hr>
 									<li style="width:240px;"><i class="glyphicon glyphicon-user"></i> Thomas DEBAS</li>
 									<li><i class="glyphicon glyphicon-envelope"></i> debas.thomas@gmail.com</li>
