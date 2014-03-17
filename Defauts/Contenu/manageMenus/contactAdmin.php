@@ -13,7 +13,7 @@
 				<td><textarea class="form-control" id="textarea" cols="75" rows="6" ></textarea></td>
 			</tr>
 			<tr>
-				<td><input type="button" class="btn btn-sm btn-success" value="Retour" onclick="javascript:seeMyAsking()"/></td>
+				<td><input type="button" class="btn btn-sm btn-info" value="Retour" onclick="javascript:seeMyAsking()"/></td>
 				<td><input type="button" class="btn btn-sm btn-success" value="Envoyer" onclick="javascript:sendContact()"/></td>
 			</tr>
 		</table>

@@ -11,37 +11,37 @@ for($i = 0; $i < sizeof($lesCate); $i++){
 ?>
 <ul class="manageMenu list-group">
 	<li class="Menu list-group-item">
-		<a href="#" style="padding-left:20px;text-decoration:none;"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;<?php echo $lesCate[$i]['nomCat']; ?></a>
+		<a href="#" style="padding-left:20px;text-decoration:none"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;<?php echo $lesCate[$i]['nomCat']; ?></a>
 			<ul class="sousMenu">
-					<div class="btn-group btn-group-sm" style="float:right;margin-bottom:10px;">	
-						<a href="#" class="btn btn-warning" onclick="javascript:goToAddSousMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Ajouter</a>
-				 		<a href="#" class="btn btn-primary" onclick="javascript:goToEditMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Modifier</a> 
-						<?php $lesSousCat = getSousCategorieDinstinctCategorie(); if(isset($lesSousCat[$i]['idCat']) != $lesCate[$i]['idCat']) { ?>
-						<a href="#" class="btn btn-danger" onclick="javascript:deleteCat('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer</a>
-						<?php } ?>
-					</div>
-					<table class="table">
-						<?php $SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
-							if(isset($SousMenu)){
-								for($j = 0; $j < sizeof($SousMenu); $j++){
-						?>
-						<li>
-							<tr>
-								<td>
-									<?php echo $SousMenu[$j]['nomSousCat']; ?>
-								</td>
-								<td>
-									<div class="btn-group btn-group-sm" style="float:right;">
-										<a href="#" class="btn btn-primary" onclick="javascript:goToEditSousMenu('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $SousMenu[$j]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Modifier</a>
-										<a href="#" class="btn btn-danger" onclick="javascript:deleteSousCat('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer</a>
-									</div>
-								</td>
-							</tr>
-						</li>
-							<?php
-								}
-							} ?>
-					</table>
+				<div class="btn-group btn-group-sm" style="float:right;margin-bottom:10px;">
+					<a href="#" class="btn btn-warning" onclick="javascript:goToAddSousMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Ajouter</a>
+			 		<a href="#" class="btn btn-primary" onclick="javascript:goToEditMenu('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Modifier</a> 
+					<?php $lesSousCat = getSousCategorieDinstinctCategorie(); if(isset($lesSousCat[$i]['idCat']) != $lesCate[$i]['idCat']) { ?>
+					<a href="#" class="btn btn-danger" onclick="javascript:deleteCat('<?php echo $lesCate[$i]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer</a>
+					<?php } ?>
+				</div>
+				<table class="table">
+					<?php $SousMenu = getSousCategorieByCategorie($lesCate[$i]['idCat']);
+						if(isset($SousMenu)){
+							for($j = 0; $j < sizeof($SousMenu); $j++){
+					?>
+					<li>
+						<tr>
+							<td>
+								<?php echo $SousMenu[$j]['nomSousCat']; ?>
+							</td>
+							<td>
+								<div class="btn-group btn-group-sm" style="float:right;">
+									<a href="#" class="btn btn-primary" onclick="javascript:goToEditSousMenu('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $SousMenu[$j]['idCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>');"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Modifier</a>
+									<a href="#" class="btn btn-danger" onclick="javascript:deleteSousCat('<?php echo $SousMenu[$j]['idSousCat']; ?>','<?php echo $SousMenu[$j]['nomSousCat']; ?>','<?php echo $lesCate[$i]['nomCat']; ?>')"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;Supprimer</a>
+								</div>
+							</td>
+						</tr>
+					</li>
+						<?php
+							}
+						} ?>
+				</table>
 			</ul>
 	</li>
 </ul>

@@ -38,7 +38,7 @@ function countMessAllRead(){
 
 
 function getAllMess(){
-	 $s1 = run("SELECT M.idReferenceTmp, M.commentaireTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
+	 $s1 = run("SELECT M.idReferenceTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
 			FROM m5f_tmp M, m5f_user U
 			WHERE M.idUser = U.idUser
 			ORDER BY M.dateTmp desc");
@@ -46,7 +46,7 @@ function getAllMess(){
 }
 
 function getMessRead(){
-	 $s1 = run("SELECT M.idReferenceTmp, M.commentaireTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
+	 $s1 = run("SELECT M.idReferenceTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
 			FROM m5f_tmp M, m5f_user U
 			WHERE M.idUser = U.idUser
 			AND M.etatTmp != 'Non Lu'
@@ -83,8 +83,8 @@ function setMessageAccepted($id){
 	tmpToDocument($id);
 }
 
-function setMessageRefused($id, $comm){
-	$s1 = run("Update m5f_tmp set etatTmp = 'Refusé', commentaireTmp = '".$comm."' where idReferenceTmp = '".$id."'");
+function setMessageRefused($id){
+	$s1 = run("Update m5f_tmp set etatTmp = 'Refusé' where idReferenceTmp = '".$id."'");
 	deleteMessages($id);
 }
 
@@ -137,8 +137,9 @@ function deleteMessagesContact($id){
 }
 
 function getAllMessByUser($idUser){
-	 $s1 = run("SELECT M.idReferenceTmp, M.commentaireTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
+	 $s1 = run("SELECT M.idReferenceTmp, M.intituleTmp, M.dateTmp, M.etatTmp, U.nom, U.prenom
 			FROM m5f_tmp M, m5f_user U
+			
 			WHERE M.idUser = U.idUser
 			AND U.idUser = ".$idUser."
 			ORDER BY M.dateTmp desc");

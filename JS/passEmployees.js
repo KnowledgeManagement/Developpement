@@ -30,6 +30,8 @@ function goToPageDashboard(){
 		{
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Statistiques du site");
+			$('#LeftContent').html("");
+			$('#titleLeftContent').html("");
 		}
 	});
 }
@@ -52,7 +54,16 @@ function reinitPass(idUser){
 }
 
 function synchroAD(){
-	
+	$.ajax({
+		url : 'Defauts/Contenu/passEmployees/synchroAD.php',
+		type :'POST',
+		success:function(data) 
+		{
+			$('#RightContent').html(data);
+			$('#titleRightContent').html("Liste des personnes inscrites <span style='float:right;margin-top:-15px;'><input type='button' class='btn btn-info' onclick='javascript:synchroAD()' value='Synchroniser AD'/></span>");
+			$('#LeftContent').html(goToPageLeft());
+		}
+	});
 }
 
 function seeListOfEmployees(lettre){
@@ -61,7 +72,7 @@ function seeListOfEmployees(lettre){
 		type :'POST', 
 		data : {lettre : lettre},
 		dataType : 'text',
-		success:function(data) 
+		success:function(data)
 		{
 			$('#RightContent').html(data);
 			$('#titleRightContent').html("Liste des personnes inscrites <span style='float:right;margin-top:-15px;'><input type='button' class='btn btn-info' onclick='javascript:synchroAD()' value='Synchroniser AD'/></span>");

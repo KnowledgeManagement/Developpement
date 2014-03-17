@@ -36,7 +36,6 @@ CREATE TABLE m5f_tmp
   dateTmp DATE NOT NULL,
   etatTmp VARCHAR(32) NOT NULL,
   exempleTmp TEXT NOT NULL,
-  commentaireTmp TEXT,
   lienTelechargementTmp VARCHAR(255) NOT NULL,
   idSousCat INTEGER NOT NULL,
   idUser INTEGER NOT NULL,

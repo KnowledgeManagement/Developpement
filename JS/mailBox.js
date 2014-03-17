@@ -120,7 +120,7 @@ function validMessage(idMessage){
 function refuseMessage(idMessage){
 	$.ajax({
 		url : 'Defauts/Contenu/mailBox/refuseMessage.php',
-		data : {id : idMessage, comm : document.getElementById('commentaire').value},
+		data : {id : idMessage},
 		dataType : 'text',
 		type :'POST', 
 		success:function(data) 

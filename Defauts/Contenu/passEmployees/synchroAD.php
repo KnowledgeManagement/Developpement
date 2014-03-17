@@ -29,5 +29,14 @@
 	// echo "Il y a : ".$count." nombre premier avant ".$nombre;
 	
 	include_once "../../../SQL/Fonctions_SQL/user.php";
-	updateFromAD();
+	if ($sql = updateFromAD())
+	{
+		echo '<span class="alert">La synchronisation à bien été effectué.</span>';
+	}
+	else
+	{
+		//echo '<span class="alert">La synchronisation n\'a pas été effectué.</span>';
+		var_dump($sql);
+
+	}
 ?>

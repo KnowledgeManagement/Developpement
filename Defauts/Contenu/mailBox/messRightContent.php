@@ -51,7 +51,7 @@
 			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo addslashes($messages[$i]['intituleTmp']); ?>')">
 				<?php
 					if($messages[$i]['etatTmp'] == "Refusé"){
-						echo "<span title='".addslashes($messages[$i]['commentaireTmp'])."'>".urldecode($messages[$i]['etatTmp'])."</span>";
+						echo "<span>".urldecode($messages[$i]['etatTmp'])."</span>";
 					}else{
 						echo urldecode($messages[$i]['etatTmp']);
 					}

@@ -72,7 +72,7 @@ function getFunctionBySousCategorie($id){
 }
 
 function getFunctionBySousCategorieTmp($id){
-	$sql = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, commentaireTmp, lienTelechargementTmp
+	$sql = run("SELECT idReferenceTmp, intituleTmp, descriptionTmp, dateTmp, etatTmp, exempleTmp, lienTelechargementTmp
 				FROM m5f_tmp
 				WHERE idReferenceTmp = '".$id."'");
 	

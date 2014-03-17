@@ -181,7 +181,6 @@ function changeHelp(){
 		showHelpWhoIsIt();
 		$('#helpAppears').html("");
 	}
-	
 	//menuNavigation
 }
 
