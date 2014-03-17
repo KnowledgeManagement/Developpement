@@ -58,7 +58,7 @@
 				?>
 			</td>
 			<td class='cursor' onclick="javacript:openMessage('<?php echo $messages[$i]['idReferenceTmp'] ?>', '<?php echo $messages[$i]['intituleTmp']; ?>')">
-				<?php echo $messages[$i]['dateTmp']->format('d/m/Y'); ?>
+				<?php echo $messages[$i]['dateTmp']->format('d/m/Y H:i:s'); ?>
 			</td>
 		</tr>
 <?php
@@ -114,7 +114,7 @@
 			</td>
 			<td class='messTime, cursor' onclick="javacript:openMessageContact(<?php echo $messages[$i]['idFormContact'] ?>, '<?php echo addslashes($messages[$i]['objet']); ?>')">
 				<p class="cursor" for="<?php echo "check".$i; ?>">
-					<?php echo $messages[$i]['date']->format('d/m/Y'); ?>
+					<?php echo $messages[$i]['date']->format('d/m/Y H:i:s'); ?>
 				</p>
 			</td>
 		</tr>
