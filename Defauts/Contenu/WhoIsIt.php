@@ -293,7 +293,11 @@ function checkSousCat(){
 }
 
 $(document).ready(function() {
+<?php 
+	if($_SESSION['fonction'] != "Administrateur"){
+	?>	
 	showHelpWhoIsIt();
+	<?php } ?>
 });
 
 function showHelpWhoIsIt(){
