@@ -126,21 +126,21 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 
 
 /* DOCUMENT */
-	INSERT INTO m5f_document VALUES(1,'UDP','02-24-2014','A quoi sert un UDP?', 'TRUE', 'Le paquet UDP est encapsulé dans un paquet IP. Il comporte un en-tête suivi des données proprement dites à transporter[...].', 6,'UDP.zip');
+	INSERT INTO m5f_document VALUES('68JK8','UDP','2014-02-24','A quoi sert un UDP?', 'TRUE', 'Le paquet UDP est encapsulé dans un paquet IP. Il comporte un en-tête suivi des données proprement dites à transporter[...].', 18,'68JK8');
 	
-	INSERT INTO m5f_document VALUES(2,'Paquet','01-13-2014', 'Qu''est ce qu''un paquet?', 'TRUE','Afin de transmettre un message d''une machine à une autre sur un réseau, celui-ci est découpé en plusieurs paquets transmis séparément[...].', 7, 'Paquet.zip');
+	INSERT INTO m5f_document VALUES('VK35M','Paquet','2014-01-13', 'Qu''est ce qu''un paquet?', 'TRUE','Afin de transmettre un message d''une machine à une autre sur un réseau, celui-ci est découpé en plusieurs paquets transmis séparément[...].', 19, 'VK35M');
 	
-	INSERT INTO m5f_document VALUES(3,'VLAN', '02-14-2014', 'Qu''est ce qu''un VLAN', 'TRUE', 'Un réseau local virtuel, communément appelé VLAN, est un réseau informatique logique indépendant. De nombreux VLAN peuvent coexister sur un même commutateur réseau[...].', 2, 'VLAN.zip');
+	INSERT INTO m5f_document VALUES('DS3NB','VLAN', '2014-02-14', 'Qu''est ce qu''un VLAN', 'TRUE', 'Un réseau local virtuel, communément appelé VLAN, est un réseau informatique logique indépendant. De nombreux VLAN peuvent coexister sur un même commutateur réseau[...].', 2, 'DS3NB');
 	
-	INSERT INTO m5f_document VALUES(4,'Modèle OSI', '04-06-2013', 'Le modèle OSI', 'TRUE', ' C''est un modèle de communications entre ordinateurs proposé par l''ISO qui décrit les fonctionnalités nécessaires à la communication et l''organisation de ces fonctions[...].', 3, 'OSI.zip');
+	INSERT INTO m5f_document VALUES('11K3N','Modèle OSI', '2013-06-04', 'Le modèle OSI', 'TRUE', ' C''est un modèle de communications entre ordinateurs proposé par l''ISO qui décrit les fonctionnalités nécessaires à la communication et l''organisation de ces fonctions[...].', 3, '11K3N');
 
-	INSERT INTO m5f_document VALUES(5,'DHCP', '02-15-2014', 'Configuration d''un DHCP', 'TRUE', 'Pour qu’un serveur DHCP puisse servir des adresses IP, il est nécessaire de lui donner un « réservoir » d’adresses dans lequel il pourra puiser : c’est la plage d’adresses (address range).
+	INSERT INTO m5f_document VALUES('VG65A','DHCP', '2014-02-15', 'Configuration d''un DHCP', 'TRUE', 'Pour qu’un serveur DHCP puisse servir des adresses IP, il est nécessaire de lui donner un « réservoir » d’adresses dans lequel il pourra puiser : c’est la plage d’adresses (address range).
 										Il est possible de définir plusieurs plages, disjointes ou contiguës.
 										Les adresses du segment qui ne figurent dans aucune plage mise à la disposition du serveur DHCP ne seront en aucun cas distribuées,
 										et peuvent faire l’objet d’affectations statiques (couramment : pour les serveurs nécessitant une adresse IP fixe, les routeurs, les imprimantes réseau…).[...]',
-									14, 'DHCP.zip');
+									26, 'VG65A');
 
-	INSERT INTO m5f_document VALUES(6,'CommandeDOS', '10-18-2013', 'Quelles sont les differentes commande DOS?', 'TRUE', 'Les principales commandes MS DOS sont :
+	INSERT INTO m5f_document VALUES('ZQC3O','CommandeDOS', '2013-10-18', 'Quelles sont les differentes commande DOS?', 'TRUE', 'Les principales commandes MS DOS sont :
 										- CD Changer de répertoire
 										- COPY Copier des fichiers
 										- DEL Effacer un fichier
@@ -154,9 +154,9 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 										- MD Créer un répertoire
 										- TYPE Afficher un fichier texte
 										- XCOPY Copier des fichiers et des répertoires',
-									 8, 'DOS.zip');
+									 20, 'ZQC3O');
 
-	INSERT INTO m5f_document VALUES(7,'Commande Linux', '02-23-2014', 'Quelles sont les commandes Linux?', 'TRUE',
+	INSERT INTO m5f_document VALUES('83FD1','Commande Linux', '2014-02-23', 'Quelles sont les commandes Linux?', 'TRUE',
 										'Les principales commande linux sont:
 										 - ls --> liste le contenu d''un répertoire
 										 - cd --> change de répertoire
@@ -166,15 +166,15 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 										 - cp --> copie le fichier
 										 - mv --> déplace le fichier
 										 - rm --> supprime le fichier',
-									12, 'Linux.zip');
+									24, '83FD1');
 
-	INSERT INTO m5f_document VALUES(8,'Active directory', '02-25-2014', 'Mettre en place un AD', 'TRUE',
+	INSERT INTO m5f_document VALUES('VE77P','Active directory', '2014-02-25', 'Mettre en place un AD', 'TRUE',
 										'Active Directory (AD) est la mise en œuvre par Microsoft des services d''annuaire LDAP pour les systèmes d''exploitation Windows.
 										 L''objectif principal d''Active Directory est de fournir des services centralisés d''identification 
 										 et d''authentification à un réseau d''ordinateurs utilisant le système Windows.',
-									13, 'AD.zip');
+									25, 'VE77P');
 
-	INSERT INTO m5f_document VALUES(9,'HelloWorld', '01-02-2014', '1er fonction en C++', 'TRUE',
+	INSERT INTO m5f_document VALUES('563LA','HelloWorld', '2014-02-01', '1er fonction en C++', 'TRUE',
 										'#include <iostream>
 										using namespace std;
 
@@ -183,9 +183,9 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 											cout << "Hello World!";
 											return 0;
 										}',
-									17, 'hello.zip');
+									29, '563LA');
 
-	INSERT INTO m5f_document VALUES(10,'TriBulle', '02-01-2014', 'Fonction tri bulle', 'TRUE',
+	INSERT INTO m5f_document VALUES('Y453N','TriBulle', '2014-02-01', 'Fonction tri bulle', 'TRUE',
 										'public class Mtab2
 										{
 												// remplir
@@ -222,8 +222,72 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 														else TextWindow.printLine(x+"n’est pas ds t");
 												} // fin main
 										} // fin class',
-									15, 'TriBulle.zip');
+									27, 'Y453N');
 	
-	INSERT INTO m5f_document VALUES(11,);
+	INSERT INTO m5f_document VALUES('337LSQ','Calcul en boucle', '2014-03-17', 'Calcul en boucle', 'TRUE',
+										'static int CalculSommeIntersection()
+										{
+											List<int> multiplesDe3 = new List<int>();
+											List<int> multiplesDe5 = new List<int>();
+
+											for (int i = 3; i <= 100; i += 3)
+											{
+												multiplesDe3.Add(i);
+											}
+											for (int i = 5; i <= 100; i += 5)
+											{
+												multiplesDe5.Add(i);
+											}
+
+											int somme = 0;
+											foreach (int m3 in multiplesDe3)
+											{
+												foreach (int m5 in multiplesDe5)
+												{
+													if (m3 == m5)
+														somme += m3;
+												}
+											}
+											return somme;
+										}',
+									10, '337LSQ');
 	
-	INSERT INTO m5f_document VALUES(12,);
+	INSERT INTO m5f_document VALUES('PRT23','Trier un tableau', '2014-03-03','Trier un tableau', 'TRUE',
+											'#include <stdio.h>
+											#include <stdlib.h>
+ 
+ 
+											int triTab(int tableau[] ,int nbCase,int plusPetit,int i,int tour);
+ 
+											int main()
+											{
+												int tableau[5] = {2,7,3,1,6},i=0;
+ 
+												printf("%ld",triTab(tableau, 5,tableau[0],0,0));
+ 
+												for(i=0;i<5;i++)
+													printf("%ld\n", tableau[i]);
+											}
+ 
+											int triTab(int tableau[],int nbCase,int plusPetit,int i,int tour)
+											{
+												if( (tour + i) == nbCase)
+												{
+													tableau[tour] = plusPetit;
+													triTab(tableau,nbCase,tableau[tour++],0,tour++);
+												}
+ 
+												if(tour == nbCase)
+													return 10;
+ 
+												if(tableau[tour + i] < plusPetit)
+												{
+													plusPetit = tableau[i];
+													triTab(tableau,nbCase,plusPetit,i++,tour);
+												}
+												else
+												{
+													triTab(tableau,nbCase,plusPetit,i++,tour);
+												}
+											}',
+										30,'PRT23');
