@@ -35,7 +35,7 @@ header{
 }
 
 .filter_contenu{
-text-align : left;
+	text-align : left;
 }
 
 /**** MENU MENU-DEROULANT/SOUS-MENU DEBUT ****/
@@ -233,7 +233,7 @@ footer{
 
 .tdModifFunction{
 	text-align : right;
-	width : 15%;
+	width : 25%;
 }
 /********************** MISE EN FORME DIVERS FIN ************************/
 /********************** TABLEAU GERER MENU DEBUT ************************/
