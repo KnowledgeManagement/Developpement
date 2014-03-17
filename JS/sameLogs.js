@@ -43,7 +43,16 @@ function validModif()
 	if(document.getElementById("password").value == ""){
 		alert("Merci d'indiquer un nouveau mot de passe !");
 	}else{
-		HTMLFormElement.prototype.submit.call($('#formSameLogs')[0]);
-		//closebox();
+		$.ajax({
+			url : 'Defauts/Contenu/sameLogs/modificationOfPassword.php',
+			type :'POST',
+			data : {id : document.getElementById('password').value},
+			dataType : 'text',
+			success:function(data) 
+			{
+				changeHelp();
+			}
+		});
+
 	}
 }
