@@ -152,6 +152,14 @@ function deleteSousCat(idSousCat, nomSousCat, nomCat){
 			dataType : 'text',
 			success:function(data) 
 			{
+				$.ajax({
+					url : 'Defauts/Contenu/WhoIsIt.php',
+					type :'POST', 
+					success:function(data) 
+					{
+						$('#header').html(data);
+					}
+				})
 				goToManageMenusLeftContent();
 				goToManageMenusRightContent();
 			}
@@ -168,6 +176,14 @@ function deleteCat(idCat, nomCat){
 			dataType : 'text',
 			success:function(data) 
 			{
+				$.ajax({
+					url : 'Defauts/Contenu/WhoIsIt.php',
+					type :'POST', 
+					success:function(data) 
+					{
+						$('#header').html(data);
+					}
+				})
 				goToManageMenusLeftContent();
 				goToManageMenusRightContent();
 			}
@@ -183,6 +199,14 @@ function AddSousCat(nomSousCat, idCat, nomCat){
 			dataType : 'text',
 			success:function(data) 
 			{
+				$.ajax({
+					url : 'Defauts/Contenu/WhoIsIt.php',
+					type :'POST', 
+					success:function(data) 
+					{
+						$('#header').html(data);
+					}
+				})
 				goToManageMenusLeftContent();
 				goToManageMenusRightContent();
 			}
@@ -196,7 +220,15 @@ function CreateMenu(nomCat){
 		data : {nomCat : nomCat},
 		dataType : 'text',
 		success:function(data) 
-		{
+		{	
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#header').html(data);
+				}
+			})
 			goToManageMenusLeftContent();
 			goToManageMenusRightContent();
 		}
@@ -211,6 +243,14 @@ function EditCat(nomCat, idCat, oldCat){
 		dataType : 'text',
 		success:function(data) 
 		{
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#header').html(data);
+				}
+			})
 			goToManageMenusLeftContent();
 			goToManageMenusRightContent();
 		}
@@ -225,6 +265,14 @@ function EditSousCat(nomSousCat, idSousCat, nomCat, oldSousCat){
 		dataType : 'text',
 		success:function(data) 
 		{
+			$.ajax({
+				url : 'Defauts/Contenu/WhoIsIt.php',
+				type :'POST', 
+				success:function(data) 
+				{
+					$('#header').html(data);
+				}
+			})
 			goToManageMenusLeftContent();
 			goToManageMenusRightContent();
 		}
