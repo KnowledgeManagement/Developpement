@@ -10,7 +10,7 @@
 	for($i = 0; $i < sizeof($functions); $i++){
 		if($functions[$i]['idReference'] == $fct){
 			?>
-			<a class='list-group-item' style='cursor:pointer;' onclick="javascript:seeFunction('<?php echo addslashes($functions[$i]['intituleDoc']);?>','<?php echo addslashes($sousCa); ?>','<?php echo $functions[$i]['idReference']; ?>')"><?php echo $functions[$i]['intituleDoc']; ?></a>
+			<a class='list-group-item' style='cursor:pointer;background-color:#f5f5f5' onclick="javascript:seeFunction('<?php echo addslashes($functions[$i]['intituleDoc']);?>','<?php echo addslashes($sousCa); ?>','<?php echo $functions[$i]['idReference']; ?>')"><?php echo $functions[$i]['intituleDoc']; ?></a>
 			<?php
 		}else{
 			?>
