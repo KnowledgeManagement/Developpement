@@ -160,11 +160,11 @@
 			?>			
 			
 				<div class="pull-right">
-					<i style="margin-top : 15px; padding : 2px;" id="seeContact" class="glyphicon glyphicon-info-sign"></i>
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
+						<i style="margin-top : 15px; padding : 2px;" id="seeContact" class="glyphicon glyphicon-info-sign cursor"></i>
 							<a href="#" class="titre_menu dropdown-toggle" data-toggle="dropdown"></a>
-								<ul class="dropdown-menu" style="margin-left : -85px;margin-top : -12px;">
+								<ul class="dropdown-menu" style="margin-left : -105px;margin-top : -15px;">
 									<p><em>Groupe d'administrateurs</em></p>
 									<hr>
 									<li style="width:240px;"><i class="glyphicon glyphicon-user"></i> Thomas DEBAS</li>
