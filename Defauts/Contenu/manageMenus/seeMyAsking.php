@@ -8,9 +8,9 @@
 			<h4><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Ajout/Modification de fonctions</h4>
 				<table class='table table-condensed'>
 					<tr>
-						<th>Objet</th>
-						<th>Etat</th>
-						<th>Date</th>
+						<th style="width:45%">Objet</th>
+						<th style="width:25%">Etat</th>
+						<th style="width:30%">Date</th>
 					</tr>
 					<?php
 						$messages = getAllMessByUser($_SESSION['id']);
@@ -43,9 +43,9 @@
 				<h4><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Autres messages</h4>
 					<table class='table table-condensed'>
 						<tr>
-							<th>Objet</th>
-							<th>Etat</th>
-							<th>Date</th>
+							<th style="width:45%">Objet</th>
+							<th style="width:25%">Etat</th>
+							<th style="width:30%">Date</th>
 						</tr>
 						<?php
 							$messages = getContactByIdUser($_SESSION['id']);
