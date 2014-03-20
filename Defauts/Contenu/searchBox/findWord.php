@@ -26,7 +26,7 @@
 		}
 	}
 ?>
-<table style="width : 100%; border-collapse : collapse;">
+<table class="table" style="width:100%;">
 	<?php
 		for($i = 0; $i < sizeof($document); $i++){
 			echo "<tr onclick='goToMyFunction(\"".$document[$i]['intituleDoc']."\", ".$document[$i]['idSousCat'].", \"".$document[$i]['idReference']."\")' style='width : 100%;' id='".$document[$i]['idReference']."' onmouseOver='javascript:hoverTr(\"".$document[$i]['idReference']."\")' onmouseout='javascript:hoverOffTr(\"".$document[$i]['idReference']."\")'>";

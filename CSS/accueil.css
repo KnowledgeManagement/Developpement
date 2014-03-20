@@ -235,6 +235,19 @@ footer{
 	text-align : right;
 	width : 25%;
 }
+
+#searchResult{
+	display : none;
+	border-top : 0px;
+	border-left : solid #dddddd 1px;
+	border-right : solid #dddddd 1px;
+	border-bottom : solid #dddddd 1px;
+	width : 1000px;
+	position : absolute;
+	z-index : 50;
+	background-color : white;
+}
+
 /********************** MISE EN FORME DIVERS FIN ************************/
 /********************** TABLEAU GERER MENU DEBUT ************************/
 

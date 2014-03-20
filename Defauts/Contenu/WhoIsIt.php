@@ -195,7 +195,7 @@
 		</div>
 	</div>
 </nav> 
-<div id="searchResult" style="display : none; border : solid black 1px; width : 1000px; position : absolute; z-index : 50; background-color : white; color : black;">
+<div id="searchResult">
 
 </div>
 <!--- MENU UTILISATEUR FIN --->
