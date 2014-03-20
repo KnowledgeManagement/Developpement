@@ -54,9 +54,9 @@ function modifyPassword($idUser, $mdp){
 	$sql = run("UPDATE m5f_user set mdp = '".md5($mdp)."' where idUser = ".$idUser);
 }
 
-//INSERT INTO m5f_user (login,mdp,nom,prenom,mail,fonction)
 function updateFromAD(){
 	$sql = run("
+				INSERT INTO m5f_user (login,mdp,nom,prenom,mail,fonction)
 				SELECT  givenName,dbo.MD5(givenName),sn,givenName,mail,title
 				FROM OPENQUERY (ADSI, 'SELECT givenName,initials,telephoneNumber,sn,mail,title
 				FROM ''LDAP://M5F.KnowledgeManagement.fr''

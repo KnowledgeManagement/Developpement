@@ -33,7 +33,7 @@ CREATE TABLE m5f_tmp
   idReferenceTmp VARCHAR(32) NOT NULL PRIMARY KEY,
   intituleTmp VARCHAR(255) NOT NULL,
   descriptionTmp TEXT NOT NULL,
-  dateTmp DATE NOT NULL,
+  dateTmp DATETIME NOT NULL,
   etatTmp VARCHAR(32) NOT NULL,
   exempleTmp TEXT NOT NULL,
   lienTelechargementTmp VARCHAR(255) NOT NULL,
@@ -105,22 +105,22 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 	INSERT INTO m5f_sous_categorie VALUES ('Administration',2); /* id = 10 */
 	INSERT INTO m5f_sous_categorie VALUES ('Serveur',2); /* id = 11 */
 	INSERT INTO m5f_sous_categorie VALUES ('Linux',2); /* id = 12 */
-	INSERT INTO m5f_sous_categorie VALUES ('Active directory',2); /* id = 13 */
+	INSERT INTO m5f_sous_categorie VALUES ('Active Directory',2); /* id = 13 */
 	INSERT INTO m5f_sous_categorie VALUES ('DHCP',2); /* id = 14 */
 	
 	INSERT INTO m5f_sous_categorie VALUES ('JAVA',3); /* id = 15 */
+	INSERT INTO m5f_sous_categorie VALUES ('C',3); /* id = 18 */
 	INSERT INTO m5f_sous_categorie VALUES ('C#',3); /* id = 16 */
 	INSERT INTO m5f_sous_categorie VALUES ('C++',3); /* id = 17 */
-	INSERT INTO m5f_sous_categorie VALUES ('C',3); /* id = 18 */
 	INSERT INTO m5f_sous_categorie VALUES ('Delphi',3); /* id = 19 */
 	INSERT INTO m5f_sous_categorie VALUES ('COBOL',3); /* id = 20 */
-	INSERT INTO m5f_sous_categorie VALUES ('Javascript',3); /* id = 21 */
+	INSERT INTO m5f_sous_categorie VALUES ('JavaScript',3); /* id = 21 */
 	INSERT INTO m5f_sous_categorie VALUES ('Perl',3); /* id = 22 */
-	INSERT INTO m5f_sous_categorie VALUES ('VB',3); /* id = 23 */
+	INSERT INTO m5f_sous_categorie VALUES ('VB.NET',3); /* id = 23 */
 	INSERT INTO m5f_sous_categorie VALUES ('Fortran',3); /* id = 24 */
 	INSERT INTO m5f_sous_categorie VALUES ('PHP',3); /* id = 25 */
 	INSERT INTO m5f_sous_categorie VALUES ('MySQL',3); /* id = 26 */
-	INSERT INTO m5f_sous_categorie VALUES ('maxDB',3); /* id = 27 */
+	INSERT INTO m5f_sous_categorie VALUES ('MaxDB',3); /* id = 27 */
 	INSERT INTO m5f_sous_categorie VALUES ('PostgreSQL',3); /* id = 28 */
 
 

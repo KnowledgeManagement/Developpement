@@ -131,4 +131,41 @@ function countAllFunctions(){
  	$s1 = run("SELECT count(*) AS fonction FROM m5f_document");
  	return $s1[0]["fonction"];
 }
+
+function functionBySousCateg()
+{
+	$sql1 = run("SELECT count(idSousCat) AS idSous FROM m5f_sous_categorie");
+	return $sql1[0]["idSous"];
+}
+
+function countFunctionBySousCateg($i)
+{
+	$sql2 = run("SELECT count(idReference) AS idRef FROM m5f_document WHERE idSousCat = ".$i."");
+	return $sql2[0]["idRef"];
+}
+
+function sousCategByCateg()
+{
+	$sql3 = run("SELECT count(idCat) AS refCat FROM m5f_categorie");
+	return $sql3[0]["refCat"];
+}
+
+function countsousCategByCateg($j)
+{
+	$sql4 = run("SELECT count(idSousCat) AS refSousCat FROM m5f_sous_categorie WHERE idCat = ".$j."");
+	return $sql4[0]["refSousCat"];
+}
+
+function nameByCateg($i)
+{
+	$sql5 = run("SELECT nomCat FROM m5f_categorie WHERE idCat='".$i."'");
+	return $sql5[0]["nomCat"];
+}
+
+function nameBySousCateg($i)
+{
+	$sql6 = run("SELECT nomSousCat FROM m5f_sous_categorie WHERE idSousCat='".$i."'");
+	return $sql6[0]["nomSousCat"];
+}
+
 ?>
