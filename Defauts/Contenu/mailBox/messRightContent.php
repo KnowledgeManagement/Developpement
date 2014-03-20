@@ -11,11 +11,11 @@
 
 	<table class="table table-condensed" id="messArray">
 		<tr class="titre">
-			<th>&nbsp;</th>
-			<th>De...</th>
-			<th>Objet</th>
-			<th>Etat</th>
-			<th>Date</th>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:40%">De...</th>
+			<th style="width:15%">Objet</th>
+			<th style="width:15%">Etat</th>
+			<th style="width:25%">Date</th>
 		</tr>
 <?php
 	switch($_POST['etat']){
@@ -69,11 +69,11 @@
 	<h4><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Autres messages</h4>
 	<table class="table table-condensed" id="messArray">
 		<tr class="titre">
-			<th>&nbsp;</th>
-			<th>De...</th>
-			<th>Objet</th>
-			<th>Etat</th>
-			<th>Date</th>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:40%">De...</th>
+			<th style="width:15%">Objet</th>
+			<th style="width:15%">Etat</th>
+			<th style="width:25%">Date</th>
 		</tr>
 <?php
 	switch($_POST['etat']){
