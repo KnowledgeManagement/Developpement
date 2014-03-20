@@ -17,13 +17,9 @@
 				<tr>
 					<td class="tdModifFunction">Catégorie : </td>
 					<td>
-						<?php if($_SESSION['fonction'] == "Contributeur"){ ?>
 						<fieldset disabled>
-						<select name="categorie" class="form-control" id="categorie" onChange="javascript:showSousCategorieAddFunction(this.options[this.selectedIndex].value)">
+							<select name="categorie" class="form-control" id="categorie" onChange="javascript:showSousCategorieAddFunction(this.options[this.selectedIndex].value)">
 						</fieldset>
-						<?php } else { ?>
-						<select name="categorie" class="form-control" id="categorie" onChange="javascript:showSousCategorieAddFunction(this.options[this.selectedIndex].value)">
-						<?php } ?>	
 							<?php
 								$cate = getAllCategorie();
 								for($i = 0; $i < sizeof($cate); $i++)
@@ -39,13 +35,9 @@
 				<tr>
 					<td class="tdModifFunction">Sous Catégorie : </td>
 					<td>
-						<?php if($_SESSION['fonction'] == "Contributeur"){ ?>
 						<fieldset disabled>
-						<select name="sousCategorie" class="form-control" id="sousCategorie">
+							<select name="sousCategorie" class="form-control" id="sousCategorie">
 						</fieldset>
-						<?php } else { ?>
-						<select name="sousCategorie" class="form-control" id="sousCategorie">
-						<?php } ?>
 							<?php
 								$sousCate = getSousCategorieByCategorie($idCategorie);
 								for($i = 0; $i < sizeof($sousCate); $i++)
