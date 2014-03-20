@@ -110,32 +110,32 @@
 	 
 	// Pièce jointe
 
-		$file_name = $uploaddir.$reference.'.zip';
-		
-		if (file_exists($file_name))
-		{
-			$file_type = filetype($file_name);
-			$file_size = filesize($file_name);
-		 
-			$handle = fopen($file_name, 'r') or die('File '.$file_name.'can t be open');
-			$content = fread($handle, $file_size);
+	$file_name = $uploaddir.$reference.'.zip';
+	
+	if (file_exists($file_name))
+	{
+		$file_type = filetype($file_name);
+		$file_size = filesize($file_name);
+	 
+		$handle = fopen($file_name, 'r') or die('File '.$file_name.'can t be open');
+		$content = fread($handle, $file_size);
 
-			$content = chunk_split(base64_encode($content)); //chunk_split(base64_encode(file_get_contents($content)))."\n";			
-			
-			$f = fclose($handle);
-		 
-			$ext = $reference.".zip";
-			$msg .= '--'.$boundary."\r\n";
-			$msg .= 'Content-type:'.$file_type.';name='.$ext."\r\n";
-			$msg .= 'Content-transfer-encoding:base64'."\r\n";
-			$msg .= $content."\r\n";
-		}
+		$content = chunk_split(base64_encode($content)); //chunk_split(base64_encode(file_get_contents($content)))."\n";			
+		
+		$f = fclose($handle);
 	 
-	// Fin
+		$ext = $reference.".zip";
 		$msg .= '--'.$boundary."\r\n";
-	 
+		$msg .= 'Content-type:'.$file_type.';name='.$ext."\r\n";
+		$msg .= 'Content-transfer-encoding:base64'."\r\n";
+		$msg .= $content."\r\n";
+	}
+ 
+	// Fin
+	$msg .= '--'.$boundary."\r\n";
+
 	// Function mail()
-		mail($to, $subject, $msg, $headers); 
+	mail($to, $subject, $msg, $headers); 
 	
 	
 	header('Location:../../../accueil.php');
