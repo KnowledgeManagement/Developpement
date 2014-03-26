@@ -290,3 +290,31 @@ ADD FOREIGN KEY (idUser) REFERENCES m5f_user (idUser);
 												}
 											}',
 										30,'PRT23');
+
+	INSERT INTO mf5_document VALUES('N993C', 'Tableau a deux dimension', '2014-03-25', 'Faire un tableau a deux dimension en C++','TRUE',
+										'#include <iostream> 
+										using namespace std;
+										const int N = 2;
+										const int M = 3;
+ 
+										int main()
+										{
+											int i, j;
+											int t[N][M];
+ 
+											for(i=0; i<N; i++) 
+												for(j=0; j<M; j++) 
+												{
+												cout<<"Tapez t["<< i <<"]["<< j <<"] :";
+												cin >> t[i][j];
+												}
+ 
+											cout<<"Voici le tableau :"<<endl; 
+											for(i=0; i<N; i++) 
+											{ 
+												for(j=0; j<M; j++) cout<< t[i][j] <<" "; 
+												cout<<endl; 
+											} 
+											return 0; 
+										}',
+									17,'N993C');
