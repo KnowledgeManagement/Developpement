@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	session_start();
 	include_once "../../../SQL/Fonctions_SQL/messagerie.php";
 	include_once "../../../SQL/Fonctions_SQL/souscategorie.php";
@@ -111,7 +111,7 @@
 					?>
 					
 					<td class="tdModifFunction">Pièce jointe : </td>
-					<td><input type="file" style="width:145px;" name="pj" id="piecejointe" value="<?php echo $uploaddir; ?>"/><label> <?php echo $link; ?> </label></td>
+					<td><input type="file" style="width:160px;" name="pj" id="piecejointe" value="<?php echo $uploaddir; ?>"/><label> <?php echo $link; ?> </label></td>
 				</tr>
 
 				<tr>

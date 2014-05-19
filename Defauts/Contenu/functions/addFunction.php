@@ -17,7 +17,9 @@
 				<tr>
 					<td class="tdModifFunction">Catégorie : </td>
 					<td>
+						
 							<select name="categorie" class="form-control" id="categorie" onChange="javascript:showSousCategorieAddFunction(this.options[this.selectedIndex].value)">
+					
 							<?php
 								$cate = getAllCategorie();
 								for($i = 0; $i < sizeof($cate); $i++)
@@ -33,7 +35,9 @@
 				<tr>
 					<td class="tdModifFunction">Sous Catégorie : </td>
 					<td>
+						
 							<select name="sousCategorie" class="form-control" id="sousCategorie">
+					
 							<?php
 								$sousCate = getSousCategorieByCategorie($idCategorie);
 								for($i = 0; $i < sizeof($sousCate); $i++)

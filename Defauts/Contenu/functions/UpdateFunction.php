@@ -42,12 +42,24 @@
 		$souscategorie[0]['nomSousCat'] = "csharp";
 	}
 	
-	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
-	{
-		$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
-					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
-					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
-	}
+	if($categorie[0]['idCat'] == 5)
+ 	{
+  		for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
+  		{
+   			$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
+      		'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
+      		<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+  		}
+ 	}
+ 	else 
+ 	{
+  		for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
+  		{
+   			$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
+      		'<section class="language-markup"><pre class="line-numbers" style="solid cadetblue 4px;">
+      		<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+  		}
+ 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
 	$intitule = str_replace("'", "''",$_POST['intitule'] );
 	addFunctionBddTmp(utf8_decode($_POST['id']), utf8_decode($intitule),utf8_decode($description),$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($reference[0]).'.zip',$_POST['souscategorie'],$_SESSION['id']);

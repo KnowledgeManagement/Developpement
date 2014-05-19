@@ -50,7 +50,12 @@ function validModif()
 			dataType : 'text',
 			success:function(data) 
 			{
-				changeHelp();
+				if(data == "Administrateur"){
+					closebox('box', 'shadowing');
+				}
+				else{
+					changeHelp();
+				}
 			}
 		});
 

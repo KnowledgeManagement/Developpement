@@ -32,7 +32,6 @@ pre[class*="language-"] {
 	margin: .5em 0;
 	overflow: auto;
 	border-radius: 0.3em;
-	min-height:400px;
 }
 
 :not(pre) > code[class*="language-"],
@@ -121,7 +120,10 @@ pre.line-numbers {
 }
 
 pre.line-numbers > code {
-	position: absolute;
+	position: relative;
+	float: left;
+	margin-left: 50px;
+	margin-top: 14px;
 }
 
 .line-numbers .line-numbers-rows {

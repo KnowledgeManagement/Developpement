@@ -1,16 +1,12 @@
-<?php
+﻿<?php
 
 /* Fonction de connexion à la base de données */
 
 	function run($sql)
 	{
-		//$serveur = "PC-THOMAS_PORT"; --> PHYSIQUE 
-		//$serveur = "109.14.88.25"; //---> Adresse IP publique de Thomas
-		$serveur = "SHUSHA";
-		// $user="Admin";
-		// $password="admin";
+		$serveur = "M5F";
 		$user = "Administrateur";
-		$password = "admin";
+		$password = "Administrateur";
 		$BDD="m5f";
 
 		$serverName = $serveur; //serverName\instanceName

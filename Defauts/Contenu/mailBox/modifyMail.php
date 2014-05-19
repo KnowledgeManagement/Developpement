@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	session_start();
 	include_once("../../../SQL/Fonctions_SQL/souscategorie.php");
 	include_once("../../../SQL/Fonctions_SQL/categorie.php");
@@ -41,12 +41,24 @@
 		$souscategorie[0]['nomSousCat'] = "csharp";
 	}
 	
-	for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
-	{
-		$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
-					'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
-					<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
-	}
+	if($categorie[0]['idCat'] == 5)
+ 	{
+  		for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
+  		{
+   			$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
+      		'<section class="language-'.$souscategorie[0]['nomSousCat'].'"><pre class="line-numbers" style="solid cadetblue 4px;">
+      		<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+  		}
+ 	}
+ 	else 
+ 	{
+  		for ($i=0 ; $i<$_POST['nombre']+1 ; $i++)
+  		{
+   			$exemple .='<div class="cadreMessage">'.str_replace("'","''",htmlspecialchars($_POST['explication'.$i])).'</div></br></br>'.
+      		'<section class="language-markup"><pre class="line-numbers" style="solid cadetblue 4px;">
+      		<code>'.str_replace("'","''",htmlspecialchars($_POST['exemple'.$i])).'</code></pre></section>';
+  		}
+ 	}
 	$description = str_replace("'","''",htmlspecialchars($_POST['description']));
 	updateMail($_POST['id'],$description,$exemple,utf8_decode($categorie[0]['nomCat']).'/'.utf8_decode($souscategorie[0]['nomSousCat']).'/'.utf8_decode($_POST['id']).'.zip',$_POST['sousCategorie']);
 	header('Location: header.php?id='.$_POST['id'].'&intitule='.$_POST['intituleTmp'].'');

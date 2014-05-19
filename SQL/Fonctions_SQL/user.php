@@ -71,6 +71,8 @@ function updateFromAD(){
 }
 
 function sendContact($objet, $description){
+	$objet = str_replace("'","''",$objet);
+	$description = str_replace("'","''",$description);
 	$sql = run("INSERT INTO m5f_contact(objet, contenu, lu, date, idUser) values('".$objet."', '".$description."', 0, GetDate(), ".$_SESSION['id'].")");
 }
 

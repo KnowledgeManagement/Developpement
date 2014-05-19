@@ -4,5 +4,6 @@
 	$pass = $_POST['id'];
 	modifyPassword($_SESSION['id'], $pass);
 	unset($_SESSION['sameLogs']);
+	echo $_SESSION['fonction'];
 
 ?>

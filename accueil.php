@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//Démarre une session
 	session_start();
 	include_once "SQL/Fonctions_SQL/categorie.php";
@@ -158,7 +158,7 @@ function changeHelp(){
 		showHelpWhoIsIt();
 		$.ajax({
 			url : 'Defauts/Contenu/help/divHelp.html',
-			type :'POST', 
+			type :'GET', 
 			success:function(data) 
 			{
 				$('#helpAppears').html(data);
@@ -170,7 +170,7 @@ function changeHelp(){
 				document.getElementById("menuNavigation").style.top = document.getElementById('menuNav').offsetTop+56+"px";
 				document.getElementById("myAccount").style.left = document.getElementById('UserMenu').offsetLeft-80+"px";
 				document.getElementById("myAccount").style.top = document.getElementById('UserMenu').offsetTop+43+"px";
-				document.getElementById("contact").style.left = document.getElementById('UserMenu').offsetLeft+"px";
+				document.getElementById("contact").style.left = document.getElementById('UserMenu').offsetLeft+33+"px";
 				document.getElementById("contact").style.top = document.getElementById('UserMenu').offsetTop+43+"px";
 			}
 		});

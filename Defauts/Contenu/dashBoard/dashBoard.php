@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 include_once("../../../SQL/Fonctions_SQL/categorie.php");
 include_once("../../../SQL/Fonctions_SQL/souscategorie.php");
@@ -133,7 +133,7 @@ require_once("config.php");
 		for($j = 1; $j <= countAllCategorie();$j++)
 		{
 			?>
-		<a class="list-group-item">Nombres de sous-catégorie dans la catégorie &nbsp;<?php echo nameByCateg($j); ?> :&nbsp;<?php echo countsousCategByCateg($j); ?></a>
+		<a class="list-group-item">Nombres de sous-catégorie dans la catégorie &nbsp;<?php echo nameByCateg(4 + $j); ?> :&nbsp;<?php echo countsousCategByCateg(4 + $j); ?></a>
 			<?php
 		} 
 	?>
@@ -142,14 +142,15 @@ require_once("config.php");
 <div class="list-group">
 	<a class="list-group-item list-group-item-info"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;Fonction(s)</a>
 	<a class="list-group-item">Nombres total de fonction(s) :&nbsp;<?php echo countAllFunctions(); ?></a>
-	<a class="list-group-item">Nombres de fonction(s) par sous-catégorie :&nbsp;<?php echo functionBySousCateg(); ?></a>
 	<?php	
 		for($i = 1; $i <= functionBySousCateg();$i++)
 		{
 			//echo countFunctionBySousCateg(1);
+			if($i!=2 && $i!=9){
 			?>
-			<a class="list-group-item">Nombres de fonctions dans la sous-catégorie &nbsp;<?php echo nameBySousCateg($i); ?> :&nbsp;<?php echo countFunctionBySousCateg($i); ?></a>
+			<a class="list-group-item">Nombres de fonctions dans la sous-catégorie &nbsp;<?php echo nameBySousCateg(13 + $i); ?> :&nbsp;<?php echo countFunctionBySousCateg(13+$i); ?></a>
 			<?php
+			}
 		}
 	?>
 </div>

@@ -174,7 +174,7 @@ function tmpToDocument($id){
 				VALUES('".$s1[0]['idReferenceTmp']."', '".$intitule."', '".$s1[0]['dateTmp']->format('Y-m-d H:i:s')."', '".$description."', 1, '".$exemple."', ".$s1[0]['idSousCat'].", '".$s1[0]['lienTelechargementTmp']."')");
 	}
 	else{
-		$s2 = run("Update m5f_document set  description = '".$s1[0]['descriptionTmp']."',exemple = '".$s1[0]['exempleTmp']."' ,lienTelechargement = '".$s1[0]['lienTelechargementTmp']."' where idReference = '".$id."'");
+		$s2 = run("Update m5f_document set  description = '".$description."',exemple = '".$exemple."' ,lienTelechargement = '".$s1[0]['lienTelechargementTmp']."' where idReference = '".$id."'");
 	}
 	$s3 = run("DELETE FROM m5f_tmp where idReferenceTmp = '".$id."'");
 }
